@@ -16,11 +16,16 @@
  
  */
  /* User sign in and sign forms. */
+
+ body {
+    	background-color: #1c8e11;
+    }
+
 .border-form-div {
   max-width: 300px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
-  background-color: #fff;
+  background-color: #a8f7a0;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
