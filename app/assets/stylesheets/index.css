@@ -1,0 +1,24 @@
+
+h1 {
+    font-size: 0;
+}
+h1:before {
+    content: 'Sprout';
+    color: #1c8e11;
+    font-size: 32px;
+}
+h1:after {
+    content: 'HQ';
+    color: #00000;
+    font-size: 32px;
+}
+
+.index-page-div  {
+  max-width: 400px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px ;
+  text-align: center;
+  line-height: 5px;
+
+
+}
