@@ -1,0 +1,2 @@
+class FluShot < ApplicationRecord
+end
