@@ -1,5 +1,6 @@
 <div class="border-form-div">
-  <h2>Sign in</h2>
+  <h1>SproutHQ</h1>
+  <h4><%=link_to "Sign in", user_session_path%> <h4>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= f.email_field :email, :autofocus => true %>
     <%= f.password_field :password %> <br>
