@@ -39,8 +39,9 @@ h1:after {
   max-width: 400px;
   background-color: #fff;
   padding: 19px 29px 29px;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px ;
   text-align: center;
+  line-height: 3px;
 
 
 }
