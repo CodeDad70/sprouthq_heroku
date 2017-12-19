@@ -17,7 +17,7 @@
  */
  /* User sign in and sign forms. */
 
-body {
+body#forms {
     	background-color: #1c8e11;
     }
 
@@ -39,7 +39,6 @@ h1:after {
 
 .index-page-div  {
   max-width: 400px;
-  background-color: #fff;
   padding: 19px 29px 29px;
   margin: 0 auto 20px ;
   text-align: center;
@@ -48,7 +47,8 @@ h1:after {
 
 }
 
-.border-form-div {
+
+.border-form {
   max-width: 300px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
@@ -65,11 +65,22 @@ h1:after {
 .border-form-div .checkbox {
   margin-bottom: 10px;
 }
-.border-form-div input[type="text"],
-.border-form-div input[type="email"],
-.border-form-div input[type="password"] {
+.border-form input[type="text"],
+.border-form input[type="email"],
+.border-form input[type="password"] {
   font-size: 16px;
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+}
+
+
+.navbar{
+
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+
+  max-width: 300px;
+
 }
