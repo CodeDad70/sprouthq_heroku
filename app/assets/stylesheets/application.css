@@ -17,34 +17,46 @@
  */
  /* User sign in and sign forms. */
 
-body { background-color: #00000; }
 
-h1 {
-    font-size: 0;
+.logo {
+    padding: 0px 16px;
+    font-size: 0px;
 }
-h1:before {
+h3:before {
     content: 'Sprout';
-    color: #00000;
-    font-size: 32px;
+    color: #000000;
+    font-size: 18px;
 }
-h1:after {
+h3:after {
     content: 'HQ';
-    color: #00000;
-    font-size: 32px;
+    color: #fff;
+    font-size: 18px;
 }
 
 
-body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+
+
+ ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1c8e11;
 }
 
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+li {
+    float: left;
 }
 
-.theme-showcase > p > .btn {
-  margin: 5px 0;
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #0f7c06
+}
 }
