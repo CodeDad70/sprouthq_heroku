@@ -21,11 +21,20 @@
     	background-color: #1c8e11;
     }
 
+.index-page-div  {
+  max-width: 400px;
+  background-color: #fff;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  text-align: center;
+
+}
+
 .border-form-div {
   max-width: 300px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
-  background-color: #a8f7a0;
+  background-color: #fff;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
