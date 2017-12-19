@@ -17,18 +17,14 @@
  */
  /* User sign in and sign forms. */
 
-body#forms {
-    	background-color: #1c8e11;
-    }
-
-body#homepage { background-color: #fff; }
+body { background-color: #00000; }
 
 h1 {
     font-size: 0;
 }
 h1:before {
     content: 'Sprout';
-    color: #1c8e11;
+    color: #00000;
     font-size: 32px;
 }
 h1:after {
@@ -38,14 +34,17 @@ h1:after {
 }
 
 
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
 
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
 
-.navbar{
-
-  padding: 19px 29px 29px;
-  margin: 0 auto 20px;
-  background-color: #fff;
-
-  max-width: 300px;
-
+.theme-showcase > p > .btn {
+  margin: 5px 0;
 }
