@@ -15,7 +15,7 @@ Run bundle install inside the sprouthq directory.
 
 In your terminal run Rails s to start a local server 
 
-In your browser go to : http://localhost:3000/users/sign_in
+In your browser go to : http://localhost:3000
 
 You are good to go!
 
