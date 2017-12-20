@@ -2,8 +2,13 @@
 	<h2>Welcome to SproutHQ</h2>
 	<h4>Get started by <%=link_to "creating your child's profile"%>
 <%else%>
+
 		<%current_user.children.each do |child|%>
-	<%=child.name%>
+		<ul>
+		
+	<li><%=link_to child.name, child_path(child)%> </li><br>
+</ul>
+
 	<%end%>
 
 
