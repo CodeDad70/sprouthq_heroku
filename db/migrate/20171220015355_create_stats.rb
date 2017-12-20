@@ -8,8 +8,6 @@ class CreateStats < ActiveRecord::Migration[5.1]
     	t.boolean :flu_shot, default: false
     	t.string :milestones
     	t.string :vaccines
-    	t.integer :age_id
-    	t.integer :child_id
 
 
 

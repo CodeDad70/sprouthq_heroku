@@ -1,6 +1,6 @@
 class Age < ApplicationRecord
 	
-	has_many :stats
-	has_many :children, through: :stats
+	belongs_to :child
+	belongs_to :stat
 
 end

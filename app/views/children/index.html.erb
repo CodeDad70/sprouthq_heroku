@@ -3,14 +3,17 @@
 	<%if @child.exists?%>
 			<%current_user.children.each do |child|%>
 			<div class="border-form">	
+
 				<h3><%=link_to child.name, child_path(child)%></h3> <br>
+				
 			</div>
 	<%end%>
 
 	<%else%>
 
+
 		<h2>Welcome to SproutHQ</h2>
-		<h4>Get started by <%=link_to "creating your child's profile", new_child_path %>
+		<h4>Get started by <%=link_to "creating your child's profile", new_child_path %></h4>
 
 
 	

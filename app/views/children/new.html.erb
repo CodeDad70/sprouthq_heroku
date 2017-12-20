@@ -1,9 +1,24 @@
-<%= form_for(@child) do |f| %>
-  <label>Name:</label><br>
+
+ <div class = "border-form">
+<%= form_for @child do |f| %>
+ <%= f.label :name %>
   <%= f.text_field :name %><br>
+  <%=f.label :gender %>
+  <%=f.text_field :gender%>
+ 
+  <%= f.fields_for :stats do |stat| %>
+    <%= stat.text_field :weight%>
+    <%= stat.text_field :height %><br>
 
-  <label>Gender</label><br>
-  <%= f.text_field :gender %><br>
-
+   
+    
+  <% end %>
+ 
   <%= f.submit %>
 <% end %>
+
+</div>
+
+
+
+

@@ -1,9 +1,10 @@
 class Child < ApplicationRecord
 	
 	belongs_to :user, required: false
-	has_many :stats
-	has_many :ages, through: :stats
-
 	
+	has_many :ages
+	has_many :stats, through: :ages
+
+
 	
 end

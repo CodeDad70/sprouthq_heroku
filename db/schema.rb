@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20171220015829) do
   create_table "ages", force: :cascade do |t|
     t.integer "months"
     t.integer "years"
+    t.integer "child_id"
+    t.integer "stat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,8 +37,6 @@ ActiveRecord::Schema.define(version: 20171220015829) do
     t.boolean "flu_shot", default: false
     t.string "milestones"
     t.string "vaccines"
-    t.integer "age_id"
-    t.integer "child_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
