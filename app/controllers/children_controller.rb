@@ -8,8 +8,9 @@ class ChildrenController < ApplicationController
 	end
 
 	def create
-		@child = Child.create(child_params)
-		if @child.save
+		
+		current_user.children = Child.create(child_params)
+		if current_user.children.save
 			redirect_to children_path
 		else
 			redirect_to new_child_path

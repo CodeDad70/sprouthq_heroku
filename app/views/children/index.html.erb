@@ -1,4 +1,4 @@
-<%if current_user.children %>
+<%if current_user.children == nil %>
 	<h2>Welcome to SproutHQ</h2>
 	<h4>Get started by <%=link_to "creating your child's profile"%>
 <%else%>
