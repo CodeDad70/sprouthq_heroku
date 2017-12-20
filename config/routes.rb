@@ -15,6 +15,5 @@ Rails.application.routes.draw do
 
   get '/users/sign_out' => 'sessions#destroy'
 
-  resources :profiles, only: [:show, :index]
 
 end

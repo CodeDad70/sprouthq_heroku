@@ -19,21 +19,19 @@
 
 
 .logo {
-    padding: 0px 16px;
+    padding: 0px 25px;
     font-size: 0px;
 }
 h3:before {
     content: 'Sprout';
-    color: #000000;
-    font-size: 18px;
+    color: #74e86a;
+    font-size: 32px;
 }
 h3:after {
     content: 'HQ';
-    color: #fff;
-    font-size: 18px;
+    color: #0e4709;
+    font-size: 32px;
 }
-
-
 
 
  ul {
@@ -52,7 +50,7 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 20px 16px;
+    padding: 25px 16px;
     text-decoration: none;
 }
 
