@@ -1,6 +1,7 @@
 class ChildrenController < ApplicationController
 
-	def index 
+	def index
+	@child = current_user.children 
 	end
 
 	def new

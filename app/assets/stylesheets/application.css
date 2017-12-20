@@ -23,12 +23,12 @@
     padding: 0px 25px;
     font-size: 0px;
 }
-h3:before {
+.logo h3:before {
     content: 'Sprout';
     color: #74e86a;
     font-size: 32px;
 }
-h3:after {
+.logo h3:after {
     content: 'HQ';
     color: #0e4709;
     font-size: 32px;
@@ -58,4 +58,30 @@ h3:after {
 .navbar li a:hover {
     background-color: #0f7c06
     }
+}
+
+.border-form {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form input[type="text"],
+.border-form input[type="email"],
+.border-form input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
 }
