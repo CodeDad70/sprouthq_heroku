@@ -4,12 +4,12 @@ class ChildrenController < ApplicationController
 	end
 
 	def new
-		@child = Child.new
+		 @child = Child.new
 	end
 
 	def create
 		@child = Child.create(child_params)
-		if child.save
+		if @child.save
 			redirect_to children_path
 		else
 			redirect_to new_child_path

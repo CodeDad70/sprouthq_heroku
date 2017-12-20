@@ -1,0 +1,9 @@
+<%= form_for(@child) do |f| %>
+  <label>Name:</label><br>
+  <%= f.text_field :name %><br>
+
+  <label>Gender</label><br>
+  <%= f.text_area :gender %><br>
+
+  <%= f.submit %>
+<% end %>
