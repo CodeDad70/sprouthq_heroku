@@ -1,2 +1,0 @@
-class FluShotsController < ApplicationController
-end

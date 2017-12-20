@@ -1,2 +1,0 @@
-class Vaccine < ApplicationRecord
-end

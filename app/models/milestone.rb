@@ -1,2 +1,0 @@
-class Milestone < ApplicationRecord
-end

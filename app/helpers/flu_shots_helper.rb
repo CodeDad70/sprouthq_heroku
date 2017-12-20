@@ -1,2 +1,0 @@
-module FluShotsHelper
-end

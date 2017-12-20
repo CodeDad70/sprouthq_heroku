@@ -1,2 +1,0 @@
-class AgesController < ApplicationController
-end

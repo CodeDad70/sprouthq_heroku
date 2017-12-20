@@ -1,2 +1,0 @@
-class VaccinesController < ApplicationController
-end

@@ -10,45 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219202318) do
-
-  create_table "ages", force: :cascade do |t|
-    t.integer "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "children", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "flu_shots", force: :cascade do |t|
-    t.boolean "given"
-    t.integer "child_id"
-    t.integer "age_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "medicines", force: :cascade do |t|
-    t.string "name"
-    t.integer "amount"
-    t.integer "child_id"
-    t.integer "age_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "milestones", force: :cascade do |t|
-    t.string "description"
-    t.integer "child_id"
-    t.integer "age_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20171218190356) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -69,15 +31,6 @@ ActiveRecord::Schema.define(version: 20171219202318) do
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid"
-  end
-
-  create_table "vaccines", force: :cascade do |t|
-    t.string "name"
-    t.date "date_given"
-    t.integer "child_id"
-    t.integer "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
