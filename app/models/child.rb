@@ -5,4 +5,5 @@ class Child < ApplicationRecord
 	has_many :ages, through: :stats
 
 	
+	
 end
