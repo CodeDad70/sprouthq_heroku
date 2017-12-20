@@ -10,35 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220015829) do
+ActiveRecord::Schema.define(version: 20171220212515) do
+
+  create_table "age_milestones", force: :cascade do |t|
+    t.integer "age_id"
+    t.integer "milestone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ages", force: :cascade do |t|
+    t.integer "year"
     t.integer "months"
-    t.integer "years"
+    t.string "height"
+    t.string "weight"
+    t.decimal "advil_dosage"
+    t.decimal "tylenol_dosage"
+    t.boolean "flu_shot", default: false
     t.integer "child_id"
-    t.integer "stat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "children", force: :cascade do |t|
     t.string "name"
+    t.date "birthday"
     t.string "gender"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "stats", force: :cascade do |t|
-    t.string "height"
-    t.integer "weight"
-    t.integer "advil"
-    t.integer "tylenol"
-    t.boolean "flu_shot", default: false
-    t.string "milestones"
-    t.string "vaccines"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "milestones", force: :cascade do |t|
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|

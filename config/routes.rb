@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
 
   
+  
   resources :ages
-  resources :stats
   resources :children
   
 	root 'welcome#index', as: 'welcome'

@@ -6,13 +6,8 @@
   <%=f.label :gender %>
   <%=f.text_field :gender%>
  
-  <%= f.fields_for :stats do |stat| %>
-    <%= stat.text_field :weight%>
-    <%= stat.text_field :height %><br>
-
+  
    
-    
-  <% end %>
  
   <%= f.submit %>
 <% end %>

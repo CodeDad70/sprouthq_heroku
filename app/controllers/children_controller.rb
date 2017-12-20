@@ -5,18 +5,15 @@ class ChildrenController < ApplicationController
 	end
 
 	def new
-		 @child = Child.new
-		 @child.stats.build(height: "height")
-    @child.stats.build(weight: "weight")
+		 @child = Child.new	
 	end
 
 	def create
-
 		if current_user
 			child = Child.create(child_params)
+			Age.create(content: params[:Age][:stats], )
 			child.user_id = current_user.id
 			child.save
-			binding.pry
 			redirect_to children_path
 		else
 			redirect_to new_user_session_path
@@ -30,3 +27,4 @@ private
     end
 
 end
+
