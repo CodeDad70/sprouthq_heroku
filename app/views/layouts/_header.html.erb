@@ -6,11 +6,13 @@
       </div>
  
     <% if user_signed_in? %>
-      <li><%=link_to 'See your profiles', children_path%></li>
-      <li><%=link_to 'Create a new profile', new_child_path%></li>
-      <li><%=link_to 'Edit a profile', children_path%></li>
+    <li><a href=""> <b>| Welcome <%= current_user.email%> |</b></a></li>
+      <li><%=link_to 'Home', children_path%></li>
+      <li><%=link_to "Create child's profile", new_child_path%></li>
+      <%if current_user.children.exists?%>
+      <li><%=link_to "Edit/Create a child's card", children_path%></li>
+      <%end%>
       <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%>  </li>
-      <li><a href="">Welcome <%= current_user.email%></a></li>
     <%else%>
       <li> <%=link_to "Sign in", new_user_session_path%>
       <li> <%=link_to "Sign up", new_user_registration_path%>
