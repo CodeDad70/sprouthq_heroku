@@ -1,0 +1,23 @@
+<%if current_user.many_kids %>
+	<%current_user.children.each do |kid| %>
+
+		<%kid.ages.each do |age|%>
+	<%=kid.name%> - <%=age.year%> <br>
+
+	<%= form_for age do |f| %>
+     
+    <%= f.collection_select age, kid.ages, :id, :year %>
+      
+    <% end %>
+
+
+	
+
+
+	<%end%>
+	<%end%>
+
+<%end%>
+
+<%else%> 
+test

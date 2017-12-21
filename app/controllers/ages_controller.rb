@@ -1,9 +1,9 @@
 class AgesController < ApplicationController
 
 	def index 
-		@children = user.children.all
+		
 	end
-	
+
 
 	# def create
 	# 	@child = Child.find(params[:child_id]

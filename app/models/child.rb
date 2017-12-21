@@ -8,8 +8,12 @@ class Child < ApplicationRecord
 
    
   #  def ages_attributes=(attributes)
-
-  #     self.ages_attributes = self.ages.build(attributes)
+   	
+  #  	attributes.each do |a|
+  #  		self.ages_attributes = a
+  #  	end
+  #  		binding.pry
+  #     # self.ages_attributes = self.ages.build(a)
    
   # end
 
