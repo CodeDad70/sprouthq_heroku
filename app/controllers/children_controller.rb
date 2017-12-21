@@ -5,17 +5,20 @@ class ChildrenController < ApplicationController
 	end
 
 	def new
-		 @child = Child.new	
+ 		 @child = Child.new	
 		 @child.ages.build(year: ' ')
-	end
-
-	def create
-		
-			Child.create(child_params)
-			
-			redirect_to children_path
-		
-	end
+ 	end
+ 
+ 	def create
+		if current_user
+			child = Child.create(child_params)
+			child.user_id = current_user.id
+			child.save	
+ 			redirect_to children_path
+		else
+			redirect_to new_user_session_path
+		end	
+ 	end
 
 private
 
