@@ -1,19 +1,21 @@
- <!--  navbar -->
-<header>
-	<div class="navbar">
-<ul>
-	<div class ="logo">
-  <li><h3 class="logo">SproutHQ</h3></li>
-</div>
  
-  <% if user_signed_in? %>
-    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%>  </li>
-    <li><a href="">Welcome <%= current_user.email%></a></li>
-  <%else%>
-    <li> <%=link_to "Sign in", new_user_session_path%>
-    <li> <%=link_to "Sign up", new_user_registration_path%>
-  <%end%>
+	<div class="navbar">
+    <ul>
+	   <div class ="logo">
+       <li><h3 class="logo">SproutHQ</h3></li>
+      </div>
+ 
+    <% if user_signed_in? %>
+      <li><%=link_to 'See your profiles', children_path%></li>
+      <li><%=link_to 'Create a new profile', new_child_path%></li>
+      <li><%=link_to 'Edit a profile', children_path%></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%>  </li>
+      <li><a href="">Welcome <%= current_user.email%></a></li>
+    <%else%>
+      <li> <%=link_to "Sign in", new_user_session_path%>
+      <li> <%=link_to "Sign up", new_user_registration_path%>
+    <%end%>
 
-</ul>
-</div>
+    </ul>
+  </div>
 </header>
