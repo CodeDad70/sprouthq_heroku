@@ -1,6 +1,5 @@
-
-	
 	<%if @child.exists?%>
+	<%binding.pry%>
 			<%current_user.children.each do |child|%>
 			<div class="border-form">	
 
@@ -24,7 +23,7 @@
 							<%if age.flu_shot == true%>
 								<h3>Flu shot ? Yes!</h3>
 							<%else%>
-								<h3>Flue shot? Not yet</h3>
+								<h3>Flu shot? Not yet</h3>
 							<%end%>
 
 					<%end%>		
