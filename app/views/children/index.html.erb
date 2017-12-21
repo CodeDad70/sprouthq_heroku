@@ -1,5 +1,5 @@
 	<%if @child.exists?%>
-	<%binding.pry%>
+
 			<%current_user.children.each do |child|%>
 			<div class="border-form">	
 
@@ -7,7 +7,11 @@
 				<h3><%=child.birthday%></h3>
 				<h3><%=child.gender%></h3>
 
+			
+
 					<%child.ages.each do |age|%>
+
+					
 
 							<%if age.year == 1 %>
 								<h3> Age: <%=age.year%> year, <%=age.months%> months</h3>

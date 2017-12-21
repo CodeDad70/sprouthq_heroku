@@ -6,5 +6,14 @@ class Child < ApplicationRecord
 	accepts_nested_attributes_for :ages
 
 
+   
+  #  def ages_attributes=(attributes)
+
+  #     self.ages_attributes = self.ages.build(attributes)
+   
+  # end
+
+
+
 	
 end
