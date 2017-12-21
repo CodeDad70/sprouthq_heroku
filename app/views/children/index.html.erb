@@ -4,8 +4,29 @@
 			<%current_user.children.each do |child|%>
 			<div class="border-form">	
 
-				<h3><%=link_to child.name, child_path(child)%></h3> <br>
-				<h3><%=child.gender%>
+				<h2><%=link_to child.name, child_path(child)%></h2> <br>
+				<h3><%=child.birthday%></h3>
+				<h3><%=child.gender%></h3>
+
+					<%child.ages.each do |age|%>
+					<%if age.year == 1 %>
+					<h3> Age: <%=age.year%> year, <%=age.months%> months</h3>
+					<%else%> 
+					<h3> Age: <%=age.year%> years, <%=age.months%> months</h3>
+					<%end%>
+					<h3>Weight: <%=age.weight%><h3>
+						<h3>Height: <%=age.height%><h3>
+							<h3>Advil dosage: <%=age.advil_dosage%> ML<h3>
+								<h3>Tylenol dosage: <%=age.tylenol_dosage%> ML<h3>
+									<%if age.flu_shot == true%>
+									<h3>Flu shot ? Yes!</h3>
+									<%else%>
+									<h3>Flue shot? Not yet</h3>
+										<%end%>
+
+
+
+						<%end%>
 				
 			</div>
 	<%end%>
@@ -19,3 +40,4 @@
 
 	
 <%end%>
+

@@ -20,6 +20,11 @@ class ChildrenController < ApplicationController
 		end	
  	end
 
+ 	def show 
+ 		@child = Child.find(params[:id])
+ 	end
+
+
 private
 
 	def child_params
