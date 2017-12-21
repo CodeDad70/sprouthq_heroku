@@ -1,23 +1,17 @@
-<%if current_user.many_kids %>
-	<%current_user.children.each do |kid| %>
-
-		<%kid.ages.each do |age|%>
-	<%=kid.name%> - <%=age.year%> <br>
-
-	<%= form_for age do |f| %>
-     
-    <%= f.collection_select age, kid.ages, :id, :year %>
-      
-    <% end %>
-
-
-	
-
-
-	<%end%>
-	<%end%>
-
+<%if !current_user%>
+	Please <a href="http://localhost:3000/users/sign_in"> sign in</a> to continue.
 <%end%>
 
-<%else%> 
-test
+
+<%if current_user && current_user.many_kids %>
+	<%current_user.children.each do |kid| %>
+		<%kid.ages.each do |age|%>
+			<%=kid.name%> <br>
+				<%= form_for kid do |f| %>
+      		 <%= f.collection_select :ages, kid.ages.all, :id, :year %>
+    		<% end %>
+		<%end%>
+	<%end%>
+<%end%>
+
+
