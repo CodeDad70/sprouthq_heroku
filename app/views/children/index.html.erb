@@ -1,6 +1,6 @@
-	<%if @child.exists?%>
+	<%if @children.exists?%>
 
-			<%current_user.children.each do |child|%>
+			<%@children.each do |child|%>
 			<div class="border-form">	
 
 				<h2><%=link_to child.name, child_path(child)%></h2> <br>
