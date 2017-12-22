@@ -9,22 +9,20 @@
 
 			
 
-					<%child.ages.each do |age|%>
+					<%child.cards.each do |card|%>
 
 					
 
-							<%if age.year == 1 %>
-								<h3> Age: <%=age.year%> year, <%=age.months%> months</h3>
-							<%else%> 
-								<h3> Age: <%=age.year%> years, <%=age.months%> months</h3>
-							<%end%>
+							
+						<h3> Age: <%=card.age%> </h3>
 
-						<h3>Weight: <%=age.weight%><h3>
-						<h3>Height: <%=age.height%><h3>
-						<h3>Advil dosage: <%=age.advil_dosage%> ML<h3>
-						<h3>Tylenol dosage: <%=age.tylenol_dosage%> ML<h3>
 
-							<%if age.flu_shot == true%>
+						<h3>Weight: <%=card.weight%><h3>
+						<h3>Height: <%=card.height%><h3>
+						<h3>Advil dosage: <%=card.advil_dosage%> ML<h3>
+						<h3>Tylenol dosage: <%=card.tylenol_dosage%> ML<h3>
+
+							<%if card.flu_shot == true%>
 								<h3>Flu shot ? Yes!</h3>
 							<%else%>
 								<h3>Flu shot? Not yet</h3>

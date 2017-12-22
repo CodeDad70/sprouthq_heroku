@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220212515) do
+ActiveRecord::Schema.define(version: 20171222022521) do
 
   create_table "age_milestones", force: :cascade do |t|
     t.integer "age_id"
@@ -19,9 +19,8 @@ ActiveRecord::Schema.define(version: 20171220212515) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ages", force: :cascade do |t|
-    t.integer "year"
-    t.integer "months"
+  create_table "cards", force: :cascade do |t|
+    t.string "age"
     t.string "height"
     t.string "weight"
     t.decimal "advil_dosage"

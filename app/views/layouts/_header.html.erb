@@ -10,7 +10,7 @@
       <li><%=link_to 'Home', children_path%></li>
       <li><%=link_to "Create child's profile", new_child_path%></li>
       <%if current_user.children.exists?%>
-      <li><%=link_to "Edit/Create a child's card", ages_path%></li>
+      <li><%=link_to "Edit/Create a child's card", cards_path%></li>
       <%end%>
       <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%>  </li>
     <%else%>

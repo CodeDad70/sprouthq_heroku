@@ -2,22 +2,8 @@ class Child < ApplicationRecord
 	
 	belongs_to :user, required: false
 	
-	has_many :ages
-	accepts_nested_attributes_for :ages
-
-
-   
-  #  def ages_attributes=(attributes)
-   	
-  #  	attributes.each do |a|
-  #  		self.ages_attributes = a
-  #  	end
-  #  		binding.pry
-  #     # self.ages_attributes = self.ages.build(a)
-   
-  # end
-
-
+	has_many :cards
+	accepts_nested_attributes_for :cards
 
 	
 end

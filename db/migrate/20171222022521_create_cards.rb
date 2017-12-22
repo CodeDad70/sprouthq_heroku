@@ -1,8 +1,7 @@
-class CreateAges < ActiveRecord::Migration[5.1]
+class CreateCards < ActiveRecord::Migration[5.1]
   def change
-    create_table :ages do |t|
-    	t.integer :year
-    	t.integer :months
+    create_table :cards do |t|
+			t.string :age
     	t.string :height
     	t.string :weight
     	t.decimal :advil_dosage
@@ -13,7 +12,6 @@ class CreateAges < ActiveRecord::Migration[5.1]
 
 
       t.timestamps null: false
-
     end
   end
 end
