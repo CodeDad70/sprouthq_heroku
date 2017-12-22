@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
 
-  
-
-  
-  
-  resources :cards
-  resources :children
-
-  
-  
+  resources :children do
+    # nested resource for cards
+   	resources :cards
+  end
+ 
 	root 'welcome#index', as: 'welcome'
 
   get '/auth/facebook/callback' => 'sessions#create'
