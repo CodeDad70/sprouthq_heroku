@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
   resources :children do
     # nested resource for cards
-   	resources :cards
+   	resources :cards, only:[:show, :new, :create, :edit]
   end
+
+  resources :cards, only:[:index]
+
  
 	root 'welcome#index', as: 'welcome'
 

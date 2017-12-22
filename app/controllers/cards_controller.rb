@@ -1,5 +1,17 @@
 class CardsController < ApplicationController
 
+	 def index
+    if params[:child_id]
+      @cards = Child.find(params[:child_id]).cards
+    else
+      @cards = Card.all
+    end
+  end
+ 
+  def show
+    @card = Card.find(params[:id])
+  end
+
 	# def index 
 		
 	# end

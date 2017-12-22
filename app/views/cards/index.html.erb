@@ -3,16 +3,16 @@
 <%end%>
 
 
-<%if current_user && current_user.many_kids %>
+<%if current_user  %>
 	<%current_user.children.each do |kid| %>
 		<div class="border-form">
-			nested resources in routes 
+			<!-- nested resources in routes  -->
 			<h3><%=kid.name%></h3> <br>
-			<h4><%=link_to "Create a new card for #{kid.name}", new_card_path%>
+			<h4><%=link_to "Create a new card for #{kid.name}", new_child_card_path(kid)%>
 				<h4>or select an age to edit :</h4>
 			<!-- 	get request user - form tag helper - collectin select tag -->
 				<%= form_for kid do |f| %>
-      		 <%= f.collection_select :cards, kid.ages.all, :id, :year %>
+      		 <%= f.collection_select :cards, kid.cards.all, :id, :age %>
       		 <%=f.submit%>
     		<% end %>
     		</div>
