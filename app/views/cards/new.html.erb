@@ -1,35 +1,31 @@
 	<h2>Create a new card for <%=@child.name%></h2>
+
 <div class = "border-form">
-	<%= form_for @child do |f| %>
-	 
-	 <%= f.label :birthday %>
-	 <%= f.text_field :birthday %><br>
+	<%= form_tag child_cards_path do |f| %>
 
-	 <%= f.label :gender %>
-	 <%= f.text_field :gender %><br>
-	  
-	 		<%=f.fields_for :cards do |card| %>
-	 		
-		 		<%=card.label :age%>
-		 		<%=card.text_field :age%>
+	<label>Age:</label><br>
+  <%= text_field_tag :'card[age]' %><br>
 
-		 		<%=card.label :height%>
-		 		<%=card.text_field :height%>
+  <label>Height:</label><br>
+  <%= text_field_tag :'card[height]' %><br>
 
-		 		<%=card.label :weight%>
-		 		<%=card.text_field :weight%>
+  <label>Weight:</label><br>
+  <%= text_field_tag :'card[weight]' %><br>
 
-		 		<%=card.label :advil_dosage%>
-		 		<%=card.text_field :advil_dosage%>
+  <label>Advil Dosage:</label><br>
+  <%= text_field_tag :'card[advil_dosage]' %><br>
 
-		 		<%=card.label :tylenol_dosage%>
-		 		<%=card.text_field :tylenol_dosage%>
+  <label>Tylenol Dosage:</label><br>
+  <%= text_field_tag :'card[tylenol_dosage]' %><br>
 
-		 		<%=card.label :flu_shot%>
-		 		<%=card.text_field :flu_shot%>
-	 		<%end%>
-		<%= f.submit %>
+  <label>Flu Shot:</label><br>
+  <%= text_field_tag :'card[flu_shot]' %><br>
+ 
+  <%= submit_tag "Create Card" %>
+		 		
+
 	<% end %>
 
 </div>
 
+	 		

@@ -20,6 +20,8 @@ class ChildrenController < ApplicationController
 		end	
  	end
 
+
+
  	def show 
  		 
  	end
