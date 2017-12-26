@@ -20,6 +20,30 @@ class ChildrenController < ApplicationController
 		end	
  	end
 
+  def update 
+  	
+    @child = Child.find(params[:id])
+    @card = @child.cards.find_by(id: params[:id])
+   
+    @card.update(child_params).params[:child][:card]
+    @card.save 
+  end
+
+   
+
+
+  #  def update 
+
+    
+  #   @child = Child.find(params[:id])
+  # 	@card = Card.find(params[:id])
+  # 	binding.pry
+    
+  #   @card.update(child_params)
+  #   # @child.save
+
+  # end
+
 
 
  	def show 
@@ -30,7 +54,7 @@ class ChildrenController < ApplicationController
 private
 
 	def child_params
-      params.require(:child).permit(:name, :gender, :user_id, cards_attributes:[:age, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot])
+      params.require(:child).permit(:name, :gender, :user_id,  cards_attributes:[:age, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot])
     end
 
 end

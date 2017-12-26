@@ -13,9 +13,9 @@
 				<h4>or select an age to edit :</h4>
 			<!-- 	get request user - form tag helper - collection select tag -->
 
-			<%= form_for :child do |f| %>
-               <%= f.collection_select :cards, kid.cards.all, :id, :age %>
-               <%=f.submit%>
+			<%= form_tag edit_child_card_path(kid, :cards) do |f| %>
+			<%=collection_check_boxes(:cards, :ids, kid.cards, :height, :age)%>
+         <%= submit_tag "Create Card" %>     
             <% end %>
             </div>
         <%end%>

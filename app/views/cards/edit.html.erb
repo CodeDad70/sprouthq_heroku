@@ -1,0 +1,30 @@
+   
+<div class = "border-form">
+	<%= form_for @child do |f| %>
+	 
+	  
+	 		<%=f.fields_for :card do |card| %>
+		 		<%=card.label :age%>
+		 		<%=card.text_field :age, value: @card.age%>
+
+		 		<%=card.label :height%>
+		 		<%=card.text_field :height, value: @card.height%>
+
+		 		<%=card.label :weight%>
+		 		<%=card.text_field :weight, value: @card.weight%>
+
+		 		<%=card.label :advil_dosage%>
+		 		<%=card.text_field :advil_dosage, value:@card.advil_dosage%>
+
+		 		<%=card.label :tylenol_dosage%>
+		 		<%=card.text_field :tylenol_dosage, value: @card.tylenol_dosage%>
+
+		 		<%=card.label :flu_shot%>
+		 		<%=card.text_field :flu_shot, value: @card.flu_shot%>
+	 		<%end%>
+		<%= f.submit %>
+	<% end %>
+
+</div>
+
+
