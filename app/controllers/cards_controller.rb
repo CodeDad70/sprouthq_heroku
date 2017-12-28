@@ -27,19 +27,15 @@ class CardsController < ApplicationController
   def edit
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
-   
-
   end
    
-  #  def update 
-
+  # def update 
     
   #   @child = Child.find(params[:id])
-  #   @card = Card.find(params[:id])
-    
-
-  #   @card.update(card_params)
-  #   @card.save 
+  #   @card = @child.cards.find_by(id: params[:id])
+   
+  #   @child.cards.update(child_params)
+  #   @child.save 
   # end
 
     

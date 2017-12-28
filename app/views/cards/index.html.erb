@@ -9,15 +9,20 @@
 			<!-- nested resources in routes  -->
 			<h3><%=kid.name%></h3> <br>
 			<h4><%=link_to "Create a new card for #{kid.name}", new_child_card_path(kid)%>
+				<%= submit_tag "Submit" %> 
 
 				<h4>or select an age to edit :</h4>
-			<!-- 	get request user - form tag helper - collection select tag -->
+			<!-- 	link_to  -->
 
-			<%= form_tag edit_child_card_path(kid, :cards) do |f| %>
-			<%=collection_check_boxes(:cards, :ids, kid.cards, :height, :age)%>
-         <%= submit_tag "Create Card" %>     
+			<%kid.cards.each do |card|%>
+			
+			<%=link_to card.age, edit_child_card_path(kid, card.id)%>
+					
+      
             <% end %>
             </div>
-        <%end%>
-       
+        
+       <%end%>
 <%end%>
+
+
