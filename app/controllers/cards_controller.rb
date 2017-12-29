@@ -9,7 +9,9 @@ class CardsController < ApplicationController
   end
  
   def show
-    @card = Card.find(params[:id])
+    @child = Child.find_by(id:params[:child_id])
+    @card = @child.cards.find_by(id: params[:id])
+    
   end
 
   def new 
@@ -28,27 +30,6 @@ class CardsController < ApplicationController
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
   end
-   
-  # def update 
-    
-  #   @child = Child.find(params[:id])
-  #   @card = @child.cards.find_by(id: params[:id])
-   
-  #   @child.cards.update(child_params)
-  #   @child.save 
-  # end
-
-    
-        
-
-
-  # def update 
- 
-  #   @child = Child.find_by(id: params[:child_id])
-  #   @child.cards.build(card_params)
-  #   @child.save 
-  # end
-
 
 	private
 
