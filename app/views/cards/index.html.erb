@@ -12,11 +12,10 @@
 			
 
 				<h4>or select an age to edit :</h4>
-			<!-- 	link_to  -->
 
 			<%kid.cards.each do |card|%>
 			
-			<%=link_to card.age, edit_child_card_path(kid, card.id)%>
+			<%=link_to card.age, edit_child_card_path(kid, card.id)%>  	&#9702; 
 					
       
             <% end %>

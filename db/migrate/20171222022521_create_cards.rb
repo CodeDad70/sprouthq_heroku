@@ -1,7 +1,7 @@
 class CreateCards < ActiveRecord::Migration[5.1]
   def change
     create_table :cards do |t|
-			t.string :age
+			t.integer :age
     	t.string :height
     	t.string :weight
     	t.decimal :advil_dosage

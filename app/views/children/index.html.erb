@@ -7,27 +7,27 @@
 				<h3><%=child.birthday%></h3>
 				<h3><%=child.gender%></h3>
 
-			
+				<h3> Age: <%=child.latest_card.age%> </h3>
+				
+				<h3>Weight: <%=child.latest_card.weight%><h3>
+						<h3>Height: <%=child.latest_card.height%><h3>
+						<h3>Advil dosage: <%=child.latest_card.advil_dosage%> ML<h3>
+						<h3>Tylenol dosage: <%=child.latest_card.tylenol_dosage%> ML<h3>
 
-					<%child.cards.each do |card|%>
-
-					
-
-							
-						<h3> Age: <%=card.age%> </h3>
-
-
-						<h3>Weight: <%=card.weight%><h3>
-						<h3>Height: <%=card.height%><h3>
-						<h3>Advil dosage: <%=card.advil_dosage%> ML<h3>
-						<h3>Tylenol dosage: <%=card.tylenol_dosage%> ML<h3>
-
-							<%if card.flu_shot == true%>
+							<%if child.latest_card.flu_shot == true%>
 								<h3>Flu shot ? Yes!</h3>
 							<%else%>
 								<h3>Flu shot? Not yet</h3>
 							<%end%>
 
+			
+			
+						<%child.cards.each do |card|%>
+
+
+					
+
+					
 					<%end%>		
 			</div>
 	<%end%>

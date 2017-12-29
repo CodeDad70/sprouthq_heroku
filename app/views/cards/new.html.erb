@@ -1,9 +1,11 @@
-	<h2>Create a new card for <%=@child.name%></h2>
+
 
 <div class = "border-form">
-	<%= form_tag child_cards_path do |f| %>
+   <h4>Create a new card for <%=@child.name%></h4>
 
-	<label>Age:</label><br>
+  <%= form_tag child_cards_path do |f| %>
+
+  <label>Age:</label><br>
   <%= text_field_tag :'card[age]' %><br>
 
   <label>Height:</label><br>
@@ -22,10 +24,8 @@
   <%= text_field_tag :'card[flu_shot]' %><br>
  
   <%= submit_tag "Create Card" %>
-		 		
+        
 
-	<% end %>
+  <% end %>
 
 </div>
-
-	 		
