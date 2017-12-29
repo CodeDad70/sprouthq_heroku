@@ -20,9 +20,15 @@
 								<h3>Flu shot? Not yet</h3>
 							<%end%>
 
-			
-			
+							<h4>Select an age to see:</h4>
+				
 						<%child.cards.each do |card|%>
+
+			
+				<%=link_to card.age, child_card_path(child, card.id)%>  	&#9702; 
+					
+      
+
 
 
 					
