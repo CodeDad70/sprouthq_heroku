@@ -1,0 +1,45 @@
+  <%= form_for @child do |f| %>
+<% if @child.errors.any? %>
+  < <div id="error_explanation" align=center>
+          <h4 >One moment please... there is a problem:</h4>
+          <ul>
+            <%@child.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <%end %>
+      <%end%>
+          </ul>
+      </div>
+
+
+
+<div class = "border-form">
+  <h3 >Update card for <%=@child.name%>:</h3>
+  
+   
+    
+      <%=f.fields_for :cards, @card do |card| %>
+        <%=card.label :age%>
+        <%=card.text_field :age%>
+
+        <%=card.label :height%>
+        <%=card.text_field :height%>
+
+        <%=card.label :weight%>
+        <%=card.text_field :weight%>
+
+        <%=card.label :advil_dosage%> 
+        <%=card.text_field :advil_dosage%> ML
+
+        <%=card.label :tylenol_dosage%> 
+        <%=card.text_field :tylenol_dosage%> ML <br>
+
+        
+        Flu Shot?   
+          Yes <%= card.radio_button :flu_shot, true %> 
+          No  <%= card.radio_button :flu_shot, false %> <br><br>
+        
+      <%end%>
+    <%= f.submit %>
+  <% end %>
+
+</div>

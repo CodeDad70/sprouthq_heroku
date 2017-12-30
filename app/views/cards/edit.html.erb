@@ -1,18 +1,14 @@
   <%= form_for @child do |f| %>
 <% if @child.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@child.errors.count, "error") %>
-      prohibited this post from being saved:
-    </h2>
- 
-    <ul>
-    <% @child.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  < <div id="error_explanation" align=center>
+          <h4 >One moment please... there is a problem:</h4>
+          <ul>
+            <%@child.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <%end %>
+      <%end%>
+          </ul>
+      </div>
 
 
 <div class = "border-form">
