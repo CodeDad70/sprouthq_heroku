@@ -22,27 +22,23 @@
 								<h3>Flu shot? Not yet</h3>
 							<%end%>
 
-							<h4>Select an age to see:</h4>
-				
-						<%child.cards.each do |card|%>
+							<h4>Select an age to see:</h4>	
+							<%child.cards.each do |card|%>
+								<%=link_to card.age, child_card_path(child.id, card.id)%>  	&#9702;
+							<%end%>		
 
-
-			
-				<%=link_to card.age, child_card_path(child.id, card.id)%>  	&#9702; 
-					
-					<%end%>		
-
-					<%else%>
+				<%else%>
 					<h2><%=link_to child.name, child_path(child)%></h2> <br>
-					Josie has no cards. <br>  
-							<h4<h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%>
-							<%end%>
+						Josie has no cards. <br>  
+					<h4<h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%>
+				<%end%>
 
 			</div>
-	<%end%>
+			
+<%end%>
 
-	<%else%>
-		<h2>Welcome to SproutHQ</h2>
-		<h4>Get started by <%=link_to "creating your child's profile", new_child_path %></h4>
-	<%end%>
+<%else%>
+	<h2>Welcome to SproutHQ</h2>
+	<h4>Get started by <%=link_to "creating your child's profile", new_child_path %></h4>
+<%end%>
 
