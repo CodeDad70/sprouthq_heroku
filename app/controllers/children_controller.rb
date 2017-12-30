@@ -20,22 +20,22 @@ class ChildrenController < ApplicationController
 		end	
  	end
 
-  def update 
+  # def update 
+  #   @child = Child.find(params[:id])  
+  #   @child.update(child_params)
+  #   redirect_to children_path
+  # end
+
+  def update
   	
-    @child = Child.find(params[:id])
-    
-   
-    @child.update(child_params)
-    redirect_to children_path
+ 		# @card = @child.cards.find_by(id: params[:id])
+ 	
+ 		@child = Child.find(params[:id])  
+  	@child.update(child_params)
+  	# redirect_to child_card_path(@child.id, @card.id)
   end
 
-
-
-
- 	def show 
- 		 
- 	end
-
+ 
 
 private
 
