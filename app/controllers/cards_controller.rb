@@ -21,9 +21,13 @@ class CardsController < ApplicationController
 
 
 	def create
-		@child= Child.find_by(id: params[:child_id])	
+		@child= Child.find_by(id: params[:child_id])  	
 		@child.cards.build(card_params)
-		@child.save
+    if @child.valid?  
+		  @child.save
+    else 
+      render :new  
+    end
 	end
 
   def edit

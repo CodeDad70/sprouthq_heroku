@@ -1,4 +1,17 @@
-
+    <%= form_tag("/children") do %>
+      <%if @child.errors.any? %>
+      <div id="error_explanation" align=center>
+          <h4 >There were some errors:</h4>
+          <ul>
+            <%@child.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <%end %>
+      <%end%>
+    <%end%>
+          </ul>
+      </div>
+    
+     
 
 <div class = "border-form">
    <h4>Create a new card for <%=@child.name%></h4>
