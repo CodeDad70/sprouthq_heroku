@@ -1,4 +1,5 @@
-  <%= form_for @child do |f| %>
+<%= form_for @child do |f| %>
+
 <% if @child.errors.any? %>
   < <div id="error_explanation" align=center>
           <h4 >One moment please... there is a problem:</h4>
@@ -8,7 +9,7 @@
             <%end %>
       <%end%>
           </ul>
-      </div>
+  </div>
 
 
 <div class = "border-form">
@@ -27,10 +28,10 @@
         <%=card.text_field :weight%>
 
         <%=card.label :advil_dosage%> 
-        <%=card.text_field :advil_dosage%> ML
+        <%=card.text_field :advil_dosage%> mL
 
         <%=card.label :tylenol_dosage%> 
-        <%=card.text_field :tylenol_dosage%> ML <br>
+        <%=card.text_field :tylenol_dosage%> mL <br>
 
         
         Flu Shot?   
