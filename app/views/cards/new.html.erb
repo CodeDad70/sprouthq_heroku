@@ -20,11 +20,14 @@
   <label>Tylenol Dosage:</label><br>
   <%= text_field_tag :'card[tylenol_dosage]' %><br>
 
-  <label>Flu Shot:</label><br>
-  <%= text_field_tag :'card[flu_shot]' %><br>
- 
-  <%= submit_tag "Create Card" %>
-        
+  <label>Flu Shot?</label>
+  
+   Yes <%=radio_button_tag :'card[flu_shot]', 'true', checked = false%>
+   No <%=radio_button_tag :'card[flu_shot]', 'false', checked = false%> <br><br>
+
+   
+  <%= submit_tag "Create Card" %> 
+
 
   <% end %>
 
