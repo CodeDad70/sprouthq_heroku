@@ -16,17 +16,16 @@ class CardsController < ApplicationController
 
   def new 
   	@child= Child.find_by(id: params[:child_id])
-    @new_card = @child.cards.new
+    @child.cards.build(age: ' ')
+    @card = Card.new
   end
 
 
 	def create
-		@child= Child.find_by(id: params[:child_id])
-      	
-		@card = @child.cards.build(card_params)
+		@child= Child.find_by(id: params[:child_id])   
+    @card = @child.cards.build(card_params)
     if @child.valid?  
-		  @card.save
-      
+      @card.save
       redirect_to child_card_path(@child.id, @card.id)
     else 
       render :new  

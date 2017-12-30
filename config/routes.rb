@@ -5,7 +5,7 @@ Rails.application.routes.draw do
    	resources :cards, only:[:show, :new, :create, :edit, :update, :delete, :destroy]
   end
 
-  resources :cards, only:[:index]
+  resources :cards, only:[:index, :create]
 
  
 	root 'welcome#index', as: 'welcome'

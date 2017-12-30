@@ -1,47 +1,46 @@
-    <%= form_tag("/children") do %>
-      <%if @child.errors.any? %>
-      <div id="error_explanation" align=center>
+<%= form_for @child do |f| %>
+
+<% if @child.errors.any? %>
+  < <div id="error_explanation" align=center>
           <h4 >One moment please... there is a problem:</h4>
           <ul>
             <%@child.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <%end %>
       <%end%>
-    <%end%>
           </ul>
-      </div>
-    
-     
+  </div>
+
 
 <div class = "border-form">
-   <h4>Create a new card for <%=@child.name%></h4>
-
-  <%= form_tag child_cards_path do |f| %>
-
-  <label>Age:</label><br>
-  <%= text_field_tag :'card[age]' %><br>
-
-  <label>Height:</label><br>
-  <%= text_field_tag :'card[height]' %><br>
-
-  <label>Weight:</label><br>
-  <%= text_field_tag :'card[weight]' %><br>
-
-  <label>Advil Dosage:</label><br>
-  <%= text_field_tag :'card[advil_dosage]' %><br>
-
-  <label>Tylenol Dosage:</label><br>
-  <%= text_field_tag :'card[tylenol_dosage]' %><br>
-
-  <label>Flu Shot?</label>
   
-   Yes <%=radio_button_tag :'card[flu_shot]', 'true', checked = false%>
-   No <%=radio_button_tag :'card[flu_shot]', 'false', checked = false%> <br><br>
-
+  <h3 >New card for <%=@child.name%>:</h3>
+  
    
-  <%= submit_tag "Create Card" %> 
+    
+      <%=f.fields_for :cards, @card do |card| %>
+        <%=card.label :age%>
+        <%=card.text_field :age%>
 
+        <%=card.label :height%>
+        <%=card.text_field :height%>
 
+        <%=card.label :weight%>
+        <%=card.text_field :weight%>
+
+        <%=card.label :advil_dosage%> 
+        <%=card.text_field :advil_dosage%> mL
+
+        <%=card.label :tylenol_dosage%> 
+        <%=card.text_field :tylenol_dosage%> mL <br>
+
+        
+        Flu Shot?   
+          Yes <%= card.radio_button :flu_shot, true %> 
+          No  <%= card.radio_button :flu_shot, false %> <br><br>
+        
+      <%end%>
+    <%= f.submit %>
   <% end %>
 
 </div>
