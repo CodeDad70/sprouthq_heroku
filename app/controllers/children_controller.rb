@@ -30,9 +30,18 @@ class ChildrenController < ApplicationController
   	
  		# @card = @child.cards.find_by(id: params[:id])
  	
- 		@child = Child.find(params[:id])  
+ 		@child = Child.find(params[:id])
+ 		@card = @child.cards.find_by(id: params[:id])  
   	@child.update(child_params)
+  	if @child.valid? 
+  		@child.save
+  		redirect_to child_card_path(@child.id, @card.id)
+  	else
+  		
+  		redirect_to edit_child_card_path(@child.id, @card.id)
+  	
   	# redirect_to child_card_path(@child.id, @card.id)
+ 		 end
   end
 
  
