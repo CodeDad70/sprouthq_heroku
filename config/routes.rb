@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :children do
     # nested resource for cards
-   	resources :cards, only:[:show, :new, :create, :edit, :update]
+   	resources :cards, only:[:show, :new, :create, :edit, :update, :delete, :destroy]
   end
 
   resources :cards, only:[:index]

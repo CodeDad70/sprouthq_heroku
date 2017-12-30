@@ -35,6 +35,14 @@ class CardsController < ApplicationController
     @card = @child.cards.find_by(id: params[:id])
   end
 
+  def destroy
+    @child = Child.find_by(id:params[:child_id])
+    @card = @child.cards.find_by(id: params[:id])
+    @card.destroy
+    redirect_to children_path 
+  end
+
+
 	private
 
 
