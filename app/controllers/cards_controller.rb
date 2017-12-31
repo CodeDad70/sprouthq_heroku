@@ -16,6 +16,8 @@ class CardsController < ApplicationController
   def new 
   	@child= Child.find_by(id: params[:child_id])
     @child.cards.build(age: ' ')
+    @year_options = (0..18).to_a
+    @month_options = (0..12).to_a
     @card = @child.cards.new
   end
 

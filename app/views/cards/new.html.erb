@@ -16,11 +16,12 @@
   
   <h3 >New card for <%=@child.name%>:</h3>
   
-   
-    
-      
+      <div>
         <%=f.label :age%>
-        <%=f.text_field :age%>
+        <h6>Years: <%=f.select(:age, @year_options)%></h6>
+        
+      </div>
+       
 
         <%=f.label :height%>
         <%=f.text_field :height%>
