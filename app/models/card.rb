@@ -10,8 +10,21 @@ class Card < ApplicationRecord
 
 
 	def age
-		if self.years > 0 
-			"#{self.years} years"
+		if self.years > 1 && self.months == 6
+			"#{self.years} 1/2 "
+		elsif self.years == 0 && self.months == 1
+			"#{self.months} month"
+		elsif self.years == 0 && self.months > 1
+			"#{self.months} months"	
+		
+		elsif self.years == 1 && self.months == 0
+			"#{self.years} year"
+		elsif self.years == 1 && self.months != 0 
+			"#{self.years} year #{self.months} months"
+		elsif self.years > 1 && self.months == 0
+			"#{self.years} years"	
+		elsif self.years > 1 && self.months	> 1
+			"#{self.years} year #{self.months} months"
 		end
 
 	end
