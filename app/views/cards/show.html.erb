@@ -29,6 +29,10 @@
 					
 					<%end%>		<br><br>
 
+					 <%= form_tag edit_child_card_path(@child.id, @card.id), method: "get" %>
+						Edit this card : <%= submit_tag "Edit" %>
+							<div><br><br>
+
 
 					 <%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
 						DELETE this card : <%= submit_tag "Delete" %>

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
    	resources :cards, only:[:show, :new, :create, :edit, :update, :delete, :destroy]
   end
 
-  resources :cards, only:[:index, :create]
+  resources :cards, only:[:index]
 
- 
-	root 'welcome#index', as: 'welcome'
+  
+	
+  root 'welcome#index', as: 'welcome'
 
   get '/auth/facebook/callback' => 'sessions#create'
 
@@ -20,3 +21,6 @@ Rails.application.routes.draw do
 end
 
     # patch 'posts/:id', to: 'posts#update'
+
+    # get '/children/:child_id/cards/new', to: 'cards#create'
+    # 

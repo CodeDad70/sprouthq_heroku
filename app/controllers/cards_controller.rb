@@ -17,12 +17,13 @@ class CardsController < ApplicationController
   def new 
   	@child= Child.find_by(id: params[:child_id])
     @child.cards.build(age: ' ')
-    @card = Card.new
+    @card = @child.cards.new
   end
 
 
-	def create
-		@child= Child.find_by(id: params[:child_id])   
+  def create
+    @child= Child.find_by(id: params[:child_id]) 
+    
     @card = @child.cards.build(card_params)
     if @child.valid?  
       @card.save
@@ -30,7 +31,18 @@ class CardsController < ApplicationController
     else 
       render :new  
     end
-	end
+  end
+
+	# def create
+	# 	@child= Child.find_by(id: params[:child_id])   
+ #    @card = @child.cards.build(card_params)
+ #    if @child.valid?  
+ #      @card.save
+ #      redirect_to child_card_path(@child.id, @card.id)
+ #    else 
+ #      render :new  
+ #    end
+	# end
 
   def edit
     @child = Child.find_by(id:params[:child_id])
