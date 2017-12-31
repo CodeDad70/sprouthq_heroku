@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
     end      
   end
 
+
   def many_kids
     kids=[]
     self.children.each do |kid|
