@@ -24,7 +24,7 @@ class Card < ApplicationRecord
 		elsif self.years > 1 && self.months == 0
 			"#{self.years} years"	
 		elsif self.years > 1 && self.months	> 1
-			"#{self.years} year #{self.months} months"
+			"#{self.years} years #{self.months} months"
 		end
 
 	end
