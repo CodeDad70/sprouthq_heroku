@@ -52,6 +52,7 @@ class CardsController < ApplicationController
       render :edit
      end
   end
+
   def destroy
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])

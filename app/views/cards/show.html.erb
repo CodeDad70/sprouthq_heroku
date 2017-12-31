@@ -30,8 +30,9 @@
 		<%end%>
 		<br><br>
 
-		 <%= form_tag edit_child_card_path(@child.id, @card.id), method: "get" %>
-			<%= submit_tag "Edit this card" %>
+		 <%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id)%>
+			
+
 		
 	<br><br>
 		<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
