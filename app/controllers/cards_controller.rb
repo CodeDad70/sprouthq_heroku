@@ -67,7 +67,7 @@ class CardsController < ApplicationController
 
 
 	def card_params
-    params.require(:card).permit(:age, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id)
+    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id)
   end
 	
 

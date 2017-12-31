@@ -7,4 +7,14 @@ class Card < ApplicationRecord
 	# validates :height, presence: true
 	# validates :advil_dosage, numericality: { message: 'should be a number'}
 	# validates :tylenol_dosage, numericality: { message: 'should be a number'}
+
+
+	def age
+		if self.years > 0 
+			"#{self.years} years"
+		end
+
+	end
+
+
 end

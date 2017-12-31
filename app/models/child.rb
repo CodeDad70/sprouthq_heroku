@@ -5,6 +5,9 @@ class Child < ApplicationRecord
 	has_many :cards
 	accepts_nested_attributes_for :cards
 
+
+
+
 	
 	def latest_card
 		oldest = self.cards.maximum("age")
