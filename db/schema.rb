@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20171222022521) do
 
   create_table "cards", force: :cascade do |t|
     t.integer "age"
+    t.integer "years"
+    t.integer "months"
     t.string "height"
     t.string "weight"
     t.decimal "advil_dosage"
