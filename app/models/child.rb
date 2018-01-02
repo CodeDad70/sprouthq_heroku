@@ -23,6 +23,13 @@ class Child < ApplicationRecord
 		end
 	end
 
+	def ordered
+		
+				self.cards.order("years ASC", "months ASC")
+				
+		end
+
+	end
 
 	
-end
+
