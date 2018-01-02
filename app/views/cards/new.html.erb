@@ -1,4 +1,4 @@
-<%= form_for @card, url: child_cards_path do |f| %>
+
 
 <% if @child.errors.any? %>
   < <div id="error_explanation" align=center>
@@ -11,6 +11,9 @@
           </ul>
   </div>
 
+ 
+
+<%= form_for @card, url: child_cards_path do |f| %>
 
 <div class = "border-form">
   
