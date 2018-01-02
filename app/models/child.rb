@@ -6,13 +6,21 @@ class Child < ApplicationRecord
 	accepts_nested_attributes_for :cards
 
 
-
+	def year_check
+		self.cards.detect do |check|
+			check.years != 0
+		end
+	end
 
 	
 	def latest_card
-		oldest = self.cards.maximum("age")
-		self.cards.find_by(age: (oldest))
-		
+		if year_check
+			oldest = self.cards.maximum("years")
+			self.cards.find_by(years: (oldest))
+		else 
+			oldest = self.cards.maximum("months")
+			self.cards.find_by(months: (oldest))
+		end
 	end
 
 

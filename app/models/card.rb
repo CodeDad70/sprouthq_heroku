@@ -8,6 +8,11 @@ class Card < ApplicationRecord
 	# validates :advil_dosage, numericality: { message: 'should be a number'}
 	# validates :tylenol_dosage, numericality: { message: 'should be a number'}
 
+	def order
+			sort = []
+			sort  << self.years
+		binding.pry
+	end
 
 	def age
 		if self.years > 1 && self.months == 6
@@ -29,8 +34,12 @@ class Card < ApplicationRecord
 	end
 
 	def short_age
-		age.gsub("year", "yr").gsub("month", "m")
+		age.gsub("year", "yr").gsub("month", "mo")
 	end
+
+
+
+
 
 
 

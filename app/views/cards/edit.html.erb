@@ -17,9 +17,13 @@
   
    
     
-      
+      <div>
         <%=f.label :age%>
-        <%=f.text_field :age%>
+        <h6>Years: <%=f.select(:years, @year_options)%></h6>
+        <h6>Months: <%=f.select(:months, @month_options)%></h6>
+        
+      </div>
+       
 
         <%=f.label :height%>
         <%=f.text_field :height%>

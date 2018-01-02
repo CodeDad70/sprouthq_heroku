@@ -6,7 +6,11 @@ class ChildrenController < ApplicationController
 
 	def new
  		 @child = Child.new	
-		 @child.cards.build(age: ' ')
+		 
+
+    @year_options = (0..18).to_a
+    @month_options = (0..12).to_a
+    
  	end
  
  	def create

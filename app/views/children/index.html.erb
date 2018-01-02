@@ -26,7 +26,7 @@
 							<%child.cards.each do |card|%>
 								<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
 							<%end%>		
-
+							
 				<%else%>
 					<h2><%=link_to child.name, child_path(child)%></h2> <br>
 						Josie has no cards. <br>  
