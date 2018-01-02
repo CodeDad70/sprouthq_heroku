@@ -22,12 +22,13 @@
 			<h3>Flu shot? Not yet</h3>
 		<%end%>
 
-		<h4>Select an age to see:</h4>
-				
-		<%@child.cards.each do |card|%>
-			<%=link_to card.age, child_card_path(@child.id, card.id)%>  	&#9702; 
-					
-		<%end%>
+		
+		<h4>Select an age to see:</h4>	
+
+		<%@child.ordered.each do |card|%>
+
+			<%=link_to card.short_age, child_card_path(@child.id, card.id)%>  	&#9702;
+		<%end%>		
 		<br><br>
 
 		 <%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id)%>

@@ -36,6 +36,8 @@ class CardsController < ApplicationController
   def edit
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
+    @year_options = (0..18).to_a
+    @month_options = (0..12).to_a
   end
 
   def update

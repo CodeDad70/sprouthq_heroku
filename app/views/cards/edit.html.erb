@@ -14,12 +14,14 @@
 
 <div class = "border-form">
   <h3 >Update card for <%=@child.name%>:</h3>
+        <%binding.pry%>
   
    
     
       <div>
-        <%=f.label :age%>
+        <%f.label :years%>
         <h6>Years: <%=f.select(:years, @year_options)%></h6>
+        <%f.label :months%>
         <h6>Months: <%=f.select(:months, @month_options)%></h6>
         
       </div>

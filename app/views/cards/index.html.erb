@@ -11,11 +11,13 @@
 			<h4><%=link_to "Create a new card for #{kid.name}", new_child_card_path(kid)%>
 			
 
-				<h4>or select an age to edit :</h4>
+				
+							<h4>Select an age to edit:</h4>	
 
-			<%kid.cards.each do |card|%>
-			
-			<%=link_to card.age, edit_child_card_path(kid, card.id)%>  	&#9702; 
+							<%kid.ordered.each do |card|%>
+
+								<%=link_to card.short_age, child_card_path(kid.id, card.id)%>  	&#9702;
+				 
 					
       
             <% end %>
@@ -25,3 +27,5 @@
 <%end%>
 
 
+
+						
