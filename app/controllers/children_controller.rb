@@ -18,14 +18,22 @@ class ChildrenController < ApplicationController
  
  	def create
 		if current_user
-			child = Child.create(child_params)
-			child.user_id = current_user.id
-			child.save	
- 			redirect_to children_path
-		else
-			redirect_to new_user_session_path
+			@child = Child.create(child_params)
+			@child.user_id = current_user.id
+      if @child.valid?
+			 @child.save	
+ 			 redirect_to children_path
+		  else
+			 render :new  
+      end
 		end	
  	end
+
+
+ 
+
+
+
 
 
   def edit

@@ -1,6 +1,7 @@
 class Card < ApplicationRecord
 
 	belongs_to :child
+	validates :age_entered, presence: true
 	# validates :age, numericality: { message: 'should be a number'}
 	# validates :age, presence: true
 	# validates :weight, presence: true 
@@ -8,7 +9,11 @@ class Card < ApplicationRecord
 	# validates :advil_dosage, numericality: { message: 'should be a number'}
 	# validates :tylenol_dosage, numericality: { message: 'should be a number'}
 
-	
+	def age_entered
+		self.years > 0 || self.months > 0 
+	end
+
+
 
 	def age
 		if self.years > 1 && self.months == 6
@@ -34,7 +39,7 @@ class Card < ApplicationRecord
 	end
 
 
-
+	
 
 
 
