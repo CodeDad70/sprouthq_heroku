@@ -1,4 +1,4 @@
-<%= render partial: 'error', locals: {child: @child} %>
+<%= render partial: 'error', locals: {f: @card} %>
 
 <%= form_for @card, :url => child_card_path(@child, @card) do |card| %>
   <div class = "border-form">

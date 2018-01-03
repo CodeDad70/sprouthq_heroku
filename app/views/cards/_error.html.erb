@@ -1,8 +1,8 @@
-<% if child.errors.any? %>
+<% if f.errors.any? %>
   <div id="error_explanation" align=center>
     <h4 >One moment please... there is a problem:</h4>
       <ul>
-      	<%child.errors.full_messages.each do |message| %>
+      	<%f.errors.full_messages.each do |message| %>
         	<li><%= message %></li>
         <%end %>
 <%end%>
