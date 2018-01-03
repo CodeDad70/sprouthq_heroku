@@ -5,8 +5,6 @@ class ChildrenController < ApplicationController
 	end
 
 	def show
-	
-
     @child = Child.find_by(id:params[:id])
     @card = @child.cards.find_by(id: params[:id]) 
   end
