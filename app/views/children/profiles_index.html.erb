@@ -1,3 +1,17 @@
-Profile !
+<%@children.each do |child|%>
 
+<%= render partial: '/cards/error', locals: {child: child} %>
+<div class = "border-form">
+	<%= form_for child do |profile| %>
+	<%= render partial: 'profile', locals: {profile: profile} %> <br><br>
+	
+	<%= profile.submit %><br><br>
+
+	<%= form_tag child_path(child.id), method: "delete" %>
+			<%= submit_tag "DELETE this card" %>
+
+<% end %>
+<%end%>
+
+</div>
 
