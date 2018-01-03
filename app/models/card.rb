@@ -1,19 +1,18 @@
 class Card < ApplicationRecord
 
 	belongs_to :child
-	validates :age_entered, presence: true
-	# validates :age, numericality: { message: 'should be a number'}
-	# validates :age, presence: true
-	# validates :weight, presence: true 
-	# validates :height, presence: true
-	# validates :advil_dosage, numericality: { message: 'should be a number'}
-	# validates :tylenol_dosage, numericality: { message: 'should be a number'}
+	validate :age_entered
+	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
+	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
+	validates :advil_dosage, numericality: { message: 'should be a number'}
+	validates :tylenol_dosage, numericality: { message: 'should be a number'}
+	
 
 	def age_entered
-		self.years > 0 || self.months > 0 
+		if self.years == 0 && self.months == 0 
+			errors.add(:age, "can't be blank!")
+		end
 	end
-
-
 
 	def age
 		if self.years > 1 && self.months == 6
