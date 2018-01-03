@@ -1,30 +1,39 @@
-	<%if @children.exists?%>
-
-			
-			<div class="border-form">	
-
-			<%@children.each do |child|%>
-
+<%if @children.exists?%>			
+	<div class="border-form">	
+		<%@children.each do |child|%>
+			<%if child.cards.exists? %>
 				<h2><%=link_to child.name, child_path(child)%></h2> <br>
-				
-				<%= form_for child do |profile| %>
-					<%= render partial: 'profile', locals: {profile: profile} %> <br><br>
-				<%=profile.submit%><br><br><br><br>
+				<h3><%=child.birthday%></h3>
+				<h3><%=child.gender%></h3>
+				<h3> Age: <%=child.latest_card.age%> </h3>				
+				<h3>Weight: <%=child.latest_card.weight%><h3>
+				<h3>Height: <%=child.latest_card.height%><h3>
+				<h3>Advil dosage: <%=child.latest_card.advil_dosage%> mL<h3>
+				<h3>Tylenol dosage: <%=child.latest_card.tylenol_dosage%> mL<h3>
 
-				
-					<%= form_tag child_path(child.id), method: "delete" %>
-					<%= submit_tag "DELETE this profile" %> <br><br
+				<%if child.latest_card.flu_shot == true%>
+					<h3>Flu shot ? Yes!</h3>
+				<%else%>
+					<h3>Flu shot? Not yet</h3>
+				<%end%>
 
-
-			<%end%>
-			<%end%>
+				<h4>Select an age to see:</h4>	
+				<%child.ordered.each do |card|%>
+					<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
+				<%end%>		
+							
+				<%else%>
+					<h2><%=link_to child.name, child_path(child)%></h2> <br>
+					Josie has no cards. <br>  
+					<h4<h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%>
+				<%end%>
 
 			</div>
+<%end%>
 				
-	<%else%>
+<%else%>
 	<h2>Welcome to SproutHQ</h2>
 	<h4>Get started by <%=link_to "creating your child's profile", new_child_path %></h4>
-
-	<%end%>
+<%end%>
 
 
