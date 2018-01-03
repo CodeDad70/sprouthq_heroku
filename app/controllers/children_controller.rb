@@ -5,12 +5,10 @@ class ChildrenController < ApplicationController
 	end
 
 	def new
- 		 @child = Child.new	
-		 
-
+ 		@child = Child.new	
+ 		@child.cards.build(height: ' ')
     @year_options = (0..18).to_a
     @month_options = (0..12).to_a
-    
  	end
  
  	def create
@@ -37,7 +35,7 @@ class ChildrenController < ApplicationController
 private
 
 	def child_params
-      params.require(:child).permit(:name, :gender, :user_id,  cards_attributes:[:id, :age, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot])
+      params.require(:child).permit(:name, :gender, :user_id,  cards_attributes:[:id, :age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot])
     end
 
 end

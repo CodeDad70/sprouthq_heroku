@@ -1,34 +1,17 @@
+<%= render partial: '/cards/error', locals: {child: @child} %>
+
 <div class = "border-form">
-	<%= form_for @child do |f| %>
-	 <%= f.label :name %>
-	 <%= f.text_field :name %><br>
+	<%= form_for @child do |profile| %>
+	<%= render partial: 'profile', locals: {profile: profile} %> <br><br>
 
-	 <%= f.label :birthday %>
-	 <%= f.text_field :birthday %><br>
-
-	 <%= f.label :gender %>
-	 <%= f.text_field :gender %><br>
+	<h4>  --- Create a card for this profile --- </h4><br><br>
+	
 	  
-	 		<%=f.fields_for :cards do |card| %>
-		 		<%=card.label :age%>
-		 		<%=card.text_field :age%>
-
-		 		<%=card.label :height%>
-		 		<%=card.text_field :height%>
-
-		 		<%=card.label :weight%>
-		 		<%=card.text_field :weight%>
-
-		 		<%=card.label :advil_dosage%>
-		 		<%=card.text_field :advil_dosage%>
-
-		 		<%=card.label :tylenol_dosage%>
-		 		<%=card.text_field :tylenol_dosage%>
-
-		 		<%=card.label :flu_shot%>
-		 		<%=card.text_field :flu_shot%>
+	 		<%=profile.fields_for :cards do |card| %>
+		 	<%= render partial: '/cards/form', locals: {f: card} %>
+	 		
 	 		<%end%>
-		<%= f.submit %>
+		<%= profile.submit %>
 	<% end %>
 
 </div>
