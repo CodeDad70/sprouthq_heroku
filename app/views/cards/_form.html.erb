@@ -13,10 +13,12 @@
         <%=f.text_field :weight%>
 
         <%=f.label :advil_dosage%> 
-        <%=f.number_field :advil_dosage%> mL
+        <%=f.number_field :advil_dosage, :class => 'text_field', :step => 0.01%> mL
 
         <%=f.label :tylenol_dosage%> 
-        <%=f.number_field :tylenol_dosage%> mL <br>
+        <%=f.number_field :tylenol_dosage, :class => 'text_field', :step => 0.01%> mL <br>
+
+    
 
         
         Flu Shot?   

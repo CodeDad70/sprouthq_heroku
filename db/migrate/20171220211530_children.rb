@@ -2,7 +2,7 @@ class Children < ActiveRecord::Migration[5.1]
   def change
   	create_table :children do |t|
   		t.string :name
-  		t.string :birthday
+  		t.date :birthday
   		t.string :eye_color
   		t.string :hair_color
   		t.string :gender
