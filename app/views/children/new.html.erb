@@ -6,12 +6,11 @@
 
 	<h4>  --- Create a card for this profile --- </h4><br><br>
 	
-	  
-	 		<%=profile.fields_for :cards do |card| %>
-		 	<%= render partial: '/cards/form', locals: {f: card} %>
+	<%=profile.fields_for :cards do |card| %>
+	<%= render partial: '/cards/form', locals: {f: card} %>
 	 		
-	 		<%end%>
-		<%= profile.submit %>
-	<% end %>
+	<%end%>
+	<%= profile.submit %>
+<% end %>
 
 </div>
