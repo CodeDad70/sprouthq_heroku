@@ -19,9 +19,7 @@ class User < ActiveRecord::Base
     self.children.each do |kid|
       kids << kid
     end
-    if kids.count > 1
-      true
-    end
+    kids.count > 1
   end
   
   

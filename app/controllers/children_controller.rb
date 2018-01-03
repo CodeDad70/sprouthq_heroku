@@ -33,9 +33,28 @@ class ChildrenController < ApplicationController
     @card = @child.cards.find_by(id: params[:id])
   end
 
-  
+   def update
+    @child = Child.find_by(id: params[:id])
+   
+    
+    if @child.update(child_params)
 
- 
+      @child = @child.cards.find_by(id: params[:id])
+      
+      redirect_to child_card_path(@child.id, @card.id)
+    else
+      render :edit
+     end
+  end
+
+  def destroy
+    @child = Child.find_by(id:params[:id])
+   
+    @child.destroy
+    redirect_to children_path 
+  end
+
+
 
 private
 
