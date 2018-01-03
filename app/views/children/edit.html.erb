@@ -2,9 +2,13 @@
 
 <div class = "border-form">
 	<%= form_for @child do |profile| %>
-	
+
 	<%= render partial: 'profile', locals: {profile: profile} %> <br><br>
 	
 <% end %>
+
+<%= form_tag child_path(@child), method: "delete" %>
+	<%= submit_tag "DELETE this profile" %>
+
 
 </div>
