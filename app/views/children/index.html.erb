@@ -5,7 +5,14 @@
 			<div class="border-form">
 				
 					<h2><%=link_to child.name, child_path(child)%></h2>
-					<h6><%=link_to "edit this profile", edit_child_path(child)%></h6> <br>
+					
+
+					<h4><%=child.fix_date%></h4>
+					<h4><%=child.eye_color%></h4>
+					<h4><%=child.hair_color%></h4>
+					<h4><%=child.gender%></h4>
+					<h6><%=link_to "edit this profile", edit_child_path(child)%></h6><br>
+
 					
 					<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
 					</div>

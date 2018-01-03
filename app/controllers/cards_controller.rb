@@ -10,7 +10,8 @@ class CardsController < ApplicationController
  
   def show
     @child = Child.find_by(id:params[:child_id])
-    @card = @child.cards.find_by(id: params[:id]) 
+    @card = @child.cards.find_by(id: params[:id])
+   
   end
 
   def new 

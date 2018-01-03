@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
     end
     kids.count > 1
   end
+
+  
+
   
   
 
