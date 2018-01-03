@@ -35,7 +35,9 @@ ActiveRecord::Schema.define(version: 20171222022521) do
 
   create_table "children", force: :cascade do |t|
     t.string "name"
-    t.date "birthday"
+    t.string "birthday"
+    t.string "eye_color"
+    t.string "hair_color"
     t.string "gender"
     t.integer "user_id"
     t.datetime "created_at", null: false

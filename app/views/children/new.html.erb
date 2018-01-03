@@ -4,12 +4,6 @@
 	<%= form_for @child do |profile| %>
 	<%= render partial: 'profile', locals: {profile: profile} %> <br><br>
 
-	<h4>  --- Create a card for this profile --- </h4><br><br>
-	
-	<%=profile.fields_for :cards do |card| %>
-	<%= render partial: '/cards/form', locals: {f: card} %>
-	 		
-	<%end%>
 	<%= profile.submit %>
 <% end %>
 
