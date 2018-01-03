@@ -26,13 +26,6 @@ class ChildrenController < ApplicationController
 		end	
  	end
 
-
- 
-
-
-
-
-
   def edit
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
@@ -64,7 +57,7 @@ class ChildrenController < ApplicationController
 private
 
 	def child_params
-      params.require(:child).permit(:name, :gender, :eye_color, :hair_color, :user_id,  cards_attributes:[:id, :age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot])
+      params.require(:child).permit(:name, :birthday, :gender, :eye_color, :hair_color, :user_id,  cards_attributes:[:id, :age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot])
     end
 
 end

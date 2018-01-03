@@ -6,6 +6,11 @@ class Child < ApplicationRecord
 
 	validates :name, presence: true
 	validates_length_of :name, :minimum => 1, :maximum => 15, :allow_blank => false
+	validates :birthday, presence: true
+	validates_length_of :birthday, :minimum => 1, :maximum => 25, :allow_blank => false
+	validates_length_of :eye_color, :minimum => 1, :maximum => 15, :allow_blank => true
+	validates_length_of :hair_color, :minimum => 1, :maximum => 15, :allow_blank => true
+	validates_length_of :gender, :minimum => 1, :maximum => 15, :allow_blank => true
 
 
 	def year_check

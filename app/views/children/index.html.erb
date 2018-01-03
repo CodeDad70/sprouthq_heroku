@@ -1,16 +1,11 @@
 <%if @children.exists?%>		
 <%@children.each do |child|%>	
 	
-	
-
-		
-
 			<%if !child.cards.exists? %>
 			<div class="border-form">
 				
 					<h2><%=link_to child.name, child_path(child)%></h2> <br>
-					Josie has no cards. <br>  
-					<h4<h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%>
+					<h4<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%>
 					</div>
 				
 
@@ -31,8 +26,7 @@
 					<h3>Flu shot? Not yet</h3>
 				<%end%>
 
-				
-
+	
 				<h4>Select an age to see:</h4>	
 				<%child.ordered.each do |card|%>
 					<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
@@ -44,15 +38,12 @@
 			<%end%>
 
 			</div>
-			
-
 		
-
 			
 				<%else%>
 				<div class="border-form">
-					<h2>Welcome to SproutHQ</h2>
-					<h4>Get started by <%=link_to "creating your child's profile", new_child_path %></h4>
+					<h3>Welcome to SproutHQ</h3>
+					<h5>Get started by <%=link_to "creating your child's profile", new_child_path %></h5>
 				</div>
 				<%end%>
 	</div>
