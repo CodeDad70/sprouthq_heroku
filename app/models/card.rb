@@ -37,9 +37,22 @@ class Card < ApplicationRecord
 		age.gsub("year", "yr").gsub("month", "mo")
 	end
 
+	def weight_check
+		self.weight != ""
+	end
 
+	def height_check
+		self.height != ""
+	end
+
+	def advil_check
+		self.advil_dosage != nil
+	end
+
+	def tylenol_check
+		self.tylenol_dosage != nil
+	end
 	
-
 
 
 

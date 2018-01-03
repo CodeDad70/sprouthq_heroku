@@ -5,25 +5,46 @@
 			<div class="border-form">
 				
 					<h2><%=link_to child.name, child_path(child)%></h2><sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br><br>
-					<h4<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%>
+					<h4<%=link_to "Create a card for #{child.name}", new_child_card_path(child)%>
 					</div>
 				
 
 				<%else%>
+
+
 				<div class="border-form">
+
+
 				<h2><%=link_to child.name, child_path(child)%> </h2><sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br>
+
+
 				<h3>Birthday: <%=child.fix_date%></h3>
+				
 				<h3><%=child.gender%></h3>
-				<h3> Age: <%=child.latest_card.age%> </h3>				
-				<h3>Weight: <%=child.latest_card.weight%><h3>
-				<h3>Height: <%=child.latest_card.height%><h3>
-				<h3>Advil dosage: <%=child.latest_card.advil_dosage%> mL<h3>
-				<h3>Tylenol dosage: <%=child.latest_card.tylenol_dosage%> mL<h3>
+				
+				<h3> Age: <%=child.latest_card.age%> </h3>	
+
+				<%if child.latest_card.weight_check%>
+					<h3>Weight: <%=child.latest_card.weight %><h3>
+				<%end%>
+
+				<%if child.latest_card.height_check%>
+					<h3>Height: <%=child.latest_card.height%><h3>
+				<%end%>
+
+				<%if child.latest_card.advil_check%>
+					<h3>Advil dosage: <%=child.latest_card.advil_dosage%> mL<h3>
+				<%end%>
+
+				<%if child.latest_card.tylenol_check%>
+					<h3>Tylenol dosage: <%=child.latest_card.tylenol_dosage%> mL<h3>
+				<%end%>
 
 				<%if child.latest_card.flu_shot == true%>
 					<h3>Flu shot ? Yes!</h3>
 				<%else%>
 					<h3>Flu shot? Not yet</h3>
+				
 				<%end%>
 
 	
@@ -32,6 +53,7 @@
 					<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
 				<%end%>	
 				<%end%>
+
 				</div>
 								
 			
