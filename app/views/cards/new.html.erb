@@ -11,41 +11,20 @@
           </ul>
   </div>
 
- 
 
-<%= form_for @card, url: child_cards_path do |f| %>
+
+
+<%= form_for @card, :url => child_cards_path do |card| %>
 
 <div class = "border-form">
   
   <h3 >New card for <%=@child.name%>:</h3>
   
-      <div>
-        <%=f.label :age%>
-        <h6>Years: <%=f.select(:years, @year_options)%></h6>
-        <h6>Months: <%=f.select(:months, @month_options)%></h6>
-        
-      </div>
-       
 
-        <%=f.label :height%>
-        <%=f.text_field :height%>
-
-        <%=f.label :weight%>
-        <%=f.text_field :weight%>
-
-        <%=f.label :advil_dosage%> 
-        <%=f.text_field :advil_dosage%> mL
-
-        <%=f.label :tylenol_dosage%> 
-        <%=f.text_field :tylenol_dosage%> mL <br>
-
-        
-        Flu Shot?   
-          Yes <%= f.radio_button :flu_shot, true %> 
-          No  <%= f.radio_button :flu_shot, false %> <br><br>
-        
+  <%= render partial: 'form', locals: {f: card} %>
    
-    <%= f.submit %>
+   
+    <%= card.submit %>
   <% end %>
 
 </div>
