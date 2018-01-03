@@ -12,7 +12,7 @@
 				<%else%>
 				<div class="border-form">
 				<h2><%=link_to child.name, child_path(child)%> </h2><sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br>
-				<h3><%=child.birthday%></h3>
+				<h3>Birthday: <%=child.fix_date%></h3>
 				<h3><%=child.gender%></h3>
 				<h3> Age: <%=child.latest_card.age%> </h3>				
 				<h3>Weight: <%=child.latest_card.weight%><h3>

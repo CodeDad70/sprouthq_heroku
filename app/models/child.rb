@@ -31,10 +31,12 @@ class Child < ApplicationRecord
 	end
 
 	def ordered
-		
-				self.cards.order("years ASC", "months ASC")
-				
-		end
+		self.cards.order("years ASC", "months ASC")
+	end
+
+	def fix_date
+		self.birthday.strftime("%B %e, %Y")
+	end
 
 	end
 

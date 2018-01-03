@@ -4,8 +4,8 @@ class Card < ApplicationRecord
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
-	validates :advil_dosage, numericality: { message: 'should be a number'}
-	validates :tylenol_dosage, numericality: { message: 'should be a number'}
+	validates :advil_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
+	validates :tylenol_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
 	
 
 	def age_entered
