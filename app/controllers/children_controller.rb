@@ -6,6 +6,7 @@ class ChildrenController < ApplicationController
 
   def profiles_index
     @children = current_user.children
+    @child =  Child.find_by(id:params[:id])
   end
 
 	def show
@@ -36,14 +37,12 @@ class ChildrenController < ApplicationController
   end
 
    def update
-    @child = Child.find_by(id: params[:id])
-   
-    
-    if @child.update(child_params)
-
-      @child = @child.cards.find_by(id: params[:id])
-      
-      redirect_to child_card_path(@child.id, @card.id)
+    @child = Child.find_by(id: params[:id])    
+    @child.update(child_params)
+    if @child.valid?
+      @child.save
+      @child = @child.cards.find_by(id: params[:id])     
+      redirect_to children_path
     else
       render :edit
      end
@@ -51,7 +50,6 @@ class ChildrenController < ApplicationController
 
   def destroy
     @child = Child.find_by(id:params[:id])
-   
     @child.destroy
     redirect_to children_path 
   end
