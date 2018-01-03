@@ -1,28 +1,10 @@
-
-
-<% if @child.errors.any? %>
-  < <div id="error_explanation" align=center>
-          <h4 >One moment please... there is a problem:</h4>
-          <ul>
-            <%@child.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <%end %>
-      <%end%>
-          </ul>
-  </div>
-
+<%= render partial: 'error', locals: {child: @child} %>
 
 <%= form_for @card, :url => child_card_path(@child, @card) do |card| %>
- 
+  <div class = "border-form">
+    <h3 >Update card for <%=@child.name%>:</h3>
+      <%= render partial: 'form', locals: {f: card} %>
+      <%= card.submit %>
+<% end %>
 
-<div class = "border-form">
-  <h3 >Update card for <%=@child.name%>:</h3>
-      
-   <%= render partial: 'form', locals: {f: card} %>
-   
-        
-   
-    <%= card.submit %>
-  <% end %>
-
-</div>
+  </div>
