@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     # nested resource for cards
    	resources :cards, only:[:show, :new, :create, :edit, :update, :delete, :destroy]
   end
-
+  get '/profiles_index', to: 'children#profiles_index'
   resources :cards, only:[:index]
 
   
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get '/users/sign_out' => 'sessions#destroy'
+
+
 
 
 end

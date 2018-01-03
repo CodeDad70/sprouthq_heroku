@@ -4,6 +4,10 @@ class ChildrenController < ApplicationController
 		@children = current_user.children 
 	end
 
+  def profiles_index
+    @children = current_user.children
+  end
+
 	def show
     @child = Child.find_by(id:params[:id])
     @card = @child.cards.find_by(id: params[:id]) 
@@ -26,9 +30,9 @@ class ChildrenController < ApplicationController
 		end	
  	end
 
+
   def edit
-    @child = Child.find_by(id:params[:child_id])
-    @card = @child.cards.find_by(id: params[:id])
+    @child = Child.find_by(id:params[:id])
   end
 
    def update

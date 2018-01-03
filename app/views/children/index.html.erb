@@ -4,14 +4,14 @@
 			<%if !child.cards.exists? %>
 			<div class="border-form">
 				
-					<h2><%=link_to child.name, child_path(child)%></h2> <br>
+					<h2><%=link_to child.name, child_path(child)%></h2><sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br><br>
 					<h4<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%>
 					</div>
 				
 
 				<%else%>
 				<div class="border-form">
-				<h2><%=link_to child.name, child_path(child)%></h2> <br>
+				<h2><%=link_to child.name, child_path(child)%> </h2><sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br>
 				<h3><%=child.birthday%></h3>
 				<h3><%=child.gender%></h3>
 				<h3> Age: <%=child.latest_card.age%> </h3>				
