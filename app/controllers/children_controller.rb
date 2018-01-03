@@ -4,6 +4,13 @@ class ChildrenController < ApplicationController
 		@children = current_user.children 
 	end
 
+	def show
+	
+
+    @child = Child.find_by(id:params[:id])
+    @card = @child.cards.find_by(id: params[:id]) 
+  end
+
 	def new
  		@child = Child.new	
  		@child.cards.build(height: ' ')
