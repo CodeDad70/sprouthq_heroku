@@ -21,5 +21,7 @@
         Flu Shot?   
           Yes <%= f.radio_button :flu_shot, true %> 
           No  <%= f.radio_button :flu_shot, false %> <br><br>
+
+        <%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %>
         
   

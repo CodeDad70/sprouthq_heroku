@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20171222022521) do
 
+  create_table "card_milestones", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "milestone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cards", force: :cascade do |t|
     t.integer "age"
     t.integer "years"
@@ -22,13 +29,6 @@ ActiveRecord::Schema.define(version: 20171222022521) do
     t.decimal "tylenol_dosage"
     t.boolean "flu_shot", default: false
     t.integer "child_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "child_milestones", force: :cascade do |t|
-    t.integer "child_id"
-    t.integer "milestone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(version: 20171222022521) do
   end
 
   create_table "milestones", force: :cascade do |t|
-    t.string "description"
-    t.integer "age"
+    t.string "title"
+    t.text "description"
+    t.string "age"
     t.integer "years"
     t.integer "months"
   end

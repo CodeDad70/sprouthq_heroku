@@ -1,6 +1,9 @@
 class Card < ApplicationRecord
 
 	belongs_to :child
+	has_many :card_milestones
+	has_many :milestones, through: :card_milestones
+
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
@@ -36,24 +39,5 @@ class Card < ApplicationRecord
 	def short_age
 		age.gsub("year", "yr").gsub("month", "mo")
 	end
-
-	def weight_check
-		self.weight != ""
-	end
-
-	def height_check
-		self.height != ""
-	end
-
-	def advil_check
-		self.advil_dosage != nil
-	end
-
-	def tylenol_check
-		self.tylenol_dosage != nil
-	end
-	
-
-
 
 end

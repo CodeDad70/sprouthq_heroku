@@ -1,5 +1,5 @@
 class Milestone < ApplicationRecord
-	has_many :child_milestones
-	has_many :children, through: :child_milestones
+	has_many :card_milestones
+	has_many :cards, through: :card_milestones
 	
 end

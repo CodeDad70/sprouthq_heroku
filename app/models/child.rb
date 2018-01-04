@@ -3,8 +3,7 @@ class Child < ApplicationRecord
 	belongs_to :user, required: false
 	has_many :cards
 	accepts_nested_attributes_for :cards
-	has_many :child_milestones
-	has_many :milestones, through: :child_milestones
+
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
@@ -21,7 +20,6 @@ class Child < ApplicationRecord
 			end
 		end
 
-		
 		def latest_card
 			if year_check
 				oldest = self.cards.maximum("years")
@@ -36,9 +34,6 @@ class Child < ApplicationRecord
 			self.cards.order("years ASC", "months ASC")
 		end
 
-		
-
-	
 	end
 
 	
