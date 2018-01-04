@@ -1,7 +1,8 @@
 <%= render partial: 'error', locals: {f: @card} %>
 
+<div class = "border-form">
 <%= form_for @card, :url => child_card_path(@child, @card) do |card| %>
-  <div class = "border-form">
+  
     <h3 >Update card for <%=@child.name%>:</h3>
       <%= render partial: 'form', locals: {f: card} %>
       <%= card.submit %>

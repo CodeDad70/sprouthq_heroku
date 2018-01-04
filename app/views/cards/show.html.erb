@@ -1,13 +1,14 @@
-<div class="border-form">
 	<%if not_allowed(current_user, @child)%>
-			<h5>You aren't allowed to view this page.</h5>
-			<h5><%=link_to "Sign in", new_user_session_path%> or
-      <%=link_to "Sign up", new_user_registration_path%></h5>
+			<h5 align=center>You aren't allowed to view this page. <br>
+				<%=link_to "Sign in", new_user_session_path%> or
+  	    <%=link_to "Sign up", new_user_registration_path%></h5>
+
 
 	<%else%>
-	<h2><%=link_to @child.name, child_path(@child)%></h2> 
-	<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>
-	<%= render 'show_card', :locals => { :child => @child, :card => '@card'} %>
+<div class="border-form">
+		<h2><%=link_to @child.name, child_path(@child)%></h2> 
+		<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>
+		<%= render 'show_card', :locals => { :child => @child, :card => '@card'} %>
 	<%end%>
 	
 </div>

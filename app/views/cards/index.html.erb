@@ -1,29 +1,20 @@
-<%if !current_user%>
-	Please <a href="http://localhost:3000/users/sign_in"> sign in</a> to continue.
-<%end%>
+	<%if !current_user%>
+		<h5 align=center>Please <a href="http://localhost:3000/users/sign_in"> sign in </a> to continue.</h5>
+	<%end%>
+</div>
 
 
-<%if current_user  %>
+<%if current_user%>
 	<%current_user.children.each do |child| %>
 		<div class="border-form">
-			<!-- nested resources in routes  -->
 			<h3><%=child.name%></h3> <br>
 			<h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%>
-			
-
-				
-							<h4>Select an age to edit:</h4>	
-
-							<%child.ordered.each do |card|%>
-
-								<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
-				 
-					
-      
-            <% end %>
-            </div>
-        
-       <%end%>
+			<h4>Select an age to edit:</h4>	
+			<%child.ordered.each do |card|%>
+				<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
+			 <% end %>
+     </div>
+    <%end%>
 <%end%>
 
 

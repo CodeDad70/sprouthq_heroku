@@ -1,13 +1,12 @@
-module CardsHelper
+module CardsHelper 
 
 	def flu_shot_given(card)
-
-	if card.flu_shot == true
+		if card.flu_shot == true
 			"Flu shot ? Yes!"
-	else
+		else
 			"Flu shot? Not yet"
 		end
 	end
 
-
+	
 end

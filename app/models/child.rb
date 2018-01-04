@@ -3,6 +3,8 @@ class Child < ApplicationRecord
 	belongs_to :user, required: false
 	has_many :cards
 	accepts_nested_attributes_for :cards
+	has_many :child_milestones
+	has_many :milestones, through: :child_milestones
 
 	validates :name, presence: true
 	validates :name, uniqueness: true

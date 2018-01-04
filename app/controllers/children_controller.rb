@@ -1,12 +1,20 @@
 class ChildrenController < ApplicationController
 
 	def index
-		@children = current_user.children 
+    if current_user
+		  @children = current_user.children 
+    else
+      redirect_to new_user_session_path
+    end
 	end
 
   def profiles_index
-    @children = current_user.children
-    @child =  Child.find_by(id:params[:id])
+    if current_user
+      @children = current_user.children
+      @child =  Child.find_by(id:params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
 	def show

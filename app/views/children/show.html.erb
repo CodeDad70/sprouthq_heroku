@@ -1,6 +1,15 @@
+<%if not_allowed(current_user, @child)%>
+	<h5 align=center>You aren't allowed to view this page. <br>
+	<%=link_to "Sign in", new_user_session_path%> or
+  <%=link_to "Sign up", new_user_registration_path%></h5>
+
+<%else%>
+
 <%= render partial: '/cards/error', locals: {f: @child} %>
 
-<div class = "border-form">
+<div class="border-form">
+
+
 	<%= form_for @child do |profile| %>
 	<%= render partial: 'profile', locals: {profile: profile} %> <br><br>
 
@@ -10,5 +19,5 @@
 <%= form_tag child_path(@child), method: "delete" %>
 	<%= submit_tag "DELETE this profile" %>
 
-
+<%end%>
 </div>
