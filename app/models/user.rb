@@ -14,16 +14,6 @@ class User < ActiveRecord::Base
   end
 
 
-  def many_kids
-    kids=[]
-    self.children.each do |kid|
-      kids << kid
-    end
-    kids.count > 1
-  end
-
-  
-
   
   
 

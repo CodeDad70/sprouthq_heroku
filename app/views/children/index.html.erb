@@ -7,7 +7,7 @@
 					<h2><%=link_to child.name, child_path(child)%></h2>
 					
 
-					<h4><%=child.fix_date%></h4>
+					<h4><%=fix_date%></h4>
 					<h4><%=child.eye_color%></h4>
 					<h4><%=child.hair_color%></h4>
 					<h4><%=child.gender%></h4>
@@ -28,7 +28,7 @@
 				<sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br>
 
 
-				<h3>Birthday: <%=child.fix_date%></h3>
+				<h3>Birthday: <%=fix_date(child)%></h3>
 				
 				<h3><%=child.gender%></h3>
 				
