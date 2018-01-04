@@ -30,6 +30,7 @@ class CardsController < ApplicationController
     @card = @child.cards.build(card_params)
     if @child.valid?  
       @card.save
+      binding.pry
       redirect_to child_card_path(@child.id, @card.id)
     else 
       render :new 
@@ -78,7 +79,7 @@ class CardsController < ApplicationController
 
 
 	def card_params
-    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id, :milestones)
+    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id, card_milestones_ids:[])
   end
 	
 
