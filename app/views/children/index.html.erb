@@ -5,8 +5,6 @@
 			<div class="border-form">
 				
 					<h2><%=link_to child.name, child_path(child)%></h2>
-					
-
 					<h4><%=fix_date(child)%></h4>
 					<h4><%=child.eye_color%></h4>
 					<h4><%=child.hair_color%></h4>
@@ -34,21 +32,15 @@
 				
 				<h3> Age: <%=child.latest_card.age%> </h3>	
 
-				<%if child.latest_card.weight_check%>
-					<h3>Weight: <%=child.latest_card.weight %><h3>
-				<%end%>
+				<h3> <%=height_check(child.latest_card)%></h3>
+		
+				<h3> <%=weight_check(child.latest_card)%><h3>
 
-				<%if child.latest_card.height_check%>
-					<h3>Height: <%=child.latest_card.height%><h3>
-				<%end%>
+				<h3> <%=advil_check(child.latest_card)%></h3>
 
-				<%if child.latest_card.advil_check%>
-					<h3>Advil dosage: <%=child.latest_card.advil_dosage%> mL<h3>
-				<%end%>
-
-				<%if child.latest_card.tylenol_check%>
-					<h3>Tylenol dosage: <%=child.latest_card.tylenol_dosage%> mL<h3>
-				<%end%>
+				<h3> <%=tylenol_check(child.latest_card)%></h3>
+	
+				<h3><%=flu_shot_given(child.latest_card)%></h3>
 
 				<h3><%=flu_shot_given(child.latest_card)%></h3>
 
