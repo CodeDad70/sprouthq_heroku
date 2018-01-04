@@ -7,7 +7,7 @@
 					<h2><%=link_to child.name, child_path(child)%></h2>
 					
 
-					<h4><%=fix_date%></h4>
+					<h4><%=fix_date(child)%></h4>
 					<h4><%=child.eye_color%></h4>
 					<h4><%=child.hair_color%></h4>
 					<h4><%=child.gender%></h4>
@@ -50,12 +50,7 @@
 					<h3>Tylenol dosage: <%=child.latest_card.tylenol_dosage%> mL<h3>
 				<%end%>
 
-				<%if child.latest_card.flu_shot == true%>
-					<h3>Flu shot ? Yes!</h3>
-				<%else%>
-					<h3>Flu shot? Not yet</h3>
-				
-				<%end%>
+				<h3><%=flu_shot_given(child.latest_card)%></h3>
 
 	
 				<h4>Select an age to see:</h4>	

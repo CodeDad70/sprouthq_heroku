@@ -1,11 +1,16 @@
 <div class="border-form">
-	<%if !current_user  || current_user.id != @child.user_id%>
+	<%if !current_user %>
 		Please <a href="http://localhost:3000/users/sign_in"> sign in</a> to continue.
+		<%end%>
 
-	<%else%>
+	<%if current_user.id == @child.user_id%>
 	<h2><%=link_to @child.name, child_path(@child)%></h2> 
 	<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>
 	<%= render 'show_card', :locals => { :child => @child, :card => '@card'} %>
+
+	<%else%>
+
+	You can't view 
 
 
 
