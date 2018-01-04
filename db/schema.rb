@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171222022521) do
   end
 
   create_table "cards", force: :cascade do |t|
-    t.integer "age"
+    t.string "age"
     t.integer "years"
     t.integer "months"
     t.string "height"
