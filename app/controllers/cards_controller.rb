@@ -20,7 +20,7 @@ class CardsController < ApplicationController
     @year_options = (0..18).to_a
     @month_options = (0..12).to_a
   	@child= Child.find_by(id: params[:child_id])
-    @child.cards.build(age: ' ')
+    @child.cards.build(height: ' ')
     @card = @child.cards.new
   end
 
@@ -31,7 +31,9 @@ class CardsController < ApplicationController
     @month_options = (0..12).to_a 
     @child= Child.find_by(id: params[:child_id]) 
     @card = @child.cards.build(card_params)
+    @card.age = @card.age_create
     if @child.valid? 
+      binding.pry
       @card.save
       
       redirect_to child_card_path(@child.id, @card.id)
