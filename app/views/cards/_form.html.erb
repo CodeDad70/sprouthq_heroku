@@ -4,7 +4,7 @@
         <h6>Months: <%=f.select(:months, @month_options)%></h6>
         
       </div>
-       
+    
 
         <%=f.label :height%>
         <%=f.text_field :height%>
@@ -25,7 +25,7 @@
         <%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %><br>
         
         <%= f.fields_for :milestones, @card.milestones.build do |milestone| %>
-          <%= milestone.label "Create your own milestone"%>
+          <%= milestone.label "Submit your own milestone"%>
           <%= milestone.text_field :title%>
         <% end %>
 

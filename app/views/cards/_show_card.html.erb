@@ -14,12 +14,16 @@
 	
 		<h3><%=flu_shot_given(@card)%></h3>
 
-		<h4>Select an age to see:</h4>	
-
 
 		<%@card.milestones.each do |milestone|%>
-		<%=milestone.title%><br>
-		<%end%>
+		<small><%=milestone.title%></small>
+		<%end%><br>
+
+		<%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id), method: "get"%>
+
+		
+
+		<h4>Select an age to see:</h4>
 
 		<%@child.ordered.each do |card|%>
 
@@ -27,7 +31,7 @@
 		<%end%>		
 		<br><br>
 
-		 <%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id), method: "get"%>
+		 
 
 
 		<br><br><br><br>

@@ -17,21 +17,23 @@
  */
  /* User sign in and sign forms. */
 
+small {
+  font-size: 11px;
+}
 
-
-.logo {
+#logo {
     padding: 0px 20px;
     font-size: 0px;
 }
-.logo h3:before {
+#logo h3:before {
     content: 'Sprout';
     color: #74e86a;
-    font-size: 28px;
+    font-size: 25px;
 }
-.logo h3:after {
+#logo h3:after {
     content: 'HQ';
     color: #0e4709;
-    font-size: 28px;
+    font-size: 25px;
 }
 
 

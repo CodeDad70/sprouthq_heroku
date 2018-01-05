@@ -30,7 +30,7 @@ class CardsController < ApplicationController
     @month_options = (0..12).to_a 
     @child= Child.find_by(id: params[:child_id]) 
     @card = @child.cards.build(card_params)
-    #@card.age = @card.age_create
+    @card.age = @card.age_create
     if @child.valid? 
       @card.save
       redirect_to child_card_path(@child.id, @card.id)
@@ -52,8 +52,9 @@ class CardsController < ApplicationController
     @month_options = (0..12).to_a
     @child = Child.find_by(id: params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
-    #@card.age = @card.age_create
     @card.update(card_params)
+    @card.age = @card.age_create
+    
     if @card.valid?
       @card.save
       @card = @child.cards.find_by(id: params[:id])
