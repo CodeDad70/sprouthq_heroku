@@ -6,6 +6,7 @@ class Card < ApplicationRecord
 	accepts_nested_attributes_for :milestones
 	
 
+	validate :age_unique
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
@@ -26,6 +27,7 @@ class Card < ApplicationRecord
 		end
 	end
 
+
 	def age
 		if self.years > 1 && self.months == 6
 			"#{self.years} 1/2 years "
@@ -42,6 +44,15 @@ class Card < ApplicationRecord
 			"#{self.years} years"	
 		elsif self.years > 1 && self.months	> 1
 			"#{self.years} years #{self.months} months"
+		end
+	end
+
+	def age_unique
+		child = Child.find(self.child_id)
+		child.cards.each do |check|
+			if check.age == self.age
+			errors.add(:age, "already exists")
+		end
 		end
 	end
 

@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+    include CardsHelper
 
 	def index
   	if params[:child_id]
@@ -30,7 +31,7 @@ class CardsController < ApplicationController
     @month_options = (0..12).to_a 
     @child= Child.find_by(id: params[:child_id]) 
     @card = @child.cards.build(card_params)
-    if @child.valid?  
+    if @child.valid? 
       @card.save
       
       redirect_to child_card_path(@child.id, @card.id)
