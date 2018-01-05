@@ -16,6 +16,11 @@
 
 		<h4>Select an age to see:</h4>	
 
+
+		<%@card.milestones.each do |milestone|%>
+		<%=milestone.title%><br>
+		<%end%>
+
 		<%@child.ordered.each do |card|%>
 
 			<%=link_to card.short_age, child_card_path(@child.id, card.id)%>  	&#9702;
