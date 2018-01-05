@@ -9,8 +9,6 @@
 		walked.months=2
 		walked.save
 
-
-
 		talked = Milestone.new(title:'talked for the first time!')
 		talked.age= '1 years 8 months' 
 		talked.years=1 

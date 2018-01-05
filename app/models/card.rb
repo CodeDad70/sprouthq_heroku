@@ -3,13 +3,15 @@ class Card < ApplicationRecord
 	belongs_to :child
 	has_many :card_milestones
 	has_many :milestones, through: :card_milestones
+	
 
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates :advil_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
 	validates :tylenol_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
-	
+
+
 
 	def age_entered
 		if self.years == 0 && self.months == 0 

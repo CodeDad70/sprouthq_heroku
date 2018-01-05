@@ -9,6 +9,7 @@ class CardsController < ApplicationController
   end
  
   def show
+
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
    
@@ -24,13 +25,14 @@ class CardsController < ApplicationController
 
 
   def create
+    
     @year_options = (0..18).to_a
     @month_options = (0..12).to_a 
     @child= Child.find_by(id: params[:child_id]) 
     @card = @child.cards.build(card_params)
     if @child.valid?  
       @card.save
-      binding.pry
+      
       redirect_to child_card_path(@child.id, @card.id)
     else 
       render :new 
@@ -79,7 +81,7 @@ class CardsController < ApplicationController
 
 
 	def card_params
-    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id, card_milestones_ids:[])
+    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id, milestone_ids:[])
   end
 	
 

@@ -22,6 +22,7 @@
           Yes <%= f.radio_button :flu_shot, true %> 
           No  <%= f.radio_button :flu_shot, false %> <br><br>
 
-        <p><%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %></p>
+          <%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %><br>
+
         
-  
+

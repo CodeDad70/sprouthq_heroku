@@ -32,5 +32,4 @@ module CardsHelper
 		end
 	end
 
-
 end
