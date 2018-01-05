@@ -22,7 +22,12 @@
           Yes <%= f.radio_button :flu_shot, true %> 
           No  <%= f.radio_button :flu_shot, false %> <br><br>
 
-          <%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %><br>
+        <%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %><br>
+        
+        <%= f.fields_for :milestones, @card.milestones.build do |milestone| %>
+          <%= milestone.label "Create your own milestone"%>
+          <%= milestone.text_field :title%>
+        <% end %>
 
 
         

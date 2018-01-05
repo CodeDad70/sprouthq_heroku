@@ -3,6 +3,7 @@ class Card < ApplicationRecord
 	belongs_to :child
 	has_many :card_milestones
 	has_many :milestones, through: :card_milestones
+	accepts_nested_attributes_for :milestones
 	
 
 	validate :age_entered
@@ -12,6 +13,12 @@ class Card < ApplicationRecord
 	validates :tylenol_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
 
 
+  def milestones_attributes=(milestone_attributes)
+  	milestone_attributes.values.each do |milestone_attribute|
+    	milestone = Milestone.find_or_create_by(milestone_attribute)
+    		self.milestones << milestone
+  	end
+	end
 
 	def age_entered
 		if self.years == 0 && self.months == 0 

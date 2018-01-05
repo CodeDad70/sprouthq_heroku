@@ -46,10 +46,6 @@ ActiveRecord::Schema.define(version: 20171222022521) do
 
   create_table "milestones", force: :cascade do |t|
     t.string "title"
-    t.text "description"
-    t.string "age"
-    t.integer "years"
-    t.integer "months"
   end
 
   create_table "users", force: :cascade do |t|
