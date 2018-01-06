@@ -15,13 +15,11 @@ class Card < ApplicationRecord
 
 
   def milestones_attributes=(milestone_attributes)
- 
-  	milestone_attributes.values.each do |milestone_attribute|
+   	milestone_attributes.values.each do |milestone_attribute|
   		milestone = milestone_attribute.delete_if {|k, v| v.empty? }
-  	
   		if !milestone.empty? 
-  			Milestone.find_or_create_by(milestone_attribute)
-    		self.milestones << milestone
+  			milestone_create = Milestone.find_or_create_by(milestone_attribute)
+    		self.milestones << milestone_create
     	end
     end
 	end
