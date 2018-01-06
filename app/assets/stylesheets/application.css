@@ -1,28 +1,142 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require twitter/bootstrap
- *= require_self
- *= require_tree .
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a:link {color:#0b6303;}
+a:visited {color:#13590d;}
+a:hover {color:#54ba4c;}
+a:active {color:#0b6303;}
+
+
+
+
+/* form layout */
+.border-form {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form input[type="text"],
+.border-form input[type="email"],
+.border-form input[type="password"] {
+  font-size: 14px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+
+
+
+/*card layouts */
+
+.container {
+  display:block;
+  width: 700px;
  
- */
- /* User sign in and sign forms. */
+  margin: 15px auto ;
+  
+}
+
+/*.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}*/
+
+section {
+  padding: 20px;
+}
+
+
+.profile {
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+          box-shadow: 0 3px 3px rgba(0,0,0,.10);
+
+  float: left;
+  width: 30%;
+  height: 300px;
+
+  background-color: #6cd863;
+  
+}
+
+.stats {
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+          box-shadow: 0 3px 3px rgba(0,0,0,.10);
+  float: left;
+  width: 70%;
+  height: 300px;
+  background-color: #fff;
+
+}
+
+.edit {
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+          box-shadow: 0 3px 3px rgba(0,0,0,.10);
+  clear: both;
+  width:100%;
+}
+
+.milestones{
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+          box-shadow: 0 3px 3px rgba(0,0,0,.10);
+
+  background-color: #11700a;
+
+  clear: both;
+  width: 100%;
+
+}
+
+.milestones small {
+  font-color: #fff;
+}
+
 
 small {
   font-size: 11px;
 }
 
 #logo {
-    padding: 0px 20px;
+    padding: 5px 20px 15px;
     font-size: 0px;
 }
 #logo h3:before {
@@ -54,7 +168,7 @@ small {
     display: block;
     color: white;
     ;
-    padding: 25px 16px;
+    padding: 3px 16px;
     text-decoration: none;
     }
 
@@ -62,32 +176,5 @@ small {
     background-color: #0f7c06
     }
 }
-
-.border-form {
-  max-width: 300px;
-  padding: 19px 29px 29px;
-  margin: 0 auto 20px;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
-}
-.border-form-div .form-signin-heading,
-.border-form-div .checkbox {
-  margin-bottom: 10px;
-}
-.border-form input[type="text"],
-.border-form input[type="email"],
-.border-form input[type="password"] {
-  font-size: 16px;
-  height: auto;
-  margin-bottom: 15px;
-  padding: 7px 9px;
-}
-
 
 

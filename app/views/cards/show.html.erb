@@ -5,9 +5,28 @@
 
 
 	<%else%>
-<div class="border-form">
-		<h2><%=link_to @child.name, child_path(@child)%></h2> 
+
+
+<div class="container" class="clearfix">
+	
+	<section class="profile">
+		<h1><%=link_to @child.name, child_path(@child)%></h1> 
+		
+		<p>Birthday:<br> <%=fix_date(@child)%></p>
+
+		<p><%=@child.gender%></p>
+
 		<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>
+
+		<h4>Select an age to see:</h4>
+
+		<%@child.ordered.each do |card|%>
+
+			<%=link_to card.short_age, child_card_path(@child.id, card.id)%>  	&#9702;
+		<%end%>		
+		
+	</section>
+		
 		<%= render 'show_card', :locals => { :child => @child, :card => '@card'} %>
 	<%end%>
 	

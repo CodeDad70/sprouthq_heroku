@@ -2,7 +2,9 @@
 <%@children.each do |child|%>	
 	
 			<%if !child.cards.exists? %>
-			<div class="border-form">
+			<div class="container" class="clearfix">
+
+				<section class="profile">
 				
 					<h2><%=link_to child.name, child_path(child)%></h2>
 					<h4><%=fix_date(child)%></h4>
@@ -13,24 +15,36 @@
 
 					
 					<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
+
+				</section>
 					</div>
 				
 
 				<%else%>
 
 
-				<div class="border-form">
+				<div class="container" class="clearfix">
+
+				<section class="profile">
 
 
 				<h2><%=link_to child.name, child_path(child)%> </h2>
-				<sm><%=link_to "edit this profile", edit_child_path(child)%></sm> <br>
-
-
-				<h5>Birthday: <%=fix_date(child)%></h5>
+				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
+				<p>Birthday: <%=fix_date(child)%></p>
 				
-				<h3><%=child.gender%></h3>
+				<p><%=child.gender%></p>
+
+				<h4>Select an age to see:</h4>	
+					<%child.ordered.each do |card|%>
+						<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
+					<%end%>	
+				
+				
+				</section>
+				<section class = "stats">
 				
 				<h3> Age: <%=child.latest_card.age%> </h3>	
+				
 
 				<h3> <%=height_check(child.latest_card)%></h3>
 		
@@ -42,23 +56,17 @@
 	
 				<h3><%=flu_shot_given(child.latest_card)%></h3>
 
-	
-				<h4>Select an age to see:</h4>	
-					<%child.ordered.each do |card|%>
-						<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
+			</section>
+				
 					<%end%>	
-				<%end%>
-
-				</div>
-								
+					</div>		
 			
 			<%end%>
 
-			</div>
-		
+			
 			
 				<%else%>
-				<div class="border-form">
+				<div class="container" class="clearfix">
 					<h3>Welcome to SproutHQ</h3>
 					<h5>Get started by <%=link_to "creating your child's profile", new_child_path %></h5>
 				</div>

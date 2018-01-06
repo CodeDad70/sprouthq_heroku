@@ -1,39 +1,35 @@
-		<h3>Birthday: <%=fix_date(@child)%></h3>
+		<section class="stats">
 
-		<h3><%=@child.gender%></h3>
-		
 		<h3> Age: <%=@card.age%> </h3>
 
-		<h3> <%=height_check(@card)%></h3>
+		<p> <%=height_check(@card)%></p>
 		
-		<h3> <%=weight_check(@card)%><h3>
+		<p> <%=weight_check(@card)%></p>
 
-		<h3> <%=advil_check(@card)%></h3>
+		<p> <%=advil_check(@card)%></p>
 
-		<h3> <%=tylenol_check(@card)%></h3>
+		<p> <%=tylenol_check(@card)%></p>
 	
-		<h3><%=flu_shot_given(@card)%></h3>
+		<p><%=flu_shot_given(@card)%></p>
+
+		<%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id), method: "get"%><br><br>
 
 
-		<%@card.milestones.each do |milestone|%>
-		<small><%=milestone.title%></small>
-		<%end%><br>
-
-		<%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id), method: "get"%>
-
-		
-
-		<h4>Select an age to see:</h4>
-
-		<%@child.ordered.each do |card|%>
-
-			<%=link_to card.short_age, child_card_path(@child.id, card.id)%>  	&#9702;
-		<%end%>		
-		<br><br>
-
-		 
-
-
-		<br><br><br><br>
 		<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
 			<%= submit_tag "DELETE this card" %>
+	
+
+		</section>
+
+
+<section class="milestones">
+	<h5>Here are some milestones <%=@child.name%> reached at this age : </h5>
+	<%@card.milestones.each do |milestone|%>
+		<small><%=milestone.title%> </small> 
+		<%end%><br>
+</section>
+
+
+
+
+		

@@ -5,8 +5,8 @@ class Card < ApplicationRecord
 	has_many :milestones, through: :card_milestones
 	accepts_nested_attributes_for :milestones
 	
-	#validate :age_unique, :on => :create
-	validates :age, uniqueness: true, :on => :create
+	#validates :age, uniqueness: true
+	validate :age_unique, :on => :create
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
@@ -15,10 +15,24 @@ class Card < ApplicationRecord
 
 
   def milestones_attributes=(milestone_attributes)
+ 
   	milestone_attributes.values.each do |milestone_attribute|
-    	milestone = Milestone.find_or_create_by(milestone_attribute)
+  		milestone = milestone_attribute.delete_if {|k, v| v.empty? }
+  	
+  		if !milestone.empty? 
+  			Milestone.find_or_create_by(milestone_attribute)
     		self.milestones << milestone
-  	end
+    	end
+    end
+	end
+
+	def age_unique
+		child = Child.find(self.child_id)
+		child.cards.each do |check|
+			if check.age == self.age
+			errors.add(:age, "already exists")
+			end
+		end
 	end
 
 	def age_entered
@@ -26,16 +40,6 @@ class Card < ApplicationRecord
 			errors.add(:age, "can't be blank!")
 		end
 	end
-
-	# def age_unique
-	# 	child = Child.find(self.child_id)
-	# 	child.cards.each do |check|
-	# 		if check.age == self.age
-	# 		errors.add(:age, "already exists")
-	# 		end
-	# 	end
-	# end
-
 
 	def age_create
 		if self.years > 1 && self.months == 6
