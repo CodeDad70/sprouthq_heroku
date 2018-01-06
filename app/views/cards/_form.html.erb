@@ -1,32 +1,34 @@
       <div>
-        <%=f.label :age%>
-        <h6>Years: <%=f.select(:years, @year_options)%></h6>
-        <h6>Months: <%=f.select(:months, @month_options)%></h6>
+        * <%=f.label :age%> : &emsp;
+        Years  <%=f.select(:years, @year_options)%> &emsp;
+        Months   <%=f.select(:months, @month_options)%><br><br>
         
       </div>
     
 
         <%=f.label :height%>
-        <%=f.text_field :height%>
+        <%=f.text_field :height%><br>
 
         <%=f.label :weight%>
-        <%=f.text_field :weight%>
+        <%=f.text_field :weight%><br>
 
         <%=f.label :advil_dosage%> 
-        <%=f.number_field :advil_dosage, :class => 'text_field', :step => 0.01%> mL
+        <%=f.number_field :advil_dosage, :class => 'text_field', :step => 0.01%> mL <br><br>
 
         <%=f.label :tylenol_dosage%> 
-        <%=f.number_field :tylenol_dosage, :class => 'text_field', :step => 0.01%> mL <br>
+        <%=f.number_field :tylenol_dosage, :class => 'text_field', :step => 0.01%> mL <br><br>
 
         Flu Shot?   
           Yes <%= f.radio_button :flu_shot, true %> 
           No  <%= f.radio_button :flu_shot, false %> <br><br>
 
-        <%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %><br>
+        <small><%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %></small><br>
         
         <%= f.fields_for :milestones, @card.milestones.build do |milestone| %>
           <%= milestone.label "Submit your own milestone"%>
-          <%= milestone.text_field :title%>
+          <%= milestone.text_field :title%><br>
+
+          
         <% end %>
 
 

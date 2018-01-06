@@ -21,9 +21,9 @@
 
 
 	<section class="milestones">
-		<h5>Here are some milestones <%=@child.name%> reached at this age : </h5>
+		<b>Here are some milestones <%=@child.name%> reached at this age : </b><br>
 		<%@card.milestones.each do |milestone|%>
-			<small><%=milestone.title%> </small> 
+			<small><%=milestone.title%>&emsp;</small> 
 			<%end%><br>
 	</section>
 

@@ -1,3 +1,7 @@
+body {
+  font-family: Sans-Serif;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -9,14 +13,18 @@ a:visited {color:#13590d;}
 a:hover {color:#54ba4c;}
 a:active {color:#0b6303;}
 
-
+.name {
+  color: #e2ffc9;
+  font-size: 45px;
+  font-weight: bold;
+}
 
 
 /* form layout */
 .border-form {
-  max-width: 300px;
-  padding: 19px 29px 29px;
-  margin: 0 auto 20px;
+  max-width: 600px;
+  padding: 10px 29px 40px 40px;
+  margin: 10px auto 20px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
@@ -40,13 +48,27 @@ a:active {color:#0b6303;}
 }
 
 
+.single_column {
+  display:block;
+  width: 750px;
+  margin: 10px auto;
+  border: 1px solid #74e86a;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+          box-shadow: 0 3px 3px rgba(0,0,0,.10);
+  padding: 20px;
+
+}
 
 
 /*card layouts */
 
 .container {
   display:block;
-  width: 700px;
+  width: 900px;
  
   margin: 10px auto ;
   
@@ -77,7 +99,7 @@ section {
           box-shadow: 0 3px 3px rgba(0,0,0,.10);
   padding: 20px;        
   float: left;
-  width: 30%;
+  width: 40%;
   height: 300px;
 
   background-color: #6cd863;
@@ -90,11 +112,12 @@ section {
      -moz-border-radius: 5px;
           border-radius: 5px;
   -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
-     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10      <h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%>
+);
           box-shadow: 0 3px 3px rgba(0,0,0,.10);
   padding: 20px;        
   float: left;
-  width: 65%;
+  width: 58%;
   height: 300px;
   background-color: #ebffd8;
   text-align: center;
@@ -123,19 +146,16 @@ section {
           box-shadow: 0 3px 3px rgba(0,0,0,.10);
 
   background-color: #cdff9e;
-  
+  padding: 10px;
   clear: both;
-  width: 96%;
-
+  width: 99%;
+  text-align: center;
 }
 
-.milestones small {
-  font-color: #fff;
-}
 
 
 small {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 #logo {

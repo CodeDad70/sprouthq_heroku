@@ -6,7 +6,7 @@
 
 				<section class="profile">
 				
-					<h2><%=link_to child.name, child_path(child)%></h2>
+					<section class="name"><%=child.name%></section>
 					<h4><%=fix_date(child)%></h4>
 					<h4><%=child.eye_color%></h4>
 					<h4><%=child.hair_color%></h4>
@@ -28,7 +28,7 @@
 				<section class="profile">
 
 
-				<h2><%=link_to child.name, child_path(child)%> </h2>
+				<section class="name"><%=child.name%></section>
 				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
 				<p>Birthday: <%=fix_date(child)%></p>
 				
@@ -44,7 +44,6 @@
 				<section class = "stats">
 				
 				<h3> Age: <%=child.latest_card.age%> </h3>	
-				
 
 				<h3> <%=height_check(child.latest_card)%></h3>
 		

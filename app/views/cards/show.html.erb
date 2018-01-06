@@ -10,7 +10,7 @@
 <div class="container" class="clearfix">
 	
 	<section class="profile">
-		<h1><%=link_to @child.name, child_path(@child)%></h1> 
+		<section class="name"><%=@child.name%></section> 
 		
 		<p>Birthday:<br> <%=fix_date(@child)%></p>
 
@@ -22,7 +22,7 @@
 
 		<%@child.ordered.each do |card|%>
 
-			<%=link_to card.short_age, child_card_path(@child.id, card.id)%>  	&#9702;
+			<%=link_to card.short_age, child_card_path(@child.id, card.id)%> &ensp;
 		<%end%>		
 		
 	</section>
