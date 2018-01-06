@@ -17,17 +17,15 @@
 
 		<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
 			<%= submit_tag "DELETE this card" %>
-	
-
 		</section>
 
 
-<section class="milestones">
-	<h5>Here are some milestones <%=@child.name%> reached at this age : </h5>
-	<%@card.milestones.each do |milestone|%>
-		<small><%=milestone.title%> </small> 
-		<%end%><br>
-</section>
+	<section class="milestones">
+		<h5>Here are some milestones <%=@child.name%> reached at this age : </h5>
+		<%@card.milestones.each do |milestone|%>
+			<small><%=milestone.title%> </small> 
+			<%end%><br>
+	</section>
 
 
 
