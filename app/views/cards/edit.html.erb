@@ -6,6 +6,9 @@
     <h3 >Update card for <%=@child.name%>:</h3>
       <%= render partial: 'form', locals: {f: card} %>
       <%= card.submit %>
-<% end %>
+<% end %><br><br>
+
+<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
+			<%= submit_tag "DELETE this card" %>
 
   </div>

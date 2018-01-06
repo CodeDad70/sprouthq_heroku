@@ -7,13 +7,17 @@
 				<section class="profile">
 				
 					<section class="name"><%=child.name%></section>
-					<h4><%=fix_date(child)%></h4>
-					<h4><%=child.eye_color%></h4>
-					<h4><%=child.hair_color%></h4>
-					<h4><%=child.gender%></h4>
-					<h6><%=link_to "edit this profile", edit_child_path(child)%></h6><br>
+				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
+				<p>Birthday: <%=fix_date(child)%></p>
+				
+				<p><%=child.gender%></p>
 
-					
+				</section>
+
+				<section class = "stats">
+
+					There are no cards for <%=child.name%> yet.
+
 					<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
 
 				</section>

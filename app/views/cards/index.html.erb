@@ -7,11 +7,12 @@
 <%if current_user%>
 	<%current_user.children.each do |child| %>
 		<div class="single_column">
-			<section class="name"><%=child.name%></section> <br>
-			<h4><%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%></h4>
-			<h4>Select an age to edit:</h4>	
+			<section class="name"><%=child.name%></section> 
+			<%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%><br><br>
+			or <br><br>
+			Select an age to edit: <br>	
 			<%child.ordered.each do |card|%>
-				<%=link_to card.short_age, edit_child_card_path(child.id, card.id)%>  	&#9702;
+				<small><%=link_to card.short_age, edit_child_card_path(child.id, card.id)%> &emsp;</small> 
 			 <% end %>
 		
      </div>
