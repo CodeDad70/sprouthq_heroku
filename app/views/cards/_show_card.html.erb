@@ -10,7 +10,7 @@
 	
 		<p><%=flu_shot_given(card)%></p>
 
-		<%= link_to 'Edit this card', edit_child_card_path(child.id, card.id), method: "get"%><br><br>
+		<small><%= link_to 'Edit this card', edit_child_card_path(child.id, card.id), method: "get"%></small><br><br>
 
 
 		<%= form_tag child_card_path(child.id, card.id), method: "delete" %>
@@ -19,10 +19,16 @@
 		</section>
 
 		<section class="milestones">
+			<%if card.milestones.exists?%>
 		<b>Here are some milestones <%=child.name%> reached at this age : </b><br>
 		<%card.milestones.each do |milestone|%>
 			<small><%=milestone.title%>&emsp;</small> 
-			<%end%><br>
+			<br>
+		<%end%>
+			<%else%>
+			<p> There are no milestones for this age. Select or create milestones <%= link_to 'here', edit_child_card_path(child.id, card.id), method: "get"%>.  </p>
+				
+				<%end%>
 	</section>
 
 
