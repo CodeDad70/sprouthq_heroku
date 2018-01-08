@@ -14,6 +14,10 @@
 		
 		<p>Birthday:<br> <%=fix_date(@child)%></p>
 
+		<p><%=@child.eye_color%></p>
+
+		<p><%=@child.hair_color%></p>
+
 		<p><%=@child.gender%></p>
 
 		<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>

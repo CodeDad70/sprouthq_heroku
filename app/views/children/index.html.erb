@@ -6,11 +6,18 @@
 
 				<section class="profile">
 				
-					<section class="name"><%=child.name%></section>
+				<section class="name"><%=child.name%></section>
 				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
 				<p>Birthday: <%=fix_date(child)%></p>
+
+				<p><%=child.eye_color%></p>
 				
+				<p><%=child.hair_color%></p>
+
 				<p><%=child.gender%></p>
+
+				<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>
+
 
 				</section>
 
@@ -34,8 +41,13 @@
 
 				<section class="name"><%=child.name%></section>
 				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
-				<p>Birthday: <%=fix_date(child)%></p>
 				
+				<p>Birthday: <%=fix_date(child)%></p>
+
+				<p><%=child.eye_color%></p>
+				
+				<p><%=child.hair_color%></p>
+
 				<p><%=child.gender%></p>
 
 				<h4>Select an age to see:</h4>	
@@ -46,18 +58,22 @@
 				
 				</section>
 				<section class = "stats">
+
+				<h5> <%=child.name%>'s most recent stats : </h5>
 				
 				<h3> Age: <%=child.latest_card.age%> </h3>	
 
-				<h3> <%=height_check(child.latest_card)%></h3>
+				<p> <%=height_check(child.latest_card)%></p>
 		
-				<h3> <%=weight_check(child.latest_card)%><h3>
+				<p> <%=weight_check(child.latest_card)%><p>
 
-				<h3> <%=advil_check(child.latest_card)%></h3>
+				<p> <%=advil_check(child.latest_card)%></p>
 
-				<h3> <%=tylenol_check(child.latest_card)%></h3>
+				<p> <%=tylenol_check(child.latest_card)%></p>
 	
-				<h3><%=flu_shot_given(child.latest_card)%></h3>
+				<p><%=flu_shot_given(child.latest_card)%></p>
+
+					<%= link_to 'Edit this card', edit_child_card_path(child.id, child.latest_card.id), method: "get"%><br><br>
 
 			</section>
 				
