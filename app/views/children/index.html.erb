@@ -3,69 +3,26 @@
 	
 	<%if !child.cards.exists? %>
 		<div class="container" class="clearfix">
-
-			<section class="profile">
-				
-				<section class="name"><%=child.name%></section>
-				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
-				<p>Birthday: <%=fix_date(child)%></p>
-
-				<p><%=child.eye_color%></p>
-				
-				<p><%=child.hair_color%></p>
-
-				<p><%=child.gender%></p>
+			<%= render partial: 'profile_view', :locals => {child: child}%>	
+			<section class = "stats">
+				There are no cards for <%=child.name%> yet.
+				<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
 			</section>
-
-				<section class = "stats">
-
-					There are no cards for <%=child.name%> yet.
-
-					<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
-
-				</section>
 		</div>
-				
 
-				<%else%>
-
-
+	<%else%>
 		<div class="container" class="clearfix">
-
-			<section class="profile">
-
-
-			<section class="name"><%=child.name%></section>
-				<h6><%=link_to "edit this profile", edit_child_path(child)%></h6>
-				
-				<p>Birthday: <%=fix_date(child)%></p>
-
-				<p><%=child.eye_color%></p>
-				
-				<p><%=child.hair_color%></p>
-
-				<p><%=child.gender%></p>
-
-				<h4>Select an age to see:</h4>	
-					<%child.ordered.each do |card|%>
-						<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
-					<%end%>	
-			</section>
-
+			<%= render partial: 'profile_view', :locals => {child: child}%>
 			<section class = "stats">
 				<h5> <%=child.name%>'s most recent stats : </h5>
 				<%= render partial: '/cards/show_card', :locals => {:child => child, :card => child.latest_card} %>
-			</section>
-				
-					<%end%>	
-		</div>		
-			
-			<%end%>
+			<%end%>	
+		</div>			
+	<%end%>
 
-				<%else%>
+	<%else%>
 		<div class="container" class="clearfix">
-					<h3>Welcome to SproutHQ</h3>
-					<h5>Get started by <%=link_to "creating your child's profile", new_child_path %></h5>
+			<h3>Welcome to SproutHQ</h3>
+			<h5>Get started by <%=link_to "creating your child's profile", new_child_path %></h5>
 		</div>
-				<%end%>
-	</div>
+	<%end%>
