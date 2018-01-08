@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     # nested resource for cards
    	resources :cards, only:[:show, :new, :create, :edit, :update, :delete, :destroy]
   end
+
   get '/profiles_index', to: 'children#profiles_index'
+
   resources :cards, only:[:index]
 
   
@@ -22,7 +24,4 @@ Rails.application.routes.draw do
 
 end
 
-    # patch 'posts/:id', to: 'posts#update'
-
-    # get '/children/:child_id/cards/new', to: 'cards#create'
-    # 
+    

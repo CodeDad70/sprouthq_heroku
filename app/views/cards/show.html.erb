@@ -31,8 +31,17 @@
 		
 	</section>
 
-		
+		<section class="stats">
 		<%= render partial: 'show_card', :locals => {:child => @child, :card => @card} %>
-	<%end%>
+		<%end%>
+
+		</section>
+
+<section class="milestones">
+		<b>Here are some milestones <%=@child.name%> reached at this age : </b><br>
+		<%@card.milestones.each do |milestone|%>
+			<small><%=milestone.title%>&emsp;</small> 
+			<%end%><br>
+	</section>
 	
 </div>
