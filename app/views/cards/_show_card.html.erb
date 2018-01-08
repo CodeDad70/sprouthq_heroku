@@ -1,28 +1,28 @@
 		<section class="stats">
 
-		<h3> Age: <%=@card.age%> </h3>
+		<h3> Age: <%=card.age%> </h3>
 
-		<p> <%=height_check(@card)%></p>
+		<p> <%=height_check(card)%></p>
 		
-		<p> <%=weight_check(@card)%></p>
+		<p> <%=weight_check(card)%></p>
 
-		<p> <%=advil_check(@card)%></p>
+		<p> <%=advil_check(card)%></p>
 
-		<p> <%=tylenol_check(@card)%></p>
+		<p> <%=tylenol_check(card)%></p>
 	
-		<p><%=flu_shot_given(@card)%></p>
+		<p><%=flu_shot_given(card)%></p>
 
-		<%= link_to 'Edit this card', edit_child_card_path(@child.id, @card.id), method: "get"%><br><br>
+		<%= link_to 'Edit this card', edit_child_card_path(child.id, card.id), method: "get"%><br><br>
 
 
-		<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
+		<%= form_tag child_card_path(child.id, card.id), method: "delete" %>
 			<%= submit_tag "DELETE this card" %>
 		</section>
 
 
 	<section class="milestones">
-		<b>Here are some milestones <%=@child.name%> reached at this age : </b><br>
-		<%@card.milestones.each do |milestone|%>
+		<b>Here are some milestones <%=child.name%> reached at this age : </b><br>
+		<%card.milestones.each do |milestone|%>
 			<small><%=milestone.title%>&emsp;</small> 
 			<%end%><br>
 	</section>
