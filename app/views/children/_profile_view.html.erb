@@ -10,8 +10,10 @@
 
 		<p><%=gender_check(child)%></p>
 
+		<%if child.cards.exists? %>
 		<h4>Select an age to see:</h4>	
 			<%child.ordered.each do |card|%>
-			<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&#9702;
+			<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&nbsp;
 			<%end%>	
+		<%end%>
 </section>
