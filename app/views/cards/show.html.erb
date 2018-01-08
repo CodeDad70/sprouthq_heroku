@@ -2,46 +2,16 @@
 			<h5 align=center>You aren't allowed to view this page. <br>
 				<%=link_to "Sign in", new_user_session_path%> or
   	    <%=link_to "Sign up", new_user_registration_path%></h5>
-
-
 	<%else%>
 
 
 <div class="container" class="clearfix">
 	
-	<section class="profile">
-		<section class="name"><%=@child.name%></section> 
-		
-		<p>Birthday:<br> <%=fix_date(@child)%></p>
+	<%= render partial: '/children/profile_view', :locals => {child: @child}%>
 
-		<p><%=@child.eye_color%></p>
-
-		<p><%=@child.hair_color%></p>
-
-		<p><%=@child.gender%></p>
-
-		<sm><%=link_to "edit this profile", edit_child_path(@child)%></sm> <br>
-
-		<h4>Select an age to see:</h4>
-
-		<%@child.ordered.each do |card|%>
-
-			<%=link_to card.short_age, child_card_path(@child.id, card.id)%> &ensp;
-		<%end%>		
-		
-	</section>
-
-		<section class="stats">
-		<%= render partial: 'show_card', :locals => {:child => @child, :card => @card} %>
-		<%end%>
-
-		</section>
-
-<section class="milestones">
-		<b>Here are some milestones <%=@child.name%> reached at this age : </b><br>
-		<%@card.milestones.each do |milestone|%>
-			<small><%=milestone.title%>&emsp;</small> 
-			<%end%><br>
+	<section class="stats">
+	<%= render partial: 'show_card', :locals => {:child => @child, :card => @card} %>
+	<%end%>		
 	</section>
 	
 </div>

@@ -17,7 +17,15 @@
 
 		<%= form_tag child_card_path(child.id, card.id), method: "delete" %>
 			<%= submit_tag "DELETE this card" %>
+
 		</section>
+
+		<section class="milestones">
+		<b>Here are some milestones <%=child.name%> reached at this age : </b><br>
+		<%card.milestones.each do |milestone|%>
+			<small><%=milestone.title%>&emsp;</small> 
+			<%end%><br>
+	</section>
 
 
 
