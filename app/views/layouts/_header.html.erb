@@ -16,9 +16,7 @@
         <li><%=link_to "Edit child's profile", edit_child_path(current_user.children.ids)%></li>
       <%end%>
 
-      <%if current_user.children.exists? && many_kids%>
-        <li><%=link_to "Edit/Create a child's card", cards_path%></li>
-      <%elsif current_user.children.exists?%>
+      <%if current_user.children.exists?%>
         <li><%=link_to "Edit/Create a child's card", cards_path%></li>
       <%end%>
     
