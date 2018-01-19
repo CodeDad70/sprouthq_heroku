@@ -9,11 +9,13 @@
 		<div class="single_column">
 			<section class="name"><%=child.name%></section> 
 			<%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%><br><br>
+			<%if child.cards.exists?%>
 			or <br><br>
 			Select an age to edit: <br>	
 			<%child.ordered.each do |card|%>
 				<small><%=link_to short_age(card), edit_child_card_path(child.id, card.id)%> &emsp;</small> 
 			 <% end %>
+			 <%end%>
 		
      </div>
     <%end%>
