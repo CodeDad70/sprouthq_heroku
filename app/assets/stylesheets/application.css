@@ -15,11 +15,6 @@ a:visited {color:#13590d;}
 a:hover {color:#54ba4c;}
 a:active {color:#0b6303;}
 
-
-
-
-
-
 .name {
   color: #e2ffc9;
   font-size: 45px;
@@ -41,7 +36,6 @@ a:active {color:#0b6303;}
   padding: 20px;
 
 }
-
 
 /* form layout */
 .border-form {
@@ -69,8 +63,6 @@ a:active {color:#0b6303;}
   margin-bottom: 15px;
   padding: 7px 9px;
 }
-
-
 
 
 /*card layouts */
@@ -166,8 +158,6 @@ section {
   width: 99%;
   text-align: center;
 }
-
-
 
 small {
   font-size: 12px;
