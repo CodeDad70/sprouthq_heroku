@@ -21,12 +21,19 @@ a:active {color:#0b6303;}
   font-weight: bold;
 }
 
+.name_single {
+  color: #6cd863;
+  font-size: 45px;
+  font-weight: bold;
+}
+
 .single_column {
   display:block;
   width: 300px;
   margin: 10px auto;
   border: 1px solid #0f2608;
-  background-color: #6cd863;
+  background-color: #ebffd8;
+  
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;

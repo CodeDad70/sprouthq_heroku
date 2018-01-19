@@ -7,7 +7,7 @@
 <%if current_user%>
 	<%current_user.children.each do |child| %>
 		<div class="single_column">
-			<section class="name"><%=child.name%></section> 
+			<section class="name_single"><%=child.name%></section> 
 			<%=link_to "Create a new card for #{child.name}", new_child_card_path(child)%><br><br>
 			<%if child.cards.exists?%>
 			or <br><br>
