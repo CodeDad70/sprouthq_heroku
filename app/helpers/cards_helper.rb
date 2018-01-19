@@ -32,4 +32,9 @@ module CardsHelper
 		end
 	end
 
+	def short_age(card)
+		card.age_create.gsub("year", "yr").gsub("month", "mo")
+	end
+
+
 end

@@ -13,7 +13,7 @@
 		<%if child.cards.exists? %>
 		<h4>Select an age to see:</h4>	
 			<%child.ordered.each do |card|%>
-			<%=link_to card.short_age, child_card_path(child.id, card.id)%>  	&nbsp;
+			<%=link_to short_age(card), child_card_path(child.id, card.id)%>  	&nbsp;
 			<%end%>	
 		<%end%>
 </section>

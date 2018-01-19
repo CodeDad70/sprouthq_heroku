@@ -57,10 +57,5 @@ class Card < ApplicationRecord
 		end
 	end
 
-	def short_age
-		age_create.gsub("year", "yr").gsub("month", "mo")
-	end
-
-
-
+	
 end

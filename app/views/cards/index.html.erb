@@ -12,7 +12,7 @@
 			or <br><br>
 			Select an age to edit: <br>	
 			<%child.ordered.each do |card|%>
-				<small><%=link_to card.short_age, edit_child_card_path(child.id, card.id)%> &emsp;</small> 
+				<small><%=link_to short_age(card), edit_child_card_path(child.id, card.id)%> &emsp;</small> 
 			 <% end %>
 		
      </div>
