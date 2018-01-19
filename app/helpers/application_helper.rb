@@ -9,6 +9,8 @@ module ApplicationHelper
 		
 	end
 
-
+	def many_kids
+		current_user.children.count > 1
+	end
 
 end

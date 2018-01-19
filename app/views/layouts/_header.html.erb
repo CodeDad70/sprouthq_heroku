@@ -9,10 +9,19 @@
     <li><a href=""> <b>| Welcome <%= current_user.email%> |</b></a></li>
       <li><%=link_to 'Home', children_path%></li>
       <li><%=link_to "Create child's profile", new_child_path%></li>
-      <%if current_user.children.exists?%>
-      <li><%=link_to "Edit child's profile", profiles_index_path%></li>
-      <li><%=link_to "Edit/Create a child's card", cards_path%></li>
+      
+      <%if current_user.children.exists? && many_kids%>
+        <li><%=link_to "Edit child's profile", profiles_index_path%></li>
+      <%elsif current_user.children.exists?%>
+        <li><%=link_to "Edit child's profile", edit_child_path(current_user.children.ids)%></li>
       <%end%>
+
+      <%if current_user.children.exists? && many_kids%>
+        <li><%=link_to "Edit/Create a child's card", cards_path%></li>
+      <%elsif current_user.children.exists?%>
+        <li><%=link_to "Edit/Create a child's card", cards_path%></li>
+      <%end%>
+    
       <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete%>  </li>
     <%else%>
       <li> <%=link_to "Sign in", new_user_session_path%>
