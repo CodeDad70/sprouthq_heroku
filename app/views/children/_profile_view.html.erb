@@ -15,6 +15,10 @@
 			<%child.ordered.each do |card|%>
 			<%=link_to short_age(card), child_card_path(child.id, card.id)%>  	&nbsp;
 			<%end%>	
+
+
+			<%= form_tag child_path(child), method: "delete" %>
+				<%= submit_tag "DELETE this profile" %>
 		<%end%>
 
 </section>
