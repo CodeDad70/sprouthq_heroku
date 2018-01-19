@@ -1,14 +1,20 @@
-<%= render partial: 'error', locals: {f: @card} %>
+	<%if not_allowed(current_user, @child)%>
+			<h5 align=center>You aren't allowed to view this page. <br>
+				<%=link_to "Sign in", new_user_session_path%> or
+  	    <%=link_to "Sign up", new_user_registration_path%></h5>
+	
+	<%else%>
+		<%= render partial: 'error', locals: {f: @card} %>
 
-<div class = "border-form">
-<%= form_for @card, :url => child_card_path(@child, @card) do |card| %>
-  
-    <h3 >Update card for <%=@child.name%>:</h3>
-      <%= render partial: 'form', locals: {f: card} %>
-      <%= card.submit %>
-<% end %><br><br>
+		<div class = "border-form">
+		<%= form_for @card, :url => child_card_path(@child, @card) do |card| %>
+		  
+		    <h3 >Update card for <%=@child.name%>:</h3>
+		      <%= render partial: 'form', locals: {f: card} %>
+		      <%= card.submit %>
+		<% end %><br><br>
 
-<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
-			<%= submit_tag "DELETE this card" %>
-
+		<%= form_tag child_card_path(@child.id, @card.id), method: "delete" %>
+					<%= submit_tag "DELETE this card" %>
+	 <%end%>
   </div>
