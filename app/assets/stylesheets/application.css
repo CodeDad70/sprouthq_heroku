@@ -75,6 +75,12 @@ a:active {color:#0b6303;}
 
 /*card layouts */
 
+#error_explanation {
+  color: red;
+  text-align: center;
+  line-height: 0;
+}
+
 .container {
   display:block;
   width: 900px;
@@ -217,5 +223,6 @@ small {
     color: #7ff909
     }
 }
+
 
 

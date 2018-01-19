@@ -1,10 +1,10 @@
 <% if f.errors.any? %>
-  <div id="error_explanation" align=center>
+  <div id="error_explanation">
     <h4 >One moment please... there is a problem:</h4>
       <ul>
       	<%f.errors.full_messages.each do |message| %>
         	<li><%= message %></li>
-        <%end %>
+       <%end %>
 <%end%>
       </ul>
   </div>
