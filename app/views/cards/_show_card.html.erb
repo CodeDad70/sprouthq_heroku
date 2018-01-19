@@ -10,11 +10,8 @@
 	
 		<p><%=flu_shot_given(card)%></p>
 
-		<small><%= link_to 'Edit this card', edit_child_card_path(child.id, card.id), method: "get"%></small><br><br>
+		<small><%= link_to 'Edit or Delete this card', edit_child_card_path(child.id, card.id), method: "get"%></small><br><br>
 
-
-		<%= form_tag child_card_path(child.id, card.id), method: "delete" %>
-			<%= submit_tag "DELETE this card" %>
 
 		</section>
 

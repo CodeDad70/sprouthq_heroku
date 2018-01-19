@@ -1,6 +1,6 @@
 <section class="profile">
 	<section class="name"><%=child.name%></section>
-		<small><%=link_to "Edit this profile", edit_child_path(child)%></small>
+		<small><%=link_to "Edit or Delete this profile", edit_child_path(child)%></small>
 				
 		<p>Birthday: <%=fix_date(child)%></p>
 
@@ -10,15 +10,13 @@
 
 		<p><%=gender_check(child)%></p>
 
+
 		<%if child.cards.exists? %>
 		<h4>Select an age to see:</h4>	
 			<%child.ordered.each do |card|%>
 			<%=link_to short_age(card), child_card_path(child.id, card.id)%>  	&nbsp;
 			<%end%>	
 
-
-			<%= form_tag child_path(child), method: "delete" %>
-				<%= submit_tag "DELETE this profile" %>
-		<%end%>
-
+<%end%>
+	
 </section>
