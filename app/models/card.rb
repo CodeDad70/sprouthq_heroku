@@ -50,6 +50,8 @@ class Card < ApplicationRecord
 			"#{self.years} year #{self.months} month"
 		elsif self.years == 1 && self.months > 1 
 			"#{self.years} year #{self.months} months"
+		elsif self.years > 1 && self.months == 1 
+			"#{self.years} years #{self.months} month"
 		elsif self.years > 1 && self.months > 1 
 			"#{self.years} years #{self.months} months"
 		elsif self.years > 1 && self.months == 0
