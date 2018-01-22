@@ -4,6 +4,7 @@ class CardMilestones < ActiveRecord::Migration[5.1]
   		
   		t.integer :card_id
   		t.integer :milestone_id
+  	
 
   		t.timestamps null: false
   	end

@@ -4,14 +4,15 @@ class Card < ApplicationRecord
 	has_many :card_milestones
 	has_many :milestones, through: :card_milestones
 	accepts_nested_attributes_for :milestones
-	
+	has_attached_file :image, styles: { medium: "300x300", thumb: "150x150" }
+  
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 	validate :age_unique, :on => :create
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates_length_of :height, :minimum => 1, :maximum => 20, :allow_blank => true
 	validates :advil_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
 	validates :tylenol_dosage, numericality: { message: 'should be a number'}, :allow_blank => true
-
 
   def milestones_attributes=(milestone_attributes)
    	milestone_attributes.values.each do |milestone_attribute|

@@ -42,7 +42,7 @@ class CardsController < ApplicationController
     @month_options = (0..11).to_a
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
-    
+    binding.pry
   end
 
   def update
@@ -74,7 +74,7 @@ class CardsController < ApplicationController
 
 
 	def card_params
-    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :child_id, milestone_ids:[], milestones_attributes: [:title])
+    params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :image, :image_cache, :child_id, milestone_ids:[], milestones_attributes: [:title])
   end
 	
 

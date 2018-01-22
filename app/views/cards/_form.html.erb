@@ -4,8 +4,12 @@
         Months   <%=f.select(:months, @month_options)%><br><br>
         
       </div>
-    
-
+         
+         Add a photo: 
+        <div class="field">
+          <%= f.file_field :image %>
+        </div><br><br>
+ 
         <%=f.label :height%>
         <%=f.text_field :height%><br>
 

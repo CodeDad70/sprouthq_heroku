@@ -13,8 +13,8 @@ class Child < ApplicationRecord
 	validates_length_of :gender, :minimum => 1, :maximum => 15, :allow_blank => true
 
 	def latest_card
-			oldest = self.ordered.last
-			self.cards.find_by(id: (oldest.id))
+		oldest = self.ordered.last
+		self.cards.find_by(id: (oldest.id))
 	end
 
 	def ordered

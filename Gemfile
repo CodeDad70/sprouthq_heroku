@@ -32,6 +32,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'pry'
+gem 'paperclip'
 
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
 
