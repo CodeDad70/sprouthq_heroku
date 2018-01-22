@@ -9,9 +9,6 @@
 		<div class = "border-form">
 		<%= form_for @card, :url => child_card_path(@child, @card) do |card| %>
 
-				<div class="field">
-      		<%= card.file_field :image %>
-   			 </div><br><br>
 		  
 		    <h3 >Update card for <%=@child.name%>:</h3>
 		      <%= render partial: 'form', locals: {f: card} %>
