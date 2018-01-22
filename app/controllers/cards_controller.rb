@@ -16,7 +16,7 @@ class CardsController < ApplicationController
 
   def new 
     @year_options = (0..18).to_a
-    @month_options = (0..12).to_a
+    @month_options = (0..11).to_a
   	@child= Child.find_by(id: params[:child_id])
     @child.cards.build(height: ' ')
     @card = @child.cards.new
@@ -25,7 +25,7 @@ class CardsController < ApplicationController
 
   def create
     @year_options = (0..18).to_a
-    @month_options = (0..12).to_a 
+    @month_options = (0..11).to_a 
     @child= Child.find_by(id: params[:child_id]) 
     @card = @child.cards.build(card_params)
     @card.age = @card.age_create
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
 
   def edit
     @year_options = (0..18).to_a
-    @month_options = (0..12).to_a
+    @month_options = (0..11).to_a
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
     
@@ -47,7 +47,7 @@ class CardsController < ApplicationController
 
   def update
     @year_options = (0..18).to_a
-    @month_options = (0..12).to_a
+    @month_options = (0..11).to_a
     @child = Child.find_by(id: params[:child_id])
     @card = @child.cards.find_by(id: params[:id])   
     @card.update(card_params)

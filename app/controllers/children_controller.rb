@@ -25,7 +25,7 @@ class ChildrenController < ApplicationController
 	def new
  		@child = Child.new	
     @year_options = (0..18).to_a
-    @month_options = (0..12).to_a
+    @month_options = (0..11).to_a
     @card = @child.cards.new
  	end
  
