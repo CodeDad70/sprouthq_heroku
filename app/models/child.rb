@@ -33,6 +33,3 @@ class Child < ApplicationRecord
 	end
 
 end
-
-
-

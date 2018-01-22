@@ -36,5 +36,4 @@ module CardsHelper
 		card.age_create.gsub("year", "yr").gsub("month", "mo")
 	end
 
-
 end
