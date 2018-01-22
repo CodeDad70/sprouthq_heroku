@@ -42,7 +42,6 @@ class CardsController < ApplicationController
     @month_options = (0..11).to_a
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
-    binding.pry
   end
 
   def update
