@@ -5,7 +5,6 @@ class Card < ApplicationRecord
 	has_many :milestones, through: :card_milestones
 	accepts_nested_attributes_for :milestones
 	
-	#validates :age, uniqueness: true
 	validate :age_unique, :on => :create
 	validate :age_entered
 	validates_length_of :weight, :minimum => 1, :maximum => 20, :allow_blank => true

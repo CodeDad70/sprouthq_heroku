@@ -20,24 +20,15 @@ class Child < ApplicationRecord
 
 	def latest_card
 		if year_check
-			oldest = self.cards.sort_by { |t| [t.years, t.months]}
-			current = oldest.last
-			self.cards.find_by(id: (current.id))
+			oldest = self.ordered.last
+			
+			self.cards.find_by(id: (oldest.id))
 		else 
 			oldest = self.cards.maximum("months")
 			self.cards.find_by(months: (oldest))
 		end
 	end
 
-	# def latest_card
-	# 	if year_check
-	# 		oldest = self.cards.maximum("years")
-	# 		self.cards.find_by(years: (oldest))
-	# 	else 
-	# 		oldest = self.cards.maximum("months")
-	# 		self.cards.find_by(months: (oldest))
-	# 	end
-	# end
 
 	def ordered
 		self.cards.order("years ASC", "months ASC")
