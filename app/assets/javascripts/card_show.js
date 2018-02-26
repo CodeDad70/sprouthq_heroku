@@ -1,7 +1,7 @@
-$(document).ready()
+$(document).ready(selectCard)
 
   function selectCard(card_number){
-	$("#age").children().click(function(){
-    window.alert("success")
+	$("img").click(function(card_number){
+    console.log("workedd")
   });
 }
