@@ -8,6 +8,15 @@ $(document).ready(selectCard)
   	});
 	};
 
+	function selectImage(imageForm){
+		$("#upload").click(function(e){
+			e.preventDefault();
+			$('#upload').html("<div class='field'> " +
+          "<input type='file' name='card[image]'' id='card_image'> " +
+        "</div>")
+		})
+	}
+
 	function findCard(cardSelect){
 		$.get(cardSelect +".json", function(data){
 			console.log(data["image"])
@@ -30,4 +39,7 @@ $(document).ready(selectCard)
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
 		});
 	};	
+
+
+
 
