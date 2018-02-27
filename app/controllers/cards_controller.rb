@@ -12,8 +12,10 @@ class CardsController < ApplicationController
   def show
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])  
-    render json: @card
-    
+    respond_to do |format|
+      format.html {render:show}
+      format.json {render json: @card, status: 200 }
+    end
   end
 
   def new 
