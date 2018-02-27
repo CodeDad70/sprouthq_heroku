@@ -1,0 +1,24 @@
+<section class="profile">
+
+	<section class="name"><%=child.name%></section>
+		<small><%=link_to "Edit or Delete this profile", edit_child_path(child)%></small>
+				
+		<p>Birthday: <%=fix_date(child)%></p>
+
+		<p><%=eye_check(child)%></p>
+				
+		<p><%=hair_check(child)%></p>
+
+		<p><%=gender_check(child)%></p>
+
+		<br><br>
+		
+		<%if child.cards.exists? %>
+		<h4><%=link_to "See #{child.name}'s Cards", child_card_path(child.id,child.latest_card)%></h4>		
+		
+		<%else %>				
+		There are no cards for <%=child.name%> yet.
+		<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
+				<%end%>
+		
+</section>

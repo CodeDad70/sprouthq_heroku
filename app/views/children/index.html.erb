@@ -1,20 +1,11 @@
 <%if @children.exists?%>		
 <%@children.each do |child|%>	
 	
-	<%if !child.cards.exists? %>
-		<div class="container" class="clearfix">
-			<%= render partial: 'profile_view', :locals => {child: child}%>	
-			<section class = "stats">
-				There are no cards for <%=child.name%> yet.
-				<h4><%=link_to "Create a card for #{child.name}", new_child_card_path(child)%></h4>
-			</section>
-		</div>
 
-	<%else%>
 		<div class="container" class="clearfix">
-			<%= render partial: 'profile_view', :locals => {child: child}%>
+			<%= render partial: 'profile_index', :locals => {child: child}%>
 			
-			<%end%>	
+	
 		</div>			
 	<%end%>
 
