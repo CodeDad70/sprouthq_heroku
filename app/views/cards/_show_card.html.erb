@@ -5,7 +5,7 @@
    </div>
    <%end%>
 
-   <div id = "<%=child.id%>">
+   <div childId = "<%=child.id%>">
    
 		<h3 class = "age"> Age: <%=card.age%> </h3>
 
@@ -18,7 +18,7 @@
 		<p class = "tylenol"> <%=tylenol_check(card)%></p>
 	
 		<p class = "flu"><%=flu_shot_given(card)%></p>
-		
+
 	</div>
 
 		<small><%= link_to 'Edit or Delete this card', edit_child_card_path(child.id, card.id), method: "get"%></small><br><br>

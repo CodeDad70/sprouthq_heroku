@@ -13,9 +13,7 @@
 	<%else%>
 		<div class="container" class="clearfix">
 			<%= render partial: 'profile_view', :locals => {child: child}%>
-			<section class = "stats">
-				<h5> <%=child.name%>'s most recent stats : </h5>
-				<%= render partial: '/cards/show_card', :locals => {:child => child, :card => child.latest_card} %>
+			
 			<%end%>	
 		</div>			
 	<%end%>

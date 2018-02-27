@@ -14,15 +14,15 @@ $(document).ready(selectCard)
 		
 		 $.get(cardSelect +".json", function(data){
 		 	console.log(data.child["id"])
-		 // if (data[#childId] === this.child[id])	{
-		 // $(".age").text(data["age"])
-		 // $(".height").text(data["height"])
-		 // $(".weight").text(data["weight"])
-		 // $(".advil").text(data["advil"])
-		 // $(".tylenol").text(data["tylenol"])
-		 // $(".flu").text(data["flu"])
-		 // $(".field").text(data["image"])
-		// }
+		
+		 $(".age").text(data["age"])
+		 $(".height").text(data["height"])
+		 $(".weight").text(data["weight"])
+		 $(".advil").text(data["advil"])
+		 $(".tylenol").text(data["tylenol"])
+		 $(".flu").text(data["flu"])
+		 $(".field").text(data["image"])
+		
 		})
 	}	
 
