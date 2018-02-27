@@ -34,7 +34,7 @@ gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'pry'
 gem 'paperclip', '~> 5.1.0'
-
+gem 'active_model_serializers'
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
 
 group :development, :test do

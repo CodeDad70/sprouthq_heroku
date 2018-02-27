@@ -6,6 +6,7 @@ $(document).ready(selectCard)
   function selectCard(card_number){
 		$("#age a ").click(function(e){
     	e.preventDefault();
+    	console.log(this.innerHTML)
     	cardSelect = this.href
     	findCard(cardSelect)
   	});
@@ -14,8 +15,8 @@ $(document).ready(selectCard)
 	function findCard(cardSelect){
 		
 		console.log(cardSelect)
-		 testy = $.get(cardSelect +".json")
-		 console.log(testy)
+		 // testy = $.get(cardSelect +".json")
+		 console.log(this)
 	}	
 
 
