@@ -20,7 +20,7 @@ $(document).ready(selectCard)
 		 $(".advil").text(data["advil"])
 		 $(".tylenol").text(data["tylenol"])
 		 $(".flu").text(data["flu"])
-		 $(".field").text(data["image"])
+		 // $(".field").text(data["image"])
 		})
 	}	
 

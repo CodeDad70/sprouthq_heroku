@@ -1,8 +1,9 @@
 		
-		
+		<%if card.image.exists? %>
 		<div class="field">
      <%= image_tag card.image.url(:thumb) %>
    </div>
+   <%end%>
    
 		<h3 class = "age"> Age: <%=card.age%> </h3>
 

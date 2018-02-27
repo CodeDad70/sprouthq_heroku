@@ -11,13 +11,7 @@
 		<p><%=gender_check(child)%></p>
 
 
-		<%if child.cards.exists? %>
-		<h4>Select an age to see:</h4>	
-			<div id="age">
-			<%child.ordered.each do |card|%>
-			<%=link_to short_age(card), child_card_path(child.id, card.id) %>  	&nbsp;
-			<%end%>
-			</div> 
-<%end%>
+		<h4>Click here to see all of <%=child.name%>'s cards</h4>	
+			<%=link_to child.latest_card %>  	&nbsp;
 	
 </section>
