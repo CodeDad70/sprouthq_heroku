@@ -4,17 +4,17 @@
      <%= image_tag card.image.url(:thumb) %>
    </div>
    
-		<h3> Age: <%=card.age%> </h3>
+		<h3 class = "age"> Age: <%=card.age%> </h3>
 
-		<p> <%=height_check(card)%></p>
+		<p class = "height"> <%=height_check(card)%></p>
 		
-		<p> <%=weight_check(card)%></p>
+		<p class = "weight"> <%=weight_check(card)%></p>
 
-		<p> <%=advil_check(card)%></p>
+		<p class = "advil"> <%=advil_check(card)%></p>
 
-		<p> <%=tylenol_check(card)%></p>
+		<p class = "tylenol"> <%=tylenol_check(card)%></p>
 	
-		<p><%=flu_shot_given(card)%></p>
+		<p class = "flu"><%=flu_shot_given(card)%></p>
 
 		<small><%= link_to 'Edit or Delete this card', edit_child_card_path(child.id, card.id), method: "get"%></small><br><br>
 

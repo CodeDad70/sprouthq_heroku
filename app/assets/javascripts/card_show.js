@@ -13,10 +13,14 @@ $(document).ready(selectCard)
 	};
 
 	function findCard(cardSelect){
-		
-		console.log(cardSelect)
-		 // testy = $.get(cardSelect +".json")
-		 console.log(this)
+		 $.get(cardSelect +".json", function(data){
+		 $(".age").text(data["age"])
+		 $(".height").text(data["height"])
+		 $(".weight").text(data["weight"])
+		 $(".advil").text(data["advil"])
+		 $(".tylenol").text(data["tylenol"])
+		 $(".flu").text(data["flu"])
+		 $(".field").text(data["image"])
+		})
 	}	
-
 
