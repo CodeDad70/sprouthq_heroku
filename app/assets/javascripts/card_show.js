@@ -20,10 +20,21 @@ $(document).ready(selectCard)
 		};
 		
 		$(".age").text(data["age"])
-		$(".height").text("Height: " + data["height"])
-		$(".weight").text("Weight: " + data["weight"])
-		$(".advil").text("Advil Dosage: " + data["advil_dosage"])
-		$(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"])
+		
+
+
+		// if(!data['height']){$(".height").text("")} 
+		// 	else {$(".height").text("Height: " + data["height"])}
+		// if (!data['weight']){$(".weight").text("")}
+		// 	else {$(".weight").text("Weight: " + data["weight"])
+		
+		// if (!data["advil_dosage"]){$(".advil").text("")}
+		// 	else{$(".advil").text("Advil Dosage: " + data["advil_dosage"])}
+		!data['advil_dosage'] ? $(".advil").text("") : $(".advil").text("Advil Dosage: " + data["advil_dosage"])
+		!data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"])
+
+
+	
 		$(".flu").text("Flu Shot? " + data["flu_shot"])	
 		});
 	};	
