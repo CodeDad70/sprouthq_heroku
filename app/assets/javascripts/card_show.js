@@ -12,8 +12,8 @@ $(document).ready(selectCard)
 	};
 
 	function findCard(cardSelect){
-		 $.get(cardSelect +".json", function(data){
-		 $("#this.child[id] .age").text(data["age"])
+		 $.get(cardSelect +".json", function(data){	
+		 $(".age").text(data["age"])
 		 $(".height").text(data["height"])
 		 $(".weight").text(data["weight"])
 		 $(".advil").text(data["advil"])
