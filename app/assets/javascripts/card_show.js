@@ -8,12 +8,9 @@ $(document).ready(selectCard)
   	});
 	};
 
-	function selectImage(imageForm){
-		$("#upload").click(function(e){
-			e.preventDefault();
-			$('#upload').html("<div class='field'> " +
-          "<input type='file' name='card[image]'' id='card_image'> " +
-        "</div>")
+	function selectImage(imageGrab){
+		$("#upload").click(function(){
+			$('#replace').html("worked")
 		})
 	}
 
@@ -21,7 +18,7 @@ $(document).ready(selectCard)
 		$.get(cardSelect +".json", function(data){
 			console.log(data["image"])
 		if (data['image'] === "/images/original/missing.png"){
-			$( ".field" ).html("<small> No image for this card. <a href='#'><div id = 'upload'>Upload an image</a></div> </small>" );
+			$( ".field" ).html("<small> No image for this card. <a href='#'><div id = 'upload'>Upload an image</div></a><div id = 'replace'></div> </small>" );
 		}	else {
 			$( ".field" ).html("<img src=" + data["image"]+ " height = " + "150px" + ">" );
 		};
