@@ -4,6 +4,10 @@ margin:0;
 
 }
 
+p {
+  font-size: 14px;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -101,11 +105,6 @@ a:active {color:#0b6303;}
 
 /*card layouts */
 
-.thumb {
-  height: 100px;
-  width: 100px;
-}
-
 #error_explanation {
   color: red;
   text-align: center;
@@ -146,7 +145,7 @@ section {
   padding: 20px;        
   float: left;
   width: 40%;
-  height: 400px;
+  height: 415px;
 
   background-color: #6cd863;
   
@@ -164,7 +163,7 @@ section {
   padding: 20px;        
   float: left;
   width: 58%;
-  height: 400px;
+  height: 415px;
   background-color: #ebffd8;
   text-align: center;
 
