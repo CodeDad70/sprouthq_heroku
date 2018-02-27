@@ -1,11 +1,9 @@
 $(document).ready(selectCard)
 	
-	let cardSelect
-  
   function selectCard(card_number){
 		$("#age a ").click(function(e){
     	e.preventDefault();
-    	cardSelect = this.href
+    	let cardSelect = this.href
     	findCard(cardSelect)
   	});
 	};
@@ -14,28 +12,22 @@ $(document).ready(selectCard)
 		$.get(cardSelect +".json", function(data){
 			console.log(data["image"])
 		if (data['image'] === "/images/original/missing.png"){
-			$( ".field" ).html("No Image For This Card Yet" );
+			$( ".field" ).html("<small> No image for this card. <a href='#'><div id = 'upload'>Upload an image</a></div> </small>" );
 		}	else {
-			$( ".field" ).html("<img src=" + data["image"]+ " height = " + "150px" + ">" )
+			$( ".field" ).html("<img src=" + data["image"]+ " height = " + "150px" + ">" );
 		};
 		
-		$(".age").text(data["age"])
+		$(".age").text(data["age"] + " old")
 		
+		!data['height'] ? $(".height").text("") : $(".height").text("Height: " + data["height"]);
 
+		!data['weight'] ? $(".weight").text("") : $(".weight").text("Weight: " + data["weight"]);
 
-		// if(!data['height']){$(".height").text("")} 
-		// 	else {$(".height").text("Height: " + data["height"])}
-		// if (!data['weight']){$(".weight").text("")}
-		// 	else {$(".weight").text("Weight: " + data["weight"])
-		
-		// if (!data["advil_dosage"]){$(".advil").text("")}
-		// 	else{$(".advil").text("Advil Dosage: " + data["advil_dosage"])}
-		!data['advil_dosage'] ? $(".advil").text("") : $(".advil").text("Advil Dosage: " + data["advil_dosage"])
-		!data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"])
+		!data['advil_dosage'] ? $(".advil").text("") : $(".advil").text("Advil Dosage: " + data["advil_dosage"] + " mL");
 
+		!data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"] + " mL") ;
 
-	
-		$(".flu").text("Flu Shot? " + data["flu_shot"])	
+		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
 		});
 	};	
 
