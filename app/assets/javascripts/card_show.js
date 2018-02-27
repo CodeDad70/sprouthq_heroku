@@ -11,9 +11,8 @@ $(document).ready(selectCard)
 	};
 
 	function findCard(cardSelect){
-		
-		 $.get(cardSelect +".json", function(data){
-		 	console.log(data["image"])
+		$.get(cardSelect +".json", function(data){
+			console.log(data["image"])
 		if (data['image'] === "/images/original/missing.png"){
 			$( ".field" ).html("No Image For This Card Yet" );
 		}	else {
@@ -21,12 +20,11 @@ $(document).ready(selectCard)
 		};
 		
 		$(".age").text(data["age"])
-		$(".height").text(data["height"])
-		$(".weight").text(data["weight"])
-		$(".advil").text(data["advil"])
-		$(".tylenol").text(data["tylenol"])
-		$(".flu").text(data["flu"])
-		
-		})
-	}	
+		$(".height").text("Height: " + data["height"])
+		$(".weight").text("Weight: " + data["weight"])
+		$(".advil").text("Advil Dosage: " + data["advil_dosage"])
+		$(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"])
+		$(".flu").text("Flu Shot? " + data["flu_shot"])	
+		});
+	};	
 
