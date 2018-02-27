@@ -101,6 +101,11 @@ a:active {color:#0b6303;}
 
 /*card layouts */
 
+.thumb {
+  height: 100px;
+  width: 100px;
+}
+
 #error_explanation {
   color: red;
   text-align: center;
