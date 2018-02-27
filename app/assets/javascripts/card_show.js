@@ -14,14 +14,18 @@ $(document).ready(selectCard)
 		
 		 $.get(cardSelect +".json", function(data){
 		 	console.log(data["image"])
+		if (data['image'] === "/images/original/missing.png"){
+			$( ".field" ).html("No Image For This Card Yet" );
+		}	else {
+			$( ".field" ).html("<img src=" + data["image"]+ " height = " + "150px" + ">" )
+		};
 		
-		 $( ".field" ).html( "<img src=" + data["image"]+ " height = " + "100px" + ">" );
-		 $(".age").text(data["age"])
-		 $(".height").text(data["height"])
-		 $(".weight").text(data["weight"])
-		 $(".advil").text(data["advil"])
-		 $(".tylenol").text(data["tylenol"])
-		 $(".flu").text(data["flu"])
+		$(".age").text(data["age"])
+		$(".height").text(data["height"])
+		$(".weight").text(data["weight"])
+		$(".advil").text(data["advil"])
+		$(".tylenol").text(data["tylenol"])
+		$(".flu").text(data["flu"])
 		
 		})
 	}	
