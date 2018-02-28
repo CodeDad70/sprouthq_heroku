@@ -1,11 +1,12 @@
 $(document).ready(selectCard)
 	
+
   function selectCard(card_number){
 		$("#age a ").click(function(e){
     	e.preventDefault();
-    	let cardselect = this.href
-    	findCard(cardselect)
-    	milestonesUpdate(cardselect)
+    	let cardSelect = this.href
+    	$('.milestones').html( "" );
+    	findCard(cardSelect)
   	});
 	};
 
@@ -15,8 +16,10 @@ $(document).ready(selectCard)
 		})
 	}
 
-	function findCard(cardselect){
-		$.get(cardselect +".json", function(data){
+	function findCard(cardSelect){
+		let milestones = []
+
+		$.get(cardSelect +".json", function(data){
 		if (data['image'] === "/images/original/missing.png"){
 			$( ".field" ).html("<small> No image for this card. <a href='#'><div id = 'upload'>Upload an image</div></a><div id = 'replace'></div> </small>" );
 		}	else {
@@ -34,20 +37,28 @@ $(document).ready(selectCard)
 		!data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"] + " mL") ;
 
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
-		milestonesUpdate(data)
-		});
+
+		
+			
+			console.log(data["milestones"])
+		
+			
+		data.milestones.forEach(function(milestone){
+		
+    	milestones.push(milestone.title)
+    	console.log(milestones.length)
+    	if (milestones.length >= 1){
+    		$('.milestones').html( "<sm>" + milestones.join(' ') + "</sm> " );
+
+    	} else {
+    		$('.milestones').html( "<sm> yay! </sm> " );
+    	
+    }
+	})
+		
+	})
 	};	
 
-	function milestonesUpdate(data){
-		
-		
-			console.log(data["milestones"])
-		// 	data.milestones.forEach(function(milestone){
-
-
-		//  	$(".miles").html("<li>" + milestone.title+ "</li>")
-		// })
-		}
 
 
 
