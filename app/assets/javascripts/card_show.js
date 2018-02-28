@@ -44,9 +44,8 @@ $(document).ready(selectCard)
 				$('.stones').append("<small>" + milestone.title + "</small> <br>")
     
 			});
-		console.log(data["milestones"])
 			if (data["milestones"].length === 0){
-				$(".stonehead").html("<b>Worked!!!!! " + data.child.name + " reached at this age : </b><br>")
+				$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
 			};
 		});
 	};	
