@@ -10,22 +10,21 @@
 
 		<p><%=gender_check(child)%></p>
 
-
+		<br>
 		<%if child.cards.exists? %>
+		<div id="age">
 			<h4>Select an age to see:</h4>	
-			<div id="age">
 			<%child.ordered.each do |card|%>
-			<%=link_to short_age(card), child_card_path(child.id, card.id) %>  	&nbsp;
+			<small><%=link_to short_age(card), child_card_path(child.id, card.id) %>  	&nbsp;</small>
 		<%end%>
 			</div> 
 	<%end%>
+	<br><br>
 
 	<%current_user.children.each do |child_check|%>
 
 		<%if child_check.id != child.id%>
-
-		<br><p>Jump to:</b><br>
-			<small><%=link_to "#{child_check.name}'s Cards", child_card_path(child_check.id,child_check.latest_card)%></small>
+			<small>Jump to <%=link_to "#{child_check.name}'s Cards", child_card_path(child_check.id,child_check.latest_card)%></small><br>
 		<%end%>
 	<%end%>	
 

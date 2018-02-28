@@ -19,6 +19,10 @@ a:visited {color:#13590d;}
 a:hover {color:#54ba4c;}
 a:active {color:#0b6303;}
 
+#age {
+  line-height: 0;
+}
+
 .name {
   color: #e2ffc9;
   font-size: 45px;
