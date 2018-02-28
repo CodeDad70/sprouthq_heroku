@@ -12,12 +12,21 @@
 
 
 		<%if child.cards.exists? %>
-		<h4>Select an age to see:</h4>	
+			<h4>Select an age to see:</h4>	
 			<div id="age">
 			<%child.ordered.each do |card|%>
 			<%=link_to short_age(card), child_card_path(child.id, card.id) %>  	&nbsp;
-			<%end%>
+		<%end%>
 			</div> 
-<%end%>
-	
+	<%end%>
+
+	<%current_user.children.each do |child_check|%>
+
+		<%if child_check.id != child.id%>
+
+		<br><p>Jump to:</b><br>
+			<small><%=link_to "#{child_check.name}'s Cards", child_card_path(child_check.id,child_check.latest_card)%></small>
+		<%end%>
+	<%end%>	
+
 </section>

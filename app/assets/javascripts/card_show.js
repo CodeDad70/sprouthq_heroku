@@ -44,9 +44,8 @@ $(document).ready(selectCard)
     	console.log(data.child.name)
     		$('.stones').append("<small>" + milestone.title + "</small> <br>")
     
-	})
-		
-	})
+			})
+		})
 	};	
 
 
