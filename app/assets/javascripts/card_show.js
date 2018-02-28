@@ -40,12 +40,15 @@ $(document).ready(selectCard)
 		$(".stonehead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
 			
 		data.milestones.forEach(function(milestone){
-		
-    	console.log(data.child.name)
-    		$('.stones').append("<small>" + milestone.title + "</small> <br>")
+
+				$('.stones').append("<small>" + milestone.title + "</small> <br>")
     
-			})
-		})
+			});
+		console.log(data["milestones"])
+			if (data["milestones"].length === 0){
+				$(".stonehead").html("<b>Worked!!!!! " + data.child.name + " reached at this age : </b><br>")
+			};
+		});
 	};	
 
 
