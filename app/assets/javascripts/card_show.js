@@ -38,20 +38,18 @@ $(document).ready(selectCard)
 
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
 
-		
-			
-			console.log(data["milestones"])
-		
+		$(".mileshead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
 			
 		data.milestones.forEach(function(milestone){
 		
     	milestones.push(milestone.title)
-    	console.log(milestones.length)
-    	if (milestones.length >= 1){
-    		$('.milestones').html( "<sm>" + milestones.join(' ') + "</sm> " );
+    	console.log(data.child.name)
+    	if (milestones.length === 0){
+    		$('.milestones').text( "yay" )
+    		
 
     	} else {
-    		$('.milestones').html( "<sm> yay! </sm> " );
+    		$('.milestones').append("<small>" + milestone.title + "</small> <br>" );
     	
     }
 	})
