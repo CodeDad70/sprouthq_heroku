@@ -197,6 +197,22 @@ section {
   text-align: center;
 }
 
+.notes{
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+     -moz-box-shadow: 0 3px 3px rgba(0,0,0,.10);
+          box-shadow: 0 3px 3px rgba(0,0,0,.10);
+
+  background-color: #cdff9e;
+  padding: 10px;
+  clear: both;
+  width: 99%;
+  text-align: center;
+}
+
 small {
   font-size: 12px;
 }

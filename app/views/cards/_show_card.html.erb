@@ -29,16 +29,20 @@
 		</section>
 
 		<section class="milestones">
-			<%if card.milestones.exists?%>
-		<b>Here are some milestones <%=child.name%> reached at this age : </b><br>
+			
+				<%if card.milestones.exists?%>
+				<b>Here are some milestones <%=child.name%> reached at this age : </b><br>
+	
 		<%card.milestones.each do |milestone|%>
+			<li class="miles"> </li>		
 			<small><%=milestone.title%>&emsp;</small> 
 			<br>
 		<%end%>
 			<%else%>
-			<p> There are no milestones for this age. Select or create milestones <%= link_to 'here', edit_child_card_path(child.id, card.id), method: "get"%>.  </p>
+				<p> There are no milestones for this age. Select or create milestones <%= link_to 'here', edit_child_card_path(child.id, card.id), method: "get"%>.  </p>
 				
-				<%end%>
+			<%end%>
+		
 	</section>
 
 
