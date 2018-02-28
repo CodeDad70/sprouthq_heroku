@@ -5,7 +5,7 @@ $(document).ready(selectCard)
 		$("#age a ").click(function(e){
     	e.preventDefault();
     	let cardSelect = this.href
-    	$('.milestones').html( "" );
+    	$('.stones').html( "" );
     	findCard(cardSelect)
   	});
 	};
@@ -17,8 +17,7 @@ $(document).ready(selectCard)
 	}
 
 	function findCard(cardSelect){
-		let milestones = []
-
+		
 		$.get(cardSelect +".json", function(data){
 		if (data['image'] === "/images/original/missing.png"){
 			$( ".field" ).html("<small> No image for this card. <a href='#'><div id = 'upload'>Upload an image</div></a><div id = 'replace'></div> </small>" );
@@ -38,20 +37,13 @@ $(document).ready(selectCard)
 
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
 
-		$(".mileshead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
+		$(".stonehead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
 			
 		data.milestones.forEach(function(milestone){
 		
-    	milestones.push(milestone.title)
     	console.log(data.child.name)
-    	if (milestones.length === 0){
-    		$('.milestones').text( "yay" )
-    		
-
-    	} else {
-    		$('.milestones').append("<small>" + milestone.title + "</small> <br>" );
-    	
-    }
+    		$('.stones').append("<small>" + milestone.title + "</small> <br>")
+    
 	})
 		
 	})
