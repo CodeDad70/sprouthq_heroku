@@ -16,10 +16,11 @@ $(document).ready(selectCard)
 	};
 
 	$(function (){
-		$("milestoneSubmit").submit(function(e){
+		$(".stoneSubmit").submit(function(e){
 			e.preventDefault();
-			let mileSubmit = this.text
-			createMilestone(mileSubmit)
+			let mileSubmit = this
+			console.log(mileSubmit)
+			//createMilestone(mileSubmit)
 		});
 	});
 
@@ -80,7 +81,7 @@ function showMilestone(card){
 
 
 function createMilestone(mileSubmit) {
-	console.log("captured")
+	console.log(mileSubmit)
 };
 
 
