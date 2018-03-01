@@ -27,35 +27,6 @@
 
 
 		</section>
-		<section class="milestones">
-			<div class = "stonehead"></div>
-		<section class="stones">
-			
-				<%if card.milestones.exists?%>
-				<b>Here are some milestones <%=child.name%> reached at this age : </b><br>
-	
-		<%card.milestones.each do |milestone|%>
-					
-			<small><%=milestone.title%>&emsp;</small> 
-			<br>
-		<%end%>
-			<%else%>
-				<p> There are no milestones for this age. </p>
-				
-			<%end%>
-		
-		
-	
-	</section>
-	<div class = "createmiles">
-		<label for="card_milestones_attributes_0_Submit your own milestone">Submit your own milestone</label>
-
-<input type="text" name="card[milestones_attributes][0][title]" id="card_milestones_attributes_0_title"> <div></div></input>
-
-
-<input type="submit" name="commit" value="Create Card" data-disable-with="Create Card">
-	</div>
-</section>
 
 
 

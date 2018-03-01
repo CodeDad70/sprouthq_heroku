@@ -1,0 +1,24 @@
+
+				<%if @card.milestones.exists?%>
+				<b>Here are some milestones <%=@child.name%> reached at this age : </b><br>
+	
+		<%@card.milestones.each do |milestone|%>
+					
+			<small><%=milestone.title%>&emsp;</small> 
+			<br>
+		<%end%>
+			<%else%>
+				<p> There are no milestones for this age. </p>
+				
+			<%end%>
+		
+		
+	
+	      <small><%= f.collection_check_boxes :milestone_ids, Milestone.all, :id, :title %></small><br>
+        
+        <%= f.fields_for :milestones, @card.milestones.build do |milestone| %>
+          <%= milestone.label "Submit your own milestone"%>
+          <%= milestone.text_field :title%><br>
+
+
+<%end%>	
