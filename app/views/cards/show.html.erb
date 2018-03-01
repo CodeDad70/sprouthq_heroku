@@ -17,16 +17,16 @@
 	<%= render partial: 'show_card', :locals => {:child => @child, :card => @card} %>
 
 	</section>
-	
+
 		<section class="milestones">
 			<div class = "stonehead"></div>
 		<section class="stones">
 		
 <%= form_for @card, :url => child_cards_path, html: { multipart: true } do |card| %>
 
-  <div class = "milestone-form">
+  	<div class = "milestone-form">
       <%= render partial: 'show_milestone', locals: {f: card} %>
-      <%= card.submit %><br><br><br>
+     <%= card.submit %><br><br><br>
       
 <% end %>
 <% end %>
