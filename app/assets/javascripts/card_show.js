@@ -1,6 +1,5 @@
 $(document).ready(selectCard)
 	
-
   function selectCard(card_number){
 		$("#age a ").click(function(e){
     	e.preventDefault();
@@ -25,8 +24,6 @@ $(document).ready(selectCard)
 		});
 	});
 
-
-
 	function findCard(cardSelect){
 		
 		$.get(cardSelect +".json", function(data){
@@ -48,6 +45,8 @@ $(document).ready(selectCard)
 
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
 		showMilestone(data);
+
+		$(".cardLink").html("<small><a data-method='get' href='"+ cardSelect + "/edit'>Edit or Delete this card</a></small>")
 		});
 	};	
 
