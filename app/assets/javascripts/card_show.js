@@ -16,6 +16,15 @@ $(document).ready(selectCard)
 		})
 	}
 
+	$(function (){
+		$("form").submit(function(e){
+			e.preventDefault();
+			console.log(this)
+		});
+	});
+
+
+
 	function findCard(cardSelect){
 		
 		$.get(cardSelect +".json", function(data){

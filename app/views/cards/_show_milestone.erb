@@ -16,6 +16,7 @@
        	<%= f.fields_for :milestones, @card.milestones.build do |milestone| %>
           <br><br><small><%= milestone.label "Create a Milestone for this card"%></small><br>
           <%= milestone.text_field :title%><br>
+          
          </div> 
 
 <%end%>	
