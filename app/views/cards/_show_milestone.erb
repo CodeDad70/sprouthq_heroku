@@ -1,4 +1,6 @@
-
+<section class="milestones">
+			<div class = "stonehead"></div>
+		<section class="stones">
 				<%if @card.milestones.exists?%>
 				<b>Here are some milestones <%=@child.name%> reached at this age : </b><br>
 	
@@ -11,12 +13,23 @@
 				<p> There are no milestones for this age. </p>
 				
 			<%end%>
+	
+	</section>
 		
-       <div class = "milestoneform">
-       	<%= f.fields_for :milestones, @card.milestones.build do |milestone| %>
+<%= form_for @card, :url => child_cards_path, html: { multipart: true } do |card| %>
+
+  	<div class = "milestone-form">
+       	<%= card.fields_for :milestones, @card.milestones.build do |milestone| %>
           <br><br><small><%= milestone.label "Create a Milestone for this card"%></small><br>
           <%= milestone.text_field :title%><br>
-          
-         </div> 
 
-<%end%>	
+         
+     <%= card.submit %>
+      </div> 
+<% end %>
+<% end %>
+
+  
+
+</section>
+	

@@ -18,22 +18,7 @@
 
 	</section>
 
-		<section class="milestones">
-			<div class = "stonehead"></div>
-		<section class="stones">
 		
-<%= form_for @card, :url => child_cards_path, html: { multipart: true } do |card| %>
+<%= render partial: 'show_milestone', :locals => {:child => @child, :card => @card} %>		
 
-  	<div class = "milestone-form">
-      <%= render partial: 'show_milestone', locals: {f: card} %>
-     <%= card.submit %>
-      
-<% end %>
-<% end %>
-  
-</section>
-</section>
-	
-
-
-	
+<%end%>
