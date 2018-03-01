@@ -8,7 +8,6 @@ $(document).ready(selectCard)
     	e.preventDefault();
     	cardUrl = this.href
     	let cardSelect = $.get(this.href +".json", function(data){
-
     	$('.stones').html( "" );
     	 let newCard = new Card(data)
     	 newCard.renderCard()
@@ -19,14 +18,13 @@ $(document).ready(selectCard)
 	$(function (){
 		$("form").submit(function(e){
 			e.preventDefault();
-			console.log(this)
 			let mileSubmit = this.text
 			createMilestone(mileSubmit)
 		});
 	});
 
 	function Card(data) {
-		console.log(data)
+		
 			this.url = cardUrl
 			this.image = data["image"]
 			this.age = data["age"]
@@ -35,13 +33,12 @@ $(document).ready(selectCard)
 			this.advil_dosage = data["advil_dosage"]
 			this.tylenol_dosage = data["tylenol_dosage"]
 			this.flu_shot = data["flu_shot"]
-			// this.url = cardSelect
-		
+			this.child = data["child"]
+			this.milestones = data["milestones"]
 	};	
 
-
-		Card.prototype.renderCard = function(card){
-		console.log(this.age)
+		Card.prototype.renderCard = function(){
+		
 		
 		if (this.image === "/images/original/missing.png"){
 			$( ".field" ).html("<small> No image for this card. <br><a data-method='get' href='"+ this.url + "/edit'>Upload an image</a>" );
@@ -52,37 +49,38 @@ $(document).ready(selectCard)
 		$(".age").text(`${this.age} old`)
 		
 		
-		// !data['height'] ? $(".height").text("") : $(".height").text(`Height: ${this.height}`);
+		!this.height ? $(".height").text("") : $(".height").text(`Height: ${this.height}`);
 
-		// !data['weight'] ? $(".weight").text("") : $(".weight").text(`Weight: ${this.weight}`);
+		!this.weight ? $(".weight").text("") : $(".weight").text(`Weight: ${this.weight}`);
 
-		// !data['advil_dosage'] ? $(".advil").text("") : $(".advil").text("Advil Dosage: " + data["advil_dosage"] + " mL");
+		!this.advil_dosage ? $(".advil").text("") : $(".advil").text(`Advil Dosage: ${this.advil_dosage} mL`);
 
-		// !data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"] + " mL") ;
+		!this.tylenol_dosage ? $(".tylenol").text("") : $(".tylenol").text(`Tylenol Dosage: ${this.tylenol_dosage} mL`) ;
 
-		// !data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
-		// showMilestone(data);
+		!this.flu_shot ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
+		showMilestone(this);
 
-		// $(".cardLink").html("<small><a data-method='get' href='"+ cardSelect + "/edit'>Edit or Delete this card</a></small>")
+		$(".cardLink").html("<small><a data-method='get' href='"+ this.url + "/edit'>Edit or Delete this card</a></small>")
 	}
 
-function showMilestone(data){
-
-	$(".stonehead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
+function showMilestone(card){
+	console.log(card.child.name)
+	
+	$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")
 			
-		data.milestones.forEach(function(milestone){
+		card.milestones.forEach(function(milestone){
 
 			$('.stones').append("<small>" + milestone.title + "</small> <br>")
     
 			});
-			if (data["milestones"].length === 0){
+			if (card.milestones.length === 0){
 				$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
 			};
 		};
 
 
 function createMilestone(mileSubmit) {
-	console.log(mileSubmit)
+	
 };
 
 
