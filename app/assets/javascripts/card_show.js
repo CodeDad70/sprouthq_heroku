@@ -20,6 +20,8 @@ $(document).ready(selectCard)
 		$("form").submit(function(e){
 			e.preventDefault();
 			console.log(this)
+			let mileSubmit = this
+			createMilestone(mileSubmit)
 		});
 	});
 
@@ -45,12 +47,13 @@ $(document).ready(selectCard)
 		!data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"] + " mL") ;
 
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
-		createMilestone(data);
+		showMilestone(data);
 		});
 	};	
 
 
-function createMilestone(data){
+function showMilestone(data){
+	console.log(data)
 	$(".stonehead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
 			
 		data.milestones.forEach(function(milestone){
@@ -63,5 +66,9 @@ function createMilestone(data){
 			};
 		};
 
+
+function createMilestone(mileSubmit) {
+	console.log(mileSubmit)
+}
 
 
