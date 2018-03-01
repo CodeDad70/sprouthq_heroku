@@ -28,7 +28,7 @@ $(document).ready(selectCard)
 		
 		$.get(cardSelect +".json", function(data){
 		if (data['image'] === "/images/original/missing.png"){
-			$( ".field" ).html("<small> No image for this card. <a href='#'><div id = 'upload'>Upload an image</div></a><div id = 'replace'></div> </small>" );
+			$( ".field" ).html("<small> No image for this card. <br><a data-method='get' href='"+ cardSelect + "/edit'>Upload an image</a>" );
 		}	else {
 			$( ".field" ).html("<img src=" + data["image"]+ " height = " + "150px" + ">" );
 		};
