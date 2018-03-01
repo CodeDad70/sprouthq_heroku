@@ -15,16 +15,19 @@
 		<%end%>
 		
 	</section>
-		
-	<%= form_for @card, :url => child_cards_path, html: { multipart: true } do |card| %>
-  	
-  	<%= card.fields_for :milestones, @card.milestones.build do |milestone| %>
-    	<br><br><small><%= milestone.label "Create a Milestone for this card"%></small><br>
-    	<%= milestone.text_field :title%><br>
-    	<%= card.submit %>
-    
-		<%end%>
-	<%end %>
+
+
+
+<form accept-charset="UTF-8" action="/search" method="patch">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <label for="q">Create a milestone for this age:</label>
+  <input id="q" name="q" type="text" />
+  <input class = "milestoneSubmit name="commit" type="submit" value="Create Milestone" />
+</form>
+	
+	
+
+	
 
 </section>
 	

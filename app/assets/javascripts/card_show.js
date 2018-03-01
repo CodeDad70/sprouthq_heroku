@@ -16,7 +16,7 @@ $(document).ready(selectCard)
 	};
 
 	$(function (){
-		$("form").submit(function(e){
+		$("milestoneSubmit").submit(function(e){
 			e.preventDefault();
 			let mileSubmit = this.text
 			createMilestone(mileSubmit)
@@ -80,7 +80,7 @@ function showMilestone(card){
 
 
 function createMilestone(mileSubmit) {
-	
+	console.log("captured")
 };
 
 
