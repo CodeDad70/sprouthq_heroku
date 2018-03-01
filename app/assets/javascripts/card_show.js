@@ -45,20 +45,23 @@ $(document).ready(selectCard)
 		!data["tylenol_dosage"] ? $(".tylenol").text("") : $(".tylenol").text("Tylenol Dosage: " + data["tylenol_dosage"] + " mL") ;
 
 		!data["flu_shot"] ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
+		createMilestone(data);
+		});
+	};	
 
-		$(".stonehead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
+
+function createMilestone(data){
+	$(".stonehead").html("<b>Here are some milestones " + data.child.name + " reached at this age : </b><br>")
 			
 		data.milestones.forEach(function(milestone){
 
-				$('.stones').append("<small>" + milestone.title + "</small> <br>")
+			$('.stones').append("<small>" + milestone.title + "</small> <br>")
     
 			});
 			if (data["milestones"].length === 0){
 				$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
 			};
-		});
-	};	
-
+		};
 
 
 
