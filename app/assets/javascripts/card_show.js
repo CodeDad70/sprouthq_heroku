@@ -16,7 +16,7 @@ $(document).ready(selectCard)
 
 	$(function (){
 		let card
-		$("#form").submit(function(e){
+		$(".create_milestone").submit(function(e){
 			e.preventDefault();
 			$('.stones').html( "" );
 			var values = $(this).serialize();
