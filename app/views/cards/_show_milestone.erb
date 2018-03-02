@@ -16,15 +16,18 @@
 		
 	</section>
 
-  <%= form_for @card, as: :cards, url: milestone_path, html: { multipart:true, class: "create_milestone", id: "create_milestone" } do |card| %>	
+  <%= form_for @card, url: child_card_path, html: { multipart:true, class: "create_milestone", id: "create_milestone" } do |card| %>	
+		<%@card.js = "true"%>
+		<%=card.hidden_field :js, class:"js" %>
   	<%= card.fields_for :milestones, @card.milestones.build do |milestone| %>
     	<br><br><small><%= milestone.label "Create a Milestone for this card"%></small><br>
     	<%= milestone.text_field :title%><br>
+    	
+    	<%= milestone.hidden_field :js, :value => @card.js %>
     	<%= card.submit %>
     
 		<%end%>
 	<%end %>
-
 
 
 </section>

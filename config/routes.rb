@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/users/sign_out' => 'sessions#destroy'
 
-  patch '/milestones/:id', to: 'cards#milestone_create', as: 'milestone'
+  post '/milestones/:id', to: 'cards#milestone_create', as: 'milestones'
   
 
 end

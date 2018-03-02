@@ -9,7 +9,7 @@ class CreateCards < ActiveRecord::Migration[5.1]
     	t.decimal :advil_dosage
     	t.decimal :tylenol_dosage
     	t.boolean :flu_shot, default: false
-
+      t.boolean :js, default: false
     	t.integer :child_id
 
 

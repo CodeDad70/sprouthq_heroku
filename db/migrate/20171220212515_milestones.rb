@@ -4,6 +4,8 @@ class Milestones < ActiveRecord::Migration[5.1]
   		t.string :title
   		
 
+  		
+
   	end
   		
   end

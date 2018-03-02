@@ -19,9 +19,10 @@ $(document).ready(selectCard)
 		$(".create_milestone").submit(function(e){
 			e.preventDefault();
 			$('.stones').html( "" );
-			var values = $(this).serialize();
+			var values = $(this).serialize(); 
+			console.log(this)
 			var posting = $.post(this.action, values);
-			
+				
 			 posting.done(function(data) {    
 				card = data
 

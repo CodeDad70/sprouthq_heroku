@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180122184615) do
     t.decimal "advil_dosage"
     t.decimal "tylenol_dosage"
     t.boolean "flu_shot", default: false
+    t.boolean "js", default: false
     t.integer "child_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
