@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/users/sign_out' => 'sessions#destroy'
 
+  get '/milestones/:id', to: 'cards#milesone_create', as: 'milestone'
   
 
 end

@@ -50,15 +50,12 @@ class CardsController < ApplicationController
   end
 
   def update
-
     @year_options = (0..18).to_a
     @month_options = (0..11).to_a
     @child = Child.find_by(id: params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
     @card.update(card_params)
     @card.age = @card.age_create
-    
-    render json: @card, status: 201
     if @card.valid?
       @card.save
       @card = @child.cards.find_by(id: params[:id])
@@ -66,6 +63,18 @@ class CardsController < ApplicationController
     else
       render :edit
      end
+  end
+
+  def milestone_create
+    @child = Child.find_by(id: params[:child_id])
+    @card = @child.cards.find_by(id: params[:id])
+    @card.update(card_params)
+    @card.age = @card.age_create  
+    render json: @card, status: 201
+    if @card.valid?
+      @card.save
+      @card = @child.cards.find_by(id: params[:id])
+    end
   end
 
   def destroy
