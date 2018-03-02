@@ -2,25 +2,29 @@ $(document).ready(selectCard)
 
 	var cardUrl
 	
-  function selectCard(card_number){
-		$("#age a ").click(function(e){
-    	
+  function selectCard(card_number) {
+		$("#age a ").click(function(e){ 	
     	e.preventDefault();
     	cardUrl = this.href
     	let cardSelect = $.get(this.href +".json", function(data){
     	$('.stones').html( "" );
     	 let newCard = new Card(data)
     	 newCard.renderCard()
-    	})
+    	});
   	});
 	};
 
 	$(function (){
-		$(".stoneSubmit").submit(function(e){
+		$("form").submit(function(e){
 			e.preventDefault();
-			let mileSubmit = this
-			console.log(mileSubmit)
-			//createMilestone(mileSubmit)
+			console.log(this.action)
+			var values = $(this).serialize();
+			console.log(values)
+			var posting = $.post(this.action, values);
+			 posting.done(function(data) {
+       	console.log("success")
+      });
+			
 		});
 	});
 
@@ -44,7 +48,7 @@ $(document).ready(selectCard)
 		if (this.image === "/images/original/missing.png"){
 			$( ".field" ).html("<small> No image for this card. <br><a data-method='get' href='"+ this.url + "/edit'>Upload an image</a>" );
 		}	else {
-			$( ".field" ).html(`<img src= ${this.image } height = "150px" >` );
+			$( ".field" ).html(`<img src= ${this.image } height = "150px" >`);
 		};
 		
 		$(".age").text(`${this.age} old`)
@@ -59,29 +63,31 @@ $(document).ready(selectCard)
 		!this.tylenol_dosage ? $(".tylenol").text("") : $(".tylenol").text(`Tylenol Dosage: ${this.tylenol_dosage} mL`) ;
 
 		!this.flu_shot ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
-		showMilestone(this);
 
-		$(".cardLink").html("<small><a data-method='get' href='"+ this.url + "/edit'>Edit or Delete this card</a></small>")
+		$(".cardLink").html(`<small><a data-method="get" href="${this.url}/edit">Edit or Delete this card</a></small>`)
+
+		showMilestone(this);
 	}
 
-function showMilestone(card){
-	console.log(card.child.name)
-	
-	$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")
-			
-		card.milestones.forEach(function(milestone){
-
-			$('.stones').append("<small>" + milestone.title + "</small> <br>")
-    
+	function showMilestone(card){
+		console.log(card.child.name)
+		
+		$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")
+				
+			card.milestones.forEach(function(milestone){
+				$('.stones').append("<small>" + milestone.title + "</small> <br>")    
 			});
+			
 			if (card.milestones.length === 0){
-				$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
+					$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
 			};
-		};
+	};
 
 
-function createMilestone(mileSubmit) {
-	console.log(mileSubmit)
-};
+// function createMilestone(mileSubmit) {
+
+// 	var values = mileSubmit.serialize();
+// 	console.log(values)
+// };
 
 
