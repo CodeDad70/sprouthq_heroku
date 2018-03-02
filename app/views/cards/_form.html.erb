@@ -1,4 +1,7 @@
       <div>
+        
+        <%= f.hidden_field :js, :value => "false" %>
+
         * <%=f.label :age%> : &emsp;
         Years  <%=f.select(:years, @year_options)%> &emsp;
         Months   <%=f.select(:months, @month_options)%><br><br>

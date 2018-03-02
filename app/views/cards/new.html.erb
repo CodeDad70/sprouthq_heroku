@@ -4,6 +4,7 @@
 
   <div class = "border-form">
     <h3 >Create a new card for <%=@child.name%>:</h3>
+    
       <%= render partial: 'form', locals: {f: card} %>
       
      <%= card.submit %><br><br><br>
