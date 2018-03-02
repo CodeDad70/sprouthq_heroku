@@ -19,8 +19,7 @@ Rails.application.routes.draw do
 
   get '/users/sign_out' => 'sessions#destroy'
 
-
-
+  
 
 end
 

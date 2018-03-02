@@ -15,14 +15,23 @@ $(document).ready(selectCard)
 	};
 
 	$(function (){
+		let updated
 		$("form").submit(function(e){
 			e.preventDefault();
 			console.log(this.action)
 			var values = $(this).serialize();
 			console.log(values)
 			var posting = $.post(this.action, values);
+			
 			 posting.done(function(data) {
-       	console.log("success")
+				///$('.stones').html("<small>" + data.milestones.title + "</small> <br>")    
+				console.log (data.milestones)
+			    
+	
+			 	
+			 	//updated = $(".stones small").toString
+			 	
+		
       });
 			
 		});
