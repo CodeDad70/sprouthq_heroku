@@ -15,23 +15,19 @@ $(document).ready(selectCard)
 	};
 
 	$(function (){
-		let updated
+		let card
 		$("form").submit(function(e){
 			e.preventDefault();
-			console.log(this.action)
+			$('.stones').html( "" );
 			var values = $(this).serialize();
-			console.log(values)
 			var posting = $.post(this.action, values);
 			
-			 posting.done(function(data) {
-				///$('.stones').html("<small>" + data.milestones.title + "</small> <br>")    
-				console.log (data.milestones)
-			    
-	
+			 posting.done(function(data) {    
+				card = data.milestones
+
+				updateMilestone(card)
 			 	
-			 	//updated = $(".stones small").toString
-			 	
-		
+			
       });
 			
 		});
@@ -92,11 +88,8 @@ $(document).ready(selectCard)
 			};
 	};
 
-
-// function createMilestone(mileSubmit) {
-
-// 	var values = mileSubmit.serialize();
-// 	console.log(values)
-// };
-
-
+	function updateMilestone(card){
+		card.forEach(function(milestone){
+			$('.stones').append("<small>" + milestone.title + "</small> <br>")    
+		});	
+	};
