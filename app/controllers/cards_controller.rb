@@ -59,13 +59,13 @@ class CardsController < ApplicationController
     @card.age = @card.age_create
     
     render json: @card, status: 201
-    # if @card.valid?
-    #   @card.save
-    #   @card = @child.cards.find_by(id: params[:id])
-    #   redirect_to child_card_path(@child.id, @card.id)
-    # else
-    #   render :edit
-    #  end
+    if @card.valid?
+      @card.save
+      @card = @child.cards.find_by(id: params[:id])
+      redirect_to child_card_path(@child.id, @card.id)
+    else
+      render :edit
+     end
   end
 
   def destroy

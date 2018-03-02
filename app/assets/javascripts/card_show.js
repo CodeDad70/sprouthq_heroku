@@ -16,14 +16,14 @@ $(document).ready(selectCard)
 
 	$(function (){
 		let card
-		$("form").submit(function(e){
+		$("#form").submit(function(e){
 			e.preventDefault();
 			$('.stones').html( "" );
 			var values = $(this).serialize();
 			var posting = $.post(this.action, values);
 			
 			 posting.done(function(data) {    
-				card = data.milestones
+				card = data
 
 				updateMilestone(card)
 			 	
@@ -89,7 +89,9 @@ $(document).ready(selectCard)
 	};
 
 	function updateMilestone(card){
-		card.forEach(function(milestone){
+		$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")
+				
+		card.milestones.forEach(function(milestone){
 			$('.stones').append("<small>" + milestone.title + "</small> <br>")    
 		});	
 	};

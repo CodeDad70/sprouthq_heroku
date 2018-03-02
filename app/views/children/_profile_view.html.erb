@@ -21,11 +21,11 @@
 	<%end%>
 	<br><br>
 
+
 	<%current_user.children.each do |child_check|%>
-
-		<%if child_check.id != child.id%>
+		<%if child_check.id != child.id && child_check.cards.exists? %>
 			<small>Jump to <%=link_to "#{child_check.name}'s Cards", child_card_path(child_check.id,child_check.latest_card)%></small><br>
-		<%end%>
-	<%end%>	
-
+	  <%end%>	
+	<%end%>
+	
 </section>
