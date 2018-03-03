@@ -6,12 +6,11 @@ $(document).ready(selectCard)
   	let cardURL
 		$("#age a ").click(function(e){ 	
     	e.preventDefault();
-    	cardUrl = this.href
-    	
+    	cardUrl = this.href	
     	let cardSelect = $.get(this.href +".json", function(data){
     	$('.stones').html( "" );
     	 let newCard = new Card(data)
-    	 newCard.renderCard()
+    	 newCard.renderCard();
     	});
   	});
 	};
@@ -24,51 +23,45 @@ $(document).ready(selectCard)
 			$('.stones').html( "" );
 			let values = $(this).serialize(); 
 	
-				if(URL.length >= 1){
+			if(URL.length >= 1){
 				urlNow = URL.slice(-1).pop()
 				milestoneAction = urlNow.slice(-19)
 				let posting = $.post(milestoneAction, values);
-				posting.done(function(data){
-					updateMilestone(data)
-					console.log(URL)
-				})
+					posting.done(function(data){
+						updateMilestone(data);
+					});
 	
-		} else {
-		
-		let posting = $.post(this.action, values);
-		
-		posting.done(function(data) {    
-			updateMilestone(data)
-		});
-		}
+			} else {
+				let posting = $.post(this.action, values);
+					posting.done(function(data) {    
+						updateMilestone(data);
+					});
+				};
 		});
 	});
 
 	function Card(data) {
-			this.url = cardUrl
-			this.image = data["image"]
-			this.age = data["age"]
-			this.height = data["height"]
-			this.weight = data["weight"]
-			this.advil_dosage = data["advil_dosage"]
-			this.tylenol_dosage = data["tylenol_dosage"]
-			this.flu_shot = data["flu_shot"]
-			this.child = data["child"]
-			this.milestones = data["milestones"]
-			URL.push(this.url)
+		this.url = cardUrl
+		this.image = data["image"]
+		this.age = data["age"]
+		this.height = data["height"]
+		this.weight = data["weight"]
+		this.advil_dosage = data["advil_dosage"]
+		this.tylenol_dosage = data["tylenol_dosage"]
+		this.flu_shot = data["flu_shot"]
+		this.child = data["child"]
+		this.milestones = data["milestones"]
+		URL.push(this.url);
 	};	
 
-		Card.prototype.renderCard = function(){
-		
-		
+	Card.prototype.renderCard = function(){
 		if (this.image === "/images/original/missing.png"){
 			$( ".field" ).html("<small> No image for this card. <br><a data-method='get' href='"+ this.url + "/edit'>Upload an image</a>" );
-		}	else {
+			}	else {
 			$( ".field" ).html(`<img src= ${this.image } height = "150px" >`);
 		};
 		
 		$(".age").text(`${this.age} old`)
-		
 		
 		!this.height ? $(".height").text("") : $(".height").text(`Height: ${this.height}`);
 
@@ -83,20 +76,18 @@ $(document).ready(selectCard)
 		$(".cardLink").html(`<small><a data-method="get" href="${this.url}/edit">Edit or Delete this card</a></small>`)
 
 		showMilestone(this);
-	}
+	};
 
 	function showMilestone(card){
+		$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")	
 		
-		
-		$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")
-				
-			card.milestones.forEach(function(milestone){
+		card.milestones.forEach(function(milestone){
 				$('.stones').append("<small>" + milestone.title + "</small> <br>")    
 			});
 			
-			if (card.milestones.length === 0){
-					$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
-			};
+		if (card.milestones.length === 0){
+			$(".stonehead").html("<p><p> There are no milestones for this age.  </p>")
+		};
 	};
 
 	function updateMilestone(card){
