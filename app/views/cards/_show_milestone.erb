@@ -24,7 +24,7 @@
     	<%= milestone.text_field :title%><br>
     	
     	<%= milestone.hidden_field :js, :value => @card.js %>
-    	<%= card.submit "Create Milestone" %>
+    	<%= card.submit "Create Milestone", :class => "milesButton" %>
 		<%end%>
 	<%end %>
 

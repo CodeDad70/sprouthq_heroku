@@ -18,8 +18,10 @@ $(document).ready(selectCard)
 	$(function (){
 		let urlNow
 		let milestoneAction
+		let btn = $(".milesButton");
 		$(".create_milestone").submit(function(e){
-			e.preventDefault();
+			 e.preventDefault();
+       
 			$('.stones').html( "" );
 			let values = $(this).serialize(); 
 	
@@ -28,15 +30,18 @@ $(document).ready(selectCard)
 				milestoneAction = urlNow.slice(-19)
 				let posting = $.post(milestoneAction, values);
 					posting.done(function(data){
+					 btn.prop('disabled', false);
 						updateMilestone(data);
 					});
 	
 			} else {
 				let posting = $.post(this.action, values);
 					posting.done(function(data) { 
+						 btn.prop('disabled', false);
 						updateMilestone(data);
 					});
 				};
+			btn.prop('disabled', true);
 		});
 	});
 
