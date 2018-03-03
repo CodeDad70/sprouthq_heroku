@@ -1,11 +1,13 @@
 $(document).ready(selectCard)
-
-	var cardUrl
+	
+	let URL = []
 	
   function selectCard(card_number) {
+  	let cardURL
 		$("#age a ").click(function(e){ 	
     	e.preventDefault();
     	cardUrl = this.href
+    	
     	let cardSelect = $.get(this.href +".json", function(data){
     	$('.stones').html( "" );
     	 let newCard = new Card(data)
@@ -15,27 +17,26 @@ $(document).ready(selectCard)
 	};
 
 	$(function (){
-		let card
+		let urlNow
+		let milestoneAction
 		$(".create_milestone").submit(function(e){
 			e.preventDefault();
 			$('.stones').html( "" );
-			var values = $(this).serialize(); 
-			console.log(this)
-			var posting = $.post(this.action, values);
-				
-			 posting.done(function(data) {    
-				card = data
-
-				updateMilestone(card)
-			 	
-			
-      });
-			
+			let values = $(this).serialize(); 
+	
+				urlNow = URL.slice(-1).pop()
+	
+		
+		console.log(urlNow)
+		let posting = $.post(this.action, values);
+		console.log("action = ", this.action)
+		posting.done(function(data) {    
+			updateMilestone(data)
+		});
 		});
 	});
 
 	function Card(data) {
-		
 			this.url = cardUrl
 			this.image = data["image"]
 			this.age = data["age"]
@@ -46,6 +47,7 @@ $(document).ready(selectCard)
 			this.flu_shot = data["flu_shot"]
 			this.child = data["child"]
 			this.milestones = data["milestones"]
+			URL.push(this.url)
 	};	
 
 		Card.prototype.renderCard = function(){
@@ -76,7 +78,7 @@ $(document).ready(selectCard)
 	}
 
 	function showMilestone(card){
-		console.log(card.child.name)
+		
 		
 		$(".stonehead").html("<b>Here are some milestones " + card.child.name + " reached at this age : </b><br>")
 				
