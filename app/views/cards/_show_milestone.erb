@@ -21,7 +21,7 @@
 		<%=card.hidden_field :js, class:"js" %>
   	<%= card.fields_for :milestones, @card.milestones.build do |milestone| %>
     	<br><br><small><%= milestone.label "Create a Milestone for this card"%></small><br>
-    	<%= milestone.text_field :title%><br>
+    	<%= milestone.text_field :title, :class => "milesField" %><br>
     	
     	<%= milestone.hidden_field :js, :value => @card.js %>
     	<%= card.submit "Create Milestone", :class => "milesButton" %>

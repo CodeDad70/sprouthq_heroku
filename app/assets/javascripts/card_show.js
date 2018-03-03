@@ -31,6 +31,7 @@ $(document).ready(selectCard)
 				let posting = $.post(milestoneAction, values);
 					posting.done(function(data){
 					 btn.prop('disabled', false);
+					 $(".milesField").val("")
 						updateMilestone(data);
 					});
 	
@@ -38,6 +39,7 @@ $(document).ready(selectCard)
 				let posting = $.post(this.action, values);
 					posting.done(function(data) { 
 						 btn.prop('disabled', false);
+						 $(".milesField").val("")
 						updateMilestone(data);
 					});
 				};
