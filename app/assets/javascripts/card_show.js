@@ -24,15 +24,23 @@ $(document).ready(selectCard)
 			$('.stones').html( "" );
 			let values = $(this).serialize(); 
 	
+				if(URL.length >= 1){
 				urlNow = URL.slice(-1).pop()
+				milestoneAction = urlNow.slice(-19)
+				let posting = $.post(milestoneAction, values);
+				posting.done(function(data){
+					updateMilestone(data)
+					console.log(URL)
+				})
 	
+		} else {
 		
-		console.log(urlNow)
 		let posting = $.post(this.action, values);
-		console.log("action = ", this.action)
+		
 		posting.done(function(data) {    
 			updateMilestone(data)
 		});
+		}
 		});
 	});
 
