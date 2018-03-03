@@ -50,7 +50,6 @@ class CardsController < ApplicationController
   end
 
   def update
-    
     @year_options = (0..18).to_a
     @month_options = (0..11).to_a
     @child = Child.find_by(id: params[:child_id])
@@ -70,17 +69,6 @@ class CardsController < ApplicationController
      end
   end
 
-  # def milestone_create
-  #   @child = Child.find_by(id: params[:child_id])
-  #   @card = @child.cards.find_by(id: params[:id])
-  #   @card.update(card_params)
-  #   @card.age = @card.age_create  
-  #   render json: @card, status: 201
-  #   if @card.valid?
-  #     @card.save
-  #   end
-  # endtesthmmm maybe I should give it a try ? it feels way to loose to me. I think I like my laptop keyboard betteryeah I thi nk 
-
   def destroy
     @child = Child.find_by(id:params[:child_id])
     @card = @child.cards.find_by(id: params[:id])
@@ -88,9 +76,7 @@ class CardsController < ApplicationController
     redirect_to children_path 
   end
 
-
 	private
-
 
 	def card_params
     params.require(:card).permit(:age, :years, :months, :height, :weight, :advil_dosage, :tylenol_dosage, :flu_shot, :js, :image, :image_cache, :child_id, milestone_ids:[], milestones_attributes: [:title, :id])

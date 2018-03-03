@@ -33,7 +33,7 @@ $(document).ready(selectCard)
 	
 			} else {
 				let posting = $.post(this.action, values);
-					posting.done(function(data) {    
+					posting.done(function(data) { 
 						updateMilestone(data);
 					});
 				};
