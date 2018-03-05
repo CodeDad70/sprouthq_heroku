@@ -30,16 +30,16 @@ $(document).ready(selectCard)
 				milestoneAction = urlNow.slice(-19)
 				let posting = $.post(milestoneAction, values);
 					posting.done(function(data){
-					 btn.prop('disabled', false);
-					 $(".milesField").val("")
+					  btn.prop('disabled', false);
+					  $(".milesField").val("")
 						updateMilestone(data);
 					});
 	
 			} else {
 				let posting = $.post(this.action, values);
 					posting.done(function(data) { 
-						 btn.prop('disabled', false);
-						 $(".milesField").val("")
+						btn.prop('disabled', false);
+						$(".milesField").val("")
 						updateMilestone(data);
 					});
 				};

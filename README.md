@@ -2,8 +2,8 @@
 
 Welcome to SproutHQ! 
 
-This is my portfolio project for the Flatiron School using Rails. 
-It is a rails app that lets you keep track of your child's stats, medication dosages and growth milestones 
+This is my portfolio project for the Flatiron School using Rails with a JQuery front end. 
+It is a rails app that lets you keep track of your child's stats, medication dosages and growth milestones. 
 
 --------------------------------
 
