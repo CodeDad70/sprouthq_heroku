@@ -56,14 +56,17 @@ class CardsController < ApplicationController
     @card = @child.cards.find_by(id: params[:id])
     @card.update(card_params)
     @card.age = @card.age_create
+    
     if @card.valid?
       @card.save
       @card = @child.cards.find_by(id: params[:id])
+      
       if @card.js == true 
         render json: @card, status: 201
       else 
       redirect_to child_card_path(@child.id, @card.id)
     end
+    
     else
       render :edit
      end

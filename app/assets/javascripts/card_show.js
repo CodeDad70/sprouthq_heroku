@@ -27,7 +27,8 @@ $(document).ready(selectCard)
 	
 			if(URL.length >= 1){
 				urlNow = URL.slice(-1).pop()
-				milestoneAction = urlNow.slice(-19)
+				milestoneAction = urlNow.replace(/http://localhost:3000/g,'');
+				//milestoneAction = urlNow.slice(-19)
 				let posting = $.post(milestoneAction, values);
 					posting.done(function(data){
 					  btn.prop('disabled', false);
@@ -37,6 +38,7 @@ $(document).ready(selectCard)
 	
 			} else {
 				let posting = $.post(this.action, values);
+				console.log(this.action)
 					posting.done(function(data) { 
 						btn.prop('disabled', false);
 						$(".milesField").val("")
