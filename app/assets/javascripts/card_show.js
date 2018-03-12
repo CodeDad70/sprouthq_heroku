@@ -27,7 +27,7 @@ $(document).ready(selectCard)
 	
 			if(URL.length >= 1){
 				urlNow = URL.slice(-1).pop()
-				milestoneAction = urlNow.replace(/http://localhost:3000/g,'');
+				milestoneAction = urlNow.replace(/^[^=]*3000/,'');
 				//milestoneAction = urlNow.slice(-19)
 				let posting = $.post(milestoneAction, values);
 					posting.done(function(data){
