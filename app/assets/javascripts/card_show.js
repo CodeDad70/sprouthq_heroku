@@ -1,6 +1,6 @@
 $(document).ready(selectCard)
 	
-	let URL = []
+	
 	
   function selectCard(card_number) {
   	let cardURL
@@ -16,35 +16,21 @@ $(document).ready(selectCard)
 	};
 
 	$(function (){
-		let urlNow
-		let milestoneAction
-		let btn = $(".milesButton");
+
+		const btn = $(".milesButton");
 		$(".create_milestone").submit(function(e){
 			 e.preventDefault();
        
 			$('.stones').html( "" );
-			let values = $(this).serialize(); 
-	
-			if(URL.length >= 1){
-				urlNow = URL.slice(-1).pop()
-				milestoneAction = urlNow.replace(/^[^=]*3000/,'');
-				//milestoneAction = urlNow.slice(-19)
-				let posting = $.post(milestoneAction, values);
-					posting.done(function(data){
-					  btn.prop('disabled', false);
-					  $(".milesField").val("")
-						updateMilestone(data);
-					});
-	
-			} else {
-				let posting = $.post(this.action, values);
-				console.log(this.action)
-					posting.done(function(data) { 
-						btn.prop('disabled', false);
-						$(".milesField").val("")
-						updateMilestone(data);
-					});
-				};
+			const values = $(this).serialize(); 
+			const urlNow = window.location.href
+			const milestoneAction = urlNow.replace(/^[^=]*3000/,'');
+			const posting = $.post(milestoneAction, values);
+				posting.done(function(data){
+					btn.prop('disabled', false);
+					$(".milesField").val("")
+					updateMilestone(data);	
+				});
 			btn.prop('disabled', true);
 		});
 	});
@@ -56,15 +42,17 @@ $(document).ready(selectCard)
 			this.age = data["age"]
 			this.height = data["height"]
 			this.weight = data["weight"]
-			this.advil_dosage = data["advil_dosage"]
-			this.tylenol_dosage = data["tylenol_dosage"]
-			this.flu_shot = data["flu_shot"]
+			this.advilDosage = data["advil_dosage"]
+			this.tylenolDosage = data["tylenol_dosage"]
+			this.fluShot = data["flu_shot"]
 			this.child = data["child"]
 			this.milestones = data["milestones"]
-			URL.push(this.url);
 		}
 
 		renderCard() {
+
+			window.history.pushState(null, null, this.url)
+
 			if (this.image === "/images/original/missing.png"){
 				$( ".field" ).html("<small> No image for this card. <br><a data-method='get' href='"+ this.url + "/edit'>Upload an image</a>" );
 				}	else {
@@ -77,11 +65,11 @@ $(document).ready(selectCard)
 
 			!this.weight ? $(".weight").text("") : $(".weight").text(`Weight: ${this.weight}`);
 
-			!this.advil_dosage ? $(".advil").text("") : $(".advil").text(`Advil Dosage: ${this.advil_dosage} mL`);
+			!this.advilDosage ? $(".advil").text("") : $(".advil").text(`Advil Dosage: ${this.advilDosage} mL`);
 
-			!this.tylenol_dosage ? $(".tylenol").text("") : $(".tylenol").text(`Tylenol Dosage: ${this.tylenol_dosage} mL`) ;
+			!this.tylenolDosage ? $(".tylenol").text("") : $(".tylenol").text(`Tylenol Dosage: ${this.tylenolDosage} mL`) ;
 
-			!this.flu_shot ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
+			!this.fluShot ? $(".flu").text("Flu shot ? Not yet!") : $(".flu").text("Flu shot ? Yes!");	
 
 			$(".cardLink").html(`<small><a data-method="get" href="${this.url}/edit">Edit or Delete this card</a></small>`)
 
