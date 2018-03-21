@@ -3,10 +3,10 @@ $(document).ready(selectCard)
 	
 	
   function selectCard(card_number) {
-  	let cardURL
+  	
 		$("#age a ").click(function(e){ 	
     	e.preventDefault();
-    	cardUrl = this.href	
+    	cardAddy = this.href	
     	let cardSelect = $.get(this.href +".json", function(data){
     	$('.stones').html( "" );
     	 let newCard = new Card(data)
@@ -37,7 +37,7 @@ $(document).ready(selectCard)
 
 	class Card {
 		constructor(data) {
-			this.url = cardUrl
+			this.url = cardAddy
 			this.image = data["image"]
 			this.age = data["age"]
 			this.height = data["height"]
