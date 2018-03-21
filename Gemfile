@@ -17,6 +17,8 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'jquery-rails'
 
+gem 'pg'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -33,7 +35,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'pry'
-gem 'paperclip', '~> 5.1.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'active_model_serializers'
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
 
@@ -56,3 +58,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'loofah', '~> 2.2', '>= 2.2.1'
