@@ -227,12 +227,12 @@ small {
 #logo h3:before {
     content: 'Sprout';
     color: #74e86a;
-    font-size: 25px;
+    font-size: 30px;
 }
 #logo h3:after {
     content: 'HQ';
     color: #0e4709;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #nav_top {
@@ -254,7 +254,7 @@ small {
     }
 
 .navbar li {
-    font-size: 12px;
+    font-size: 16px;
     float: left;
     }
 
